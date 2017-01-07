@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Competition.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="FluentNHibernateHelper.cs" />
     <Compile Include="Mappings\CityMap.cs" />
