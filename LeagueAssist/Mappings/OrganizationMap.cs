@@ -16,6 +16,7 @@ namespace LeagueAssist.Mappings
             Map(x => x.Name);
             References(x => x.User);
             References(x => x.City);
+            Table("Organization");
 
         }
     }

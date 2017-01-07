@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist.Mappings
 {
-    public class RoleMap: ClassMap<Role>
+    public class UserMap : ClassMap<User>
     {
-        RoleMap()
+        public UserMap()
         {
             Id(x => x.Id);
-            Map(x => x.Name);
-            Table("Role");
+            Map(x => x.Username);
+            Map(x => x.Password);
+            References(x => x.Role);
+            Table("User");
         }
     }
 }

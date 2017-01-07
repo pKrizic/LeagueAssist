@@ -19,7 +19,7 @@ namespace LeagueAssist.Mappings
             Map(x => x.Email);
             Map(x => x.Phone);
             References(x => x.Type);
-            References(x => x.User);
+            //References(x => x.User);
         }
     }
 }

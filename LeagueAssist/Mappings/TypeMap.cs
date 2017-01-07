@@ -14,6 +14,7 @@ namespace LeagueAssist.Mappings
         {
             Id(x => x.Id);
             Map(x => x.Name);
+            Table("Type");
         }
     }
 }
