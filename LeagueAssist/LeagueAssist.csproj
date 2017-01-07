@@ -58,9 +58,19 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\OrgStadium.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Stadium.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="FluentNHibernateHelper.cs" />
     <Compile Include="Mappings\CityMap.cs" />
     <Compile Include="Mappings\CountryMap.cs" />
+    <Compile Include="Mappings\OrganizationMap.cs" />
+    <Compile Include="Mappings\OrgStadiumMap.cs" />
+    <Compile Include="Mappings\RoleMap.cs" />
+    <Compile Include="Mappings\StadiumMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
