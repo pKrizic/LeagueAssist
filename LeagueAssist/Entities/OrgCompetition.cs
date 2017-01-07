@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist.Entities
 {
-    public class Competition
+    public class OrgCompetition
     {
         public virtual int Id { get; protected set; }
-        public virtual string Name { get; set; }
-        public virtual Organization ParentOrg { get; set; }
+        public virtual Organization Organization { get; set; }
+        public virtual Competition Competition { get; set; }
+        public virtual Season Season { get; set; }
     }
 }
