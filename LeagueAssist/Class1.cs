@@ -9,7 +9,7 @@ namespace LeagueAssist
 {
     public class Class1
     {
-        public void Store()
+        public void Store(object zaSpremanje)
         {
             var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
 
@@ -17,14 +17,8 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    var Hrvatska = new Country {Name = "Croatia" };
-                    //var Srbija = new Country { Name = "Srbija" };
-                    var Zagreb = new City { Name = "Zagreb", Country = Hrvatska };
-                    var zagreb = session.Get<City>(3);
-                    var Maksimir = new Stadium { Name = "Maksimir", Capacity = 40000, Address = "Maksimirska 22", City = zagreb };
 
-                    session.SaveOrUpdate(Maksimir);
-
+                    session.SaveOrUpdate(zaSpremanje);
                     transaction.Commit();
                 }
             }
