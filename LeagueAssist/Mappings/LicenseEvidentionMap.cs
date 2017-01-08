@@ -13,7 +13,7 @@ namespace LeagueAssist.Mappings
         public LicenseEvidentionMap()
         {
             Id(x => x.Id);
-            References(x => x.Club);
+            References(x => x.Organization);
             References(x => x.Season);
             References(x => x.License);
             References(x => x.Competition);

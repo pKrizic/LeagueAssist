@@ -9,7 +9,7 @@ namespace LeagueAssist.Entities
     public class LicenseEvidention
     {
         public virtual int Id { get; protected set; }
-        public virtual Club Club { get; set; }
+        public virtual Organization Organization { get; set; }
         public virtual Season Season { get; set; }
         public virtual License License { get; set; }
         public virtual Competition Competition { get; set; }
