@@ -76,6 +76,7 @@
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PlayerPerformance.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Selection.cs" />
     <Compile Include="Entities\Stadium.cs" />
     <Compile Include="Entities\Type.cs" />
     <Compile Include="Entities\User.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Mappings\PersonMap.cs" />
     <Compile Include="Mappings\PlayerPerformanceMap.cs" />
     <Compile Include="Mappings\RoleMap.cs" />
+    <Compile Include="Mappings\SelectionMap.cs" />
     <Compile Include="Mappings\StadiumMap.cs" />
     <Compile Include="Mappings\TypeMap.cs" />
     <Compile Include="Mappings\UserMap.cs" />
