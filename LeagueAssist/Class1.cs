@@ -17,7 +17,6 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-
                     session.SaveOrUpdate(zaSpremanje);
                     
                     var S201516 = new Season { Name = "2015/2016" };
@@ -29,6 +28,20 @@ namespace LeagueAssist
                     transaction.Commit();
                 }
             }
+        }
+        public List<Country> GetAll()
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            var allCountries = new List<Country>();
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    allCountries = (List<Country>)session.QueryOver<Country>().List();
+                    transaction.Commit();
+                }
+            }
+            return allCountries;
         }
     }
 }
