@@ -61,6 +61,11 @@
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Competition.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\OrgStadium.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Stadium.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Fixture.cs" />
     <Compile Include="Entities\OrgCompetition.cs" />
     <Compile Include="Entities\Season.cs" />
@@ -68,6 +73,11 @@
     <Compile Include="Mappings\CityMap.cs" />
     <Compile Include="Mappings\CompetitionMap.cs" />
     <Compile Include="Mappings\CountryMap.cs" />
+    <Compile Include="Mappings\OrganizationMap.cs" />
+    <Compile Include="Mappings\OrgStadiumMap.cs" />
+    <Compile Include="Mappings\RoleMap.cs" />
+    <Compile Include="Mappings\StadiumMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="Mappings\FixtureMap.cs" />
     <Compile Include="Mappings\OrgCompetitionMap.cs" />
     <Compile Include="Mappings\SeasonMap.cs" />

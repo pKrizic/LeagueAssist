@@ -9,7 +9,7 @@ namespace LeagueAssist
 {
     public class Class1
     {
-        public void Store()
+        public void Store(object zaSpremanje)
         {
             var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
 
@@ -17,6 +17,8 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
+
+                    session.SaveOrUpdate(zaSpremanje);
                     
                     var S201516 = new Season { Name = "2015/2016" };
                     var fixture = new Fixture { Name = "1. kolo" };
