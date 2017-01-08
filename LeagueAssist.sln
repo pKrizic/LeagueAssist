@@ -6,8 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueAssist", "LeagueAssist\LeagueAssist.csproj", "{D74277FE-D8FB-436E-9708-608AA725F509}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhibernateTest", "NhibernateTest\NhibernateTest.csproj", "{19F86B87-A68C-46FB-951A-057378F17F8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F906C4FC-102D-480C-9021-DECF1B84AD5B} = {F906C4FC-102D-480C-9021-DECF1B84AD5B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApi", "RestApi\RestApi.csproj", "{A4C20753-CF04-4054-87BE-5D3FE4CF6C2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTest", "WcfTest\WcfTest.csproj", "{F906C4FC-102D-480C-9021-DECF1B84AD5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{3EF40977-062E-431A-8CD8-D87008089BDD}"
 EndProject
@@ -35,6 +40,10 @@ Global
 		{3EF40977-062E-431A-8CD8-D87008089BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF40977-062E-431A-8CD8-D87008089BDD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3EF40977-062E-431A-8CD8-D87008089BDD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F906C4FC-102D-480C-9021-DECF1B84AD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F906C4FC-102D-480C-9021-DECF1B84AD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F906C4FC-102D-480C-9021-DECF1B84AD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F906C4FC-102D-480C-9021-DECF1B84AD5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
