@@ -61,8 +61,13 @@
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Competition.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\HealthCheckEvidention.cs" />
+    <Compile Include="Entities\License.cs" />
+    <Compile Include="Entities\LicenseEvidention.cs" />
     <Compile Include="Entities\Organization.cs" />
     <Compile Include="Entities\OrgStadium.cs" />
+    <Compile Include="Entities\Penalty.cs" />
+    <Compile Include="Entities\PenaltyEvidention.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Stadium.cs" />
     <Compile Include="Entities\User.cs" />
@@ -73,8 +78,13 @@
     <Compile Include="Mappings\CityMap.cs" />
     <Compile Include="Mappings\CompetitionMap.cs" />
     <Compile Include="Mappings\CountryMap.cs" />
+    <Compile Include="Mappings\HealthCheckEvidentionMap.cs" />
+    <Compile Include="Mappings\LicenseEvidentionMap.cs" />
+    <Compile Include="Mappings\LicenseMap.cs" />
     <Compile Include="Mappings\OrganizationMap.cs" />
     <Compile Include="Mappings\OrgStadiumMap.cs" />
+    <Compile Include="Mappings\PenaltyEvidentionMap.cs" />
+    <Compile Include="Mappings\PenaltyMap.cs" />
     <Compile Include="Mappings\RoleMap.cs" />
     <Compile Include="Mappings\StadiumMap.cs" />
     <Compile Include="Mappings\UserMap.cs" />
