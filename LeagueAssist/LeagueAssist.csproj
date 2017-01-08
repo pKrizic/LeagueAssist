@@ -47,6 +47,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,16 +59,33 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Competition.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\OrgStadium.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Stadium.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Fixture.cs" />
+    <Compile Include="Entities\OrgCompetition.cs" />
+    <Compile Include="Entities\Season.cs" />
     <Compile Include="FluentNHibernateHelper.cs" />
     <Compile Include="Mappings\CityMap.cs" />
+    <Compile Include="Mappings\CompetitionMap.cs" />
     <Compile Include="Mappings\CountryMap.cs" />
+    <Compile Include="Mappings\OrganizationMap.cs" />
+    <Compile Include="Mappings\OrgStadiumMap.cs" />
+    <Compile Include="Mappings\RoleMap.cs" />
+    <Compile Include="Mappings\StadiumMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Mappings\FixtureMap.cs" />
+    <Compile Include="Mappings\OrgCompetitionMap.cs" />
+    <Compile Include="Mappings\SeasonMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

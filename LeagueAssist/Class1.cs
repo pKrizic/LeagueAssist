@@ -9,7 +9,7 @@ namespace LeagueAssist
 {
     public class Class1
     {
-        public void Store()
+        public void Store(object zaSpremanje)
         {
             var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
 
@@ -17,18 +17,31 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    var Hrvatska = new Country {Name = "Croatia" };
-                    var Srbija = new Country { Name = "Srbija" };
+                    session.SaveOrUpdate(zaSpremanje);
+                    
+                    var S201516 = new Season { Name = "2015/2016" };
+                    var fixture = new Fixture { Name = "1. kolo" };
 
-                    var Zagreb = new City { Name = "Zagreb", Country = Hrvatska };
-
-                    session.SaveOrUpdate(Hrvatska);
-                    session.SaveOrUpdate(Srbija);
-                    session.SaveOrUpdate(Zagreb);
+                    session.SaveOrUpdate(S201516);
+                    session.SaveOrUpdate(fixture);
 
                     transaction.Commit();
                 }
             }
+        }
+        public List<Country> GetAll()
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            var allCountries = new List<Country>();
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    allCountries = (List<Country>)session.QueryOver<Country>().List();
+                    transaction.Commit();
+                }
+            }
+            return allCountries;
         }
     }
 }
