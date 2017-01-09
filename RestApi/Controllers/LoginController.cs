@@ -38,7 +38,15 @@ namespace RestApi.Controllers
             var response = clas.CheckUsernameAndPassword(user);
 
             if (response == "OK")
-                return Ok("pozdrav");
+            {
+                var message = new
+                {
+                    poruka = "Pozdrav sve je ",
+                    uredu = "Uredu"
+                };
+                return Ok(message);
+            }
+                
             else
             {
                 ModelState.AddModelError("", "Nemate prava za logiranje");
