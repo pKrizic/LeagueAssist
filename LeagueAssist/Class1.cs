@@ -52,11 +52,9 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    var result = (List<User>)session.QueryOver<User>().Where(u => (u.Password == user.Password) && (u.Username == user.Username)).List();
-                    if (result != null && result.Count > 0)
-                        message = "OK";
-                    else
-                        message = "Error";
+                    var result = (User)session.QueryOver<User>().Where(u => (u.Password == user.Password) && (u.Username == user.Username)).List().FirstOrDefault();
+                    if (result != null)
+                        message = result.Id.ToString();
                     transaction.Commit();
                 }
             }

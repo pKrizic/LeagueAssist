@@ -65,6 +65,7 @@
     <Compile Include="Entities\HealthCheckEvidention.cs" />
     <Compile Include="Entities\License.cs" />
     <Compile Include="Entities\LicenseEvidention.cs" />
+    <Compile Include="Entities\ListOfPlayers.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\MatchActivity.cs" />
     <Compile Include="Entities\MatchActivityPlayers.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Mappings\HealthCheckEvidentionMap.cs" />
     <Compile Include="Mappings\LicenseEvidentionMap.cs" />
     <Compile Include="Mappings\LicenseMap.cs" />
+    <Compile Include="Mappings\ListOfPlayersMap.cs" />
     <Compile Include="Mappings\MatchActivityMap.cs" />
     <Compile Include="Mappings\MatchActivityPlayersMap.cs" />
     <Compile Include="Mappings\MatchMap.cs" />

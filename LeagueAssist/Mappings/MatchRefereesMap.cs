@@ -12,7 +12,7 @@ namespace LeagueAssist.Mappings
     {
         public MatchRefereesMap()
         {
-            Map(x => x.Id);
+            Id(x => x.Id);
             Map(x => x.RefereeId);
             Map(x => x.HomeName);
             Map(x => x.GuestName);
