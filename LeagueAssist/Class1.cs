@@ -43,5 +43,24 @@ namespace LeagueAssist
             }
             return allCountries;
         }
+
+        public string CheckUsernameAndPassword(User user)
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            var message = "";
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<User>)session.QueryOver<User>().Where(u => (u.Password == user.Password) && (u.Username == user.Username)).List();
+                    if (result != null && result.Count > 0)
+                        message = "OK";
+                    else
+                        message = "greška";
+                    transaction.Commit();
+                }
+            }
+            return message;
+        }
     }
 }

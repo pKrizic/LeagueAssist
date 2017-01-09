@@ -1,4 +1,5 @@
-﻿using LeagueAssist.Entities;
+﻿using LeagueAssist;
+using LeagueAssist.Entities;
 using RestApi.Models;
 using System;
 using System.Collections.Generic;
@@ -25,14 +26,24 @@ namespace RestApi.Controllers
         }
 
         // POST: api/Login
-        public IHttpActionResult Post(LoginModel model)
+        public IHttpActionResult Login(LoginModel model)
         {
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            return Ok();
+            var clas = new Class1();
+            var user = new User { Password = model.Password, Username = model.Username };
+            var response = clas.CheckUsernameAndPassword(user);
+
+            if (response == "OK")
+                return Ok("pozdrav");
+            else
+            {
+                ModelState.AddModelError("", "Nemate prava za logiranje");
+            }
+            return BadRequest(ModelState);
         }
 
         // PUT: api/Login/5
