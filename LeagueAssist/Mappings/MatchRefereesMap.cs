@@ -18,7 +18,8 @@ namespace LeagueAssist.Mappings
             Map(x => x.GuestName);
             Map(x => x.Round);
             Map(x => x.HomeGoals);
-            Map(x => x.GuestGoals);
+            Map(x => x.AwayGoals);
+            Map(x => x.DateTime);
             Table("MatchReferees");
             ReadOnly();
 
