@@ -67,7 +67,10 @@
     <Compile Include="Entities\LicenseEvidention.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\MatchActivity.cs" />
+    <Compile Include="Entities\MatchActivityPlayers.cs" />
     <Compile Include="Entities\MatchPerson.cs" />
+    <Compile Include="Entities\MatchReferees.cs" />
+    <Compile Include="Entities\MatchStadiumInfo.cs" />
     <Compile Include="Entities\MatchSubstitutions.cs" />
     <Compile Include="Entities\Organization.cs" />
     <Compile Include="Entities\OrgStadium.cs" />
@@ -92,8 +95,11 @@
     <Compile Include="Mappings\LicenseEvidentionMap.cs" />
     <Compile Include="Mappings\LicenseMap.cs" />
     <Compile Include="Mappings\MatchActivityMap.cs" />
+    <Compile Include="Mappings\MatchActivityPlayersMap.cs" />
     <Compile Include="Mappings\MatchMap.cs" />
     <Compile Include="Mappings\MatchPersonMap.cs" />
+    <Compile Include="Mappings\MatchRefereesMap.cs" />
+    <Compile Include="Mappings\MatchStadiumInfoMap.cs" />
     <Compile Include="Mappings\MatchSubstitutionsMap.cs" />
     <Compile Include="Mappings\OrganizationMap.cs" />
     <Compile Include="Mappings\OrgStadiumMap.cs" />

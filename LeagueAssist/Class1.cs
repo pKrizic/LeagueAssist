@@ -56,7 +56,7 @@ namespace LeagueAssist
                     if (result != null && result.Count > 0)
                         message = "OK";
                     else
-                        message = "greška";
+                        message = "Error";
                     transaction.Commit();
                 }
             }

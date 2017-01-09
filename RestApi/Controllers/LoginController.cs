@@ -26,31 +26,21 @@ namespace RestApi.Controllers
         }
 
         // POST: api/Login
-        public IHttpActionResult Login(LoginModel model)
+        [HttpPost]
+        public IHttpActionResult Login([FromBody]LoginModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
             var clas = new Class1();
             var user = new User { Password = model.Password, Username = model.Username };
             var response = clas.CheckUsernameAndPassword(user);
 
             if (response == "OK")
-            {
-                var message = new
-                {
-                    poruka = "Pozdrav sve je ",
-                    uredu = "Uredu"
-                };
-                return Ok(message);
-            }
-                
+                return Ok();
             else
-            {
                 ModelState.AddModelError("", "Nemate prava za logiranje");
-            }
             return BadRequest(ModelState);
         }
 
