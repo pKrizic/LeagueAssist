@@ -14,8 +14,8 @@ namespace LeagueAssist.Mappings
         {
             Id(x => x.Id);
             References(x => x.Person);
-            Map(x => x.dateFrom);
-            Map(x => x.dateTo);
+            Map(x => x.DateFrom);
+            Map(x => x.DateTo);
             References(x => x.Organization);
             Map(x => x.Foreigner);
             Table("Contract");
