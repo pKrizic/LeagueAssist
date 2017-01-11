@@ -117,6 +117,7 @@
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MatchRefereeController.cs" />
+    <Compile Include="Controllers\PlayerPerformanceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -125,6 +126,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\LoginResponse.cs" />
     <Compile Include="Responses\MatchRefereeResponse.cs" />
+    <Compile Include="Responses\PlayerPerformanceResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
