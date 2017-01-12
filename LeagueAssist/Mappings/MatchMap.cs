@@ -22,7 +22,8 @@ namespace LeagueAssist.Mappings
             Map(x => x.FirstOrgScore);
             Map(x => x.SecondOrgScore);
             Map(x => x.PostMatchDescription);
-            Table("Match");
+            HasMany(x => x.activities).Inverse().KeyColumn("Match_Id").Cascade.All();
+            Table("Match2");
         }
     }
 }

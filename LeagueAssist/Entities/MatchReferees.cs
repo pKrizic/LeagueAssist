@@ -14,6 +14,7 @@ namespace LeagueAssist.Entities
         public virtual string GuestName { get; set; }
         public virtual string Round { get; set; }
         public virtual int HomeGoals { get; set; }
-        public virtual int GuestGoals { get; set; }
+        public virtual int AwayGoals { get; set; }
+        public virtual DateTime DateTime { get; set; }
     }
 }

@@ -41,6 +41,10 @@
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -65,9 +69,13 @@
     <Compile Include="Entities\HealthCheckEvidention.cs" />
     <Compile Include="Entities\License.cs" />
     <Compile Include="Entities\LicenseEvidention.cs" />
+    <Compile Include="Entities\ListOfPlayers.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\MatchActivity.cs" />
+    <Compile Include="Entities\MatchActivityPlayers.cs" />
     <Compile Include="Entities\MatchPerson.cs" />
+    <Compile Include="Entities\MatchReferees.cs" />
+    <Compile Include="Entities\MatchStadiumInfo.cs" />
     <Compile Include="Entities\MatchSubstitutions.cs" />
     <Compile Include="Entities\Organization.cs" />
     <Compile Include="Entities\OrgStadium.cs" />
@@ -91,9 +99,13 @@
     <Compile Include="Mappings\HealthCheckEvidentionMap.cs" />
     <Compile Include="Mappings\LicenseEvidentionMap.cs" />
     <Compile Include="Mappings\LicenseMap.cs" />
+    <Compile Include="Mappings\ListOfPlayersMap.cs" />
     <Compile Include="Mappings\MatchActivityMap.cs" />
+    <Compile Include="Mappings\MatchActivityPlayersMap.cs" />
     <Compile Include="Mappings\MatchMap.cs" />
     <Compile Include="Mappings\MatchPersonMap.cs" />
+    <Compile Include="Mappings\MatchRefereesMap.cs" />
+    <Compile Include="Mappings\MatchStadiumInfoMap.cs" />
     <Compile Include="Mappings\MatchSubstitutionsMap.cs" />
     <Compile Include="Mappings\OrganizationMap.cs" />
     <Compile Include="Mappings\OrgStadiumMap.cs" />
@@ -109,9 +121,12 @@
     <Compile Include="Mappings\FixtureMap.cs" />
     <Compile Include="Mappings\OrgCompetitionMap.cs" />
     <Compile Include="Mappings\SeasonMap.cs" />
+    <Compile Include="MatchActions.cs" />
+    <Compile Include="MatchDetailInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

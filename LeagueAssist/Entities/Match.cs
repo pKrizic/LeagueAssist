@@ -18,6 +18,7 @@ namespace LeagueAssist.Entities
         public virtual int FirstOrgScore { get; set; }
         public virtual int SecondOrgScore { get; set; }
         public virtual string PostMatchDescription { get; set; }
+        public virtual IList<MatchActivity> activities { get; set; }
 
     }
 }

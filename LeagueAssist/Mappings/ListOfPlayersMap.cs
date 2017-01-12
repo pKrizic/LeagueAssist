@@ -13,6 +13,7 @@ namespace LeagueAssist.Mappings
         public ListOfPlayersMap()
         {
             Map(x => x.Id);
+            Id(x => x.PlayerId);
             Map(x => x.FirstName);
             Map(x => x.LastName);
             Map(x => x.SelectionId);

@@ -12,10 +12,12 @@ namespace LeagueAssist.Mappings
     {
         public MatchStadiumInfoMap()
         {
-            Map(x => x.Id);
+            Id(x => x.Id);
             Map(x => x.MatchDate);
             Map(x => x.StadiumName);
             Map(x => x.CityName);
+            Map(x => x.Home);
+            Map(x => x.Away);
             Table("MatchStadiumInfo");
             ReadOnly();
         }
