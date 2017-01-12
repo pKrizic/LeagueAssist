@@ -13,13 +13,13 @@ namespace LeagueAssist.Mappings
         public PersonMap()
         {
             Id(x => x.Id);
-            Map(x => x.firstName);
-            Map(x => x.lastName);
-            Map(x => x.birthDate);
+            Map(x => x.FirstName);
+            Map(x => x.LastName);
+            Map(x => x.BirthDate);
             Map(x => x.Email);
             Map(x => x.Phone);
             References(x => x.Type);
-            //References(x => x.User);
+            References(x => x.User);
         }
     }
 }

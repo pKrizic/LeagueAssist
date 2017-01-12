@@ -10,8 +10,8 @@ namespace LeagueAssist.Entities
     {
         public virtual int Id { get; protected set; }
         public virtual Person Person { get; set; }
-        public virtual DateTime dateFrom { get; set; }
-        public virtual DateTime dateTo { get; set; }
+        public virtual DateTime DateFrom { get; set; }
+        public virtual DateTime DateTo { get; set; }
         public virtual Organization Organization { get; set; }
         public virtual bool Foreigner { get; set; }
     }

@@ -13,7 +13,7 @@ namespace LeagueAssist.Mappings
         public MatchActivityMap()
         {
             Id(x => x.Id);
-            References(x => x.Match);
+            References(x => x.Match).Column("Match_Id").Not.Nullable();
             References(x => x.Player);
             References(x => x.Performance);
             Map(x => x.MatchMinute);
