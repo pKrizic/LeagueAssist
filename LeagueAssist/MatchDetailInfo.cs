@@ -18,19 +18,21 @@ namespace LeagueAssist
 
     public class MatchPlayersDetail
     {
-        public MatchPlayersDetail (int id,string i, string p, int up, bool cpt)
+        public MatchPlayersDetail (int id,string i, string p, int up, bool cpt, int numberOnShirt)
         {
             this.id = id;
             this.ime = i;
             this.prezime = p;
             this.uPrvoj = up;
             this.kapetan = cpt;
+            this.numberOnShirt = numberOnShirt;
         }
         public int id { get; set; }
         public string ime { get; set; }
         public string prezime { get; set; }
         public int uPrvoj { get; set; }
         public bool kapetan { get; set; }
+        public int numberOnShirt { get; set; }
     }
 
     public class PlayerAction

@@ -15,5 +15,6 @@ namespace LeagueAssist.Entities
         public virtual int SelectionId { get; set; }
         public virtual bool Captain { get; set; }
         public virtual int OrganizationId { get; set; }
+        public virtual int NumberOnShirt { get; set; }
     }
 }

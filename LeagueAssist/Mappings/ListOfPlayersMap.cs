@@ -19,6 +19,7 @@ namespace LeagueAssist.Mappings
             Map(x => x.SelectionId);
             Map(x => x.Captain);
             Map(x => x.OrganizationId);
+            Map(x => x.NumberOnShirt);
             Table("ListOfPlayers");
             ReadOnly();
 

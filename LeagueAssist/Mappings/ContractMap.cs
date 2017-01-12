@@ -18,6 +18,7 @@ namespace LeagueAssist.Mappings
             Map(x => x.DateTo);
             References(x => x.Organization);
             Map(x => x.Foreigner);
+            Map(x => x.NumberOnShirt);
             Table("Contract");
         }
     }

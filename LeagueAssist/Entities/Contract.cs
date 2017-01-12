@@ -14,5 +14,6 @@ namespace LeagueAssist.Entities
         public virtual DateTime DateTo { get; set; }
         public virtual Organization Organization { get; set; }
         public virtual bool Foreigner { get; set; }
+        public virtual int NumberOnShirt { get; set; }
     }
 }
