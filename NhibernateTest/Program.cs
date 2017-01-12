@@ -13,14 +13,14 @@ namespace NhibernateTest
     {
         static void Main(string[] args)
         {
-            var client = new ServiceReference1.Service1Client();
-            var req = new CountryRequest();
-            req.Id = "1";
-            var ime = client.GetCountryName(req);
-            var test = new Class1();
-            var c = new Country { Name = "Slovenija" };
-            test.Store(c);
-            Console.WriteLine("Spremljeno");
+           // var client = new ServiceReference1.Service1Client();
+            //var req = new CountryRequest();
+            //req.Id = "1";
+           // var ime = client.GetCountryName(req);
+            //var test = new Class1();
+            //var c = new Country { Name = "Slovenija" };
+            //test.Store(c);
+            //Console.WriteLine("Spremljeno");
             Console.ReadKey();
         }
     }

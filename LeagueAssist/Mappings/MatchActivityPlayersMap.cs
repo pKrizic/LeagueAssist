@@ -12,12 +12,14 @@ namespace LeagueAssist.Mappings
     {
         public MatchActivityPlayersMap()
         {
-            Id(x => x.Id);
+            Map(x => x.Id);
+            Id(x => x.ActivityId);
             Map(x => x.FirstName);
             Map(x => x.LastName);
             Map(x => x.MatchMinute);
             Map(x => x.Description);
             Map(x => x.PerformanceId);
+
             Table("MatchActivityPlayers");
             ReadOnly();
         }

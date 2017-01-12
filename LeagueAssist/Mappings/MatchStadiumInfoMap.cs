@@ -16,6 +16,8 @@ namespace LeagueAssist.Mappings
             Map(x => x.MatchDate);
             Map(x => x.StadiumName);
             Map(x => x.CityName);
+            Map(x => x.Home);
+            Map(x => x.Away);
             Table("MatchStadiumInfo");
             ReadOnly();
         }

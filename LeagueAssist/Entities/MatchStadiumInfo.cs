@@ -12,5 +12,7 @@ namespace LeagueAssist.Entities
         public virtual DateTime MatchDate { get; set; }
         public virtual string StadiumName { get; set; }
         public virtual string CityName { get; set; }
+        public virtual int Home { get; set; }
+        public virtual int Away { get; set; }
     }
 }
