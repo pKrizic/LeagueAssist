@@ -60,11 +60,30 @@ namespace LeagueAssist
             }
             return message;
         }
+
+        public List<PlayerPerformance> GetAllPlayerPerformance()
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            var message = new List<PlayerPerformance>();
+
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<PlayerPerformance>)session.QueryOver<PlayerPerformance>().List();
+                    if (result != null && result.Count > 0)
+                        message = result;
+                    transaction.Commit();
+                }
+            }
+            return message;
+        }
         
         public List<MatchReferees> GetMatchesForReferee(int id, int numberOfGames)
         {
             var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<MatchReferees>();
+
             using (var session = sessionFactory.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())

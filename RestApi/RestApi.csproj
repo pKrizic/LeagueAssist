@@ -123,6 +123,7 @@
     <Compile Include="Controllers\MatchDataInsertController.cs" />
     <Compile Include="Controllers\MatchDetailController.cs" />
     <Compile Include="Controllers\MatchRefereeController.cs" />
+    <Compile Include="Controllers\PlayerPerformanceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -134,6 +135,7 @@
     <Compile Include="Responses\LoginResponse.cs" />
     <Compile Include="Responses\MatchDetailResponse.cs" />
     <Compile Include="Responses\MatchRefereeResponse.cs" />
+    <Compile Include="Responses\PlayerPerformanceResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
