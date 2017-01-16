@@ -33,19 +33,6 @@ namespace RestApi.Controllers
 
             var clas = new Class1();
             clas.UpdateMatch(int.Parse(model.Id), int.Parse(model.HomeGoals), int.Parse(model.AwayGoals), model.Description, model.MatchActions);
-            //var list = new List<MatchActivity>();
-            //foreach (var item in model.MatchActions)
-            //{
-            //    var x = new MatchActivity()
-            //    {
-            //        Match = int.Parse(model.Id),
-            //        Player = item.PlayerId,
-            //        MatchMinute = item.Minute,
-            //        Performance = item.PerformanceId
-            //    };
-            //    list.Add(item);
-            //}
-            //clas.
             return Ok();
         }
 
