@@ -58,11 +58,23 @@
     <Compile Include="GeneratorKola.Designer.cs">
       <DependentUpon>GeneratorKola.cs</DependentUpon>
     </Compile>
+    <Compile Include="KreirajNatjecanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KreirajNatjecanje.Designer.cs">
+      <DependentUpon>KreirajNatjecanje.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledIDetaljnoDefiniranjeKola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledIDetaljnoDefiniranjeKola.Designer.cs">
+      <DependentUpon>PregledIDetaljnoDefiniranjeKola.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +84,14 @@
     <EmbeddedResource Include="GeneratorKola.resx">
       <DependentUpon>GeneratorKola.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KreirajNatjecanje.resx">
+      <DependentUpon>KreirajNatjecanje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledIDetaljnoDefiniranjeKola.resx">
+      <DependentUpon>PregledIDetaljnoDefiniranjeKola.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
