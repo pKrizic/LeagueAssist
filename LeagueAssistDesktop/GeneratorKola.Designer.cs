@@ -33,6 +33,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +59,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(167, 80);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(234, 21);
             this.comboBox1.TabIndex = 2;
             // 
             // comboBox2
@@ -66,14 +67,14 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(167, 41);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.Size = new System.Drawing.Size(234, 21);
             this.comboBox2.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(56, 136);
+            this.button1.Location = new System.Drawing.Point(167, 133);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(232, 23);
+            this.button1.Size = new System.Drawing.Size(234, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Generiraj raspored utakmica";
             this.button1.UseVisualStyleBackColor = true;
@@ -103,5 +104,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

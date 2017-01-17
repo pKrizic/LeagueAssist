@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueAssist;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +16,23 @@ namespace LeagueAssistDesktop
         public GeneratorKola()
         {
             InitializeComponent();
+            var clas = new Class1();
+            comboBox1.DataSource = clas.GetFutureSeasons();
+            comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "Id";
+            comboBox2.DataSource = clas.GetCompetititons();
+            comboBox2.DisplayMember = "Name";
+            comboBox2.ValueMember = "Id";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<int> dohvatiBrojEkipaULigi = new List<int>(){ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //id-jevi ekipa, iz orgcompetition gdje sezona = odabrana i natjecanje = odabrano
-            var list = RoundRobinScheduler(dohvatiBrojEkipaULigi);
-            // spremiti u bazu podatke o utakmicama
+            var clas = new Class1();
+            int seasonId = int.Parse(comboBox1.SelectedValue.ToString());
+            int competitionId = int.Parse(comboBox2.SelectedValue.ToString());
+            List<int> dohvatiBrojEkipaULigi = clas.GetIdsOfClubsInCompetition(competitionId, seasonId);
+            var dict = RoundRobinScheduler(dohvatiBrojEkipaULigi);
+            clas.StoreMatchesFromSeason(dict, competitionId);
         }
 
         private Dictionary<int, List<int[]>> RoundRobinScheduler (List<int> ids)
@@ -30,7 +41,6 @@ namespace LeagueAssistDesktop
             List<int[]> listaParova = new List<int[]>();
             if ((ids.Count % 2) == 1)
                 ids.Add(0);
-
             int brojKola = (ids.Count - 1);
             int halfSize = ids.Count / 2;
 
@@ -51,7 +61,7 @@ namespace LeagueAssistDesktop
                     {
                         int firstTeam = (day + idx) % teamsSize;
                         int secondTeam = (day + teamsSize - idx) % teamsSize;
-                        int[] ekip = { firstTeam, secondTeam };
+                        int[] ekip = { teams[firstTeam], teams[secondTeam] };
                         listaParova.Add(ekip);
                     }
                 }
@@ -63,7 +73,7 @@ namespace LeagueAssistDesktop
                     {
                         int firstTeam = (day + teamsSize - idx) % teamsSize;
                         int secondTeam = (day + idx) % teamsSize;
-                        int[] ekip = { firstTeam, secondTeam };
+                        int[] ekip = { teams[firstTeam], teams[secondTeam] };
                         listaParova.Add(ekip);
                     }
                 }

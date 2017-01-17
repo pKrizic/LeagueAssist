@@ -29,6 +29,38 @@ namespace LeagueAssist
                 }
             }
         }
+        
+        public void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId)
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var competition = session.Get<Competition>(competitionId);
+                    foreach (KeyValuePair<int, List<int[]>> schedule in dict)
+                    {
+                        var round = session.Get<Fixture>(schedule.Key);
+                        foreach (var game in schedule.Value)
+                        {
+                            var firstOrg = session.Get<Organization>(game[0]);
+                            var secondOrg = session.Get<Organization>(game[1]);
+
+                            var match = new Match
+                            {
+                                FirstOrg = firstOrg,
+                                SecondOrg = secondOrg,
+                                Fixture = round,
+                                Competition = competition
+                            };
+                            session.SaveOrUpdate(match);
+                        }
+                    }
+                    transaction.Commit();
+                }
+            }
+        }
+
         public List<Country> GetAll()
         {
             var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
@@ -149,6 +181,56 @@ namespace LeagueAssist
             return message;
         }
 
+        public List<Season> GetFutureSeasons()
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            var message = new List<Season>();
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<Season>)session.QueryOver<Season>().Where(s => s.StartDay > DateTime.Now).OrderBy(s => s.StartDay).Asc.List();
+                    if (result != null && result.Count > 0)
+                        message = result;
+                    transaction.Commit();
+                }
+            }
+            return message;
+        }
+
+        public List<int> GetIdsOfClubsInCompetition(int competitionId, int seasonId)
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            var message = new List<int>();
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<int>)session.QueryOver<OrgCompetition>().Where(orgC => orgC.Competition.Id == competitionId && orgC.Season.Id == seasonId).Select(OrgC => OrgC.Organization.Id).List<int>();
+                    if (result != null && result.Count > 0)
+                        message = result;
+                    transaction.Commit();
+                }
+            }
+            return message;
+        }
+
+        public List<Competition> GetCompetititons()
+        {
+            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
+            var message = new List<Competition>();
+            using (var session = sessionFactory.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<Competition>)session.QueryOver<Competition>().List();
+                    if (result != null && result.Count > 0)
+                        message = result;
+                    transaction.Commit();
+                }
+            }
+            return message;
+        }
 
         public MatchDetailInfo GetMatchDetailInfo(MatchStadiumInfo stadium, List<MatchActivityPlayers> activities, List<ListOfPlayers> players)
         {
@@ -209,7 +291,6 @@ namespace LeagueAssist
                     result.activities = mActivites;
                     session.Update(result);
                     transaction.Commit();
-
                 }
             }
 

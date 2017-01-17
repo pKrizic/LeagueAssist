@@ -10,5 +10,6 @@ namespace LeagueAssist.Entities
     {
         public virtual int Id { get; protected set; }
         public virtual string Name { get; set; }
+        public virtual DateTime StartDay { get; set; }
     }
 }
