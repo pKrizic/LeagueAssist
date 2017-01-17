@@ -42,5 +42,13 @@ namespace LeagueAssistDesktop
             generatorForm.Dock = DockStyle.Fill;
             generatorForm.Show();
         }
+
+        private void pregledKolaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PregledIDetaljnoDefiniranjeKola pregledKolaForm = new PregledIDetaljnoDefiniranjeKola();
+            pregledKolaForm.MdiParent = this;
+            pregledKolaForm.Dock = DockStyle.Fill;
+            pregledKolaForm.Show();
+        }
     }
 }

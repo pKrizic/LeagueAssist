@@ -33,6 +33,7 @@ namespace LeagueAssistDesktop
             List<int> dohvatiBrojEkipaULigi = clas.GetIdsOfClubsInCompetition(competitionId, seasonId);
             var dict = RoundRobinScheduler(dohvatiBrojEkipaULigi);
             clas.StoreMatchesFromSeason(dict, competitionId);
+            MessageBox.Show("Kola za sljedeću sezonu su uspješno generirana.");
         }
 
         private Dictionary<int, List<int[]>> RoundRobinScheduler (List<int> ids)
