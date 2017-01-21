@@ -1,4 +1,7 @@
-﻿using LeagueAssist.Entities;
+﻿using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using LeagueAssist.Entities;
+using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +12,38 @@ namespace LeagueAssist
 {
     public class Class1
     {
+        private static ISessionFactory _sessionFactory;
+
+        public ISession OpenSession()
+        {
+            try
+            {
+                if (_sessionFactory == null)
+                    _sessionFactory = OpenSessionFactory();
+
+                ISession session = _sessionFactory.OpenSession();
+                return session;
+            }
+            catch (Exception e)
+            {
+                throw e.InnerException;
+            }
+        }
+        private ISessionFactory OpenSessionFactory()
+        {
+            string connectionString = "server=cfd38af2-9264-4bf2-900a-a6e2015e53e3.mysql.sequelizer.com;database=dbcfd38af292644bf2900aa6e2015e53e3;uid=uktzclynyotubsgo;pwd=vpkCLYtAPNS8jx3JtUcQtHQSEBCJBPQvyXgtFwA8etpzRavHNjBpQGpUGz7iuS8a";
+            _sessionFactory = Fluently.Configure()
+                .Database(MySQLConfiguration.Standard
+                  .ConnectionString(connectionString).ShowSql().FormatSql()
+                )
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Class1>())
+                .BuildSessionFactory();
+            return _sessionFactory;
+        }
+
         public void Store(object zaSpremanje)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
-
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -32,8 +62,7 @@ namespace LeagueAssist
         
         public void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -63,9 +92,8 @@ namespace LeagueAssist
 
         public List<Country> GetAll()
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var allCountries = new List<Country>();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -78,9 +106,8 @@ namespace LeagueAssist
 
         public string CheckUsernameAndPassword(User user)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = "";
-            using (var session = sessionFactory.OpenSession())
+            using (var session =OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -95,10 +122,8 @@ namespace LeagueAssist
 
         public List<PlayerPerformance> GetAllPlayerPerformance()
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<PlayerPerformance>();
-
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -113,10 +138,8 @@ namespace LeagueAssist
         
         public List<MatchReferees> GetMatchesForReferee(int id, int numberOfGames)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<MatchReferees>();
-
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -131,9 +154,8 @@ namespace LeagueAssist
 
         public MatchStadiumInfo GetMatchStadiumInfo(int id)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new MatchStadiumInfo();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -148,9 +170,8 @@ namespace LeagueAssist
 
         public List<MatchActivityPlayers> GetMatchActivityPlayers(int id)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<MatchActivityPlayers>();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -166,9 +187,8 @@ namespace LeagueAssist
 
         public List<ListOfPlayers> GetListOfPlayers(int id)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<ListOfPlayers>();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using(var transaction = session.BeginTransaction())
                 {
@@ -183,9 +203,8 @@ namespace LeagueAssist
 
         public List<Season> GetFutureSeasons()
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<Season>();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -200,9 +219,8 @@ namespace LeagueAssist
 
         public List<int> GetIdsOfClubsInCompetition(int competitionId, int seasonId)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<int>();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -217,9 +235,8 @@ namespace LeagueAssist
 
         public List<Competition> GetCompetititons()
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = new List<Competition>();
-            using (var session = sessionFactory.OpenSession())
+            using (var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -257,15 +274,13 @@ namespace LeagueAssist
             detail.Date = stadium.MatchDate;
             detail.Stadium = stadium.StadiumName;
             detail.City = stadium.CityName;
-
             return detail;
         }
 
         public string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista)
         {
-            var sessionFactory = FluentNHibernateHelper.CreateSessionFactory();
             var message = "";
-            using(var session = sessionFactory.OpenSession())
+            using(var session = OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -293,7 +308,6 @@ namespace LeagueAssist
                     transaction.Commit();
                 }
             }
-
             return message;
         }
     }

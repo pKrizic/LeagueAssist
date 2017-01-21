@@ -23,12 +23,12 @@ namespace LeagueAssistDesktop
         private void PregledKlubova_Load(object sender, EventArgs e)
         {
 
-            m_bs.DataSource = m_data;
-            m_bs.AllowNew = true;
+            //m_bs.DataSource = m_data;
+            //m_bs.AllowNew = true;
 
-            dataGridView1.DataSource = m_bs;
-            dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.AllowUserToAddRows = true;
+            //dataGridView1.DataSource = m_bs;
+            //dataGridView1.AutoGenerateColumns = true;
+            //dataGridView1.AllowUserToAddRows = true;
         }
     }
 }
