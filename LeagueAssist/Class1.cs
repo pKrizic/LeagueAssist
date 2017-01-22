@@ -10,15 +10,6 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist
 {
-    public interface ICountryRepository
-    {
-        List<Country> GetAll();
-    }
-
-    public interface IUserRepository
-    {
-        User GetUserByUsernameAndPassword(string username, string password);
-    }
 
     //stvorena za učenje Mock testiranja
     public class DataProcessor
@@ -43,42 +34,6 @@ namespace LeagueAssist
             if (user != null)
                 message = user.Id.ToString();
             return message;
-        }
-    }
-
-    public class CountryRepository : ICountryRepository
-    {
-        public List<Country> GetAll()
-        {
-            var allCountries = new List<Country>();
-            var clas = new Class1();
-            using (var session = clas.OpenSession())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    allCountries = (List<Country>)session.QueryOver<Country>().List();
-                    transaction.Commit();
-                }
-            }
-            return allCountries;
-        }
-    }
-
-    public class UserRepository : IUserRepository
-    {
-        public User GetUserByUsernameAndPassword(string username, string password)
-        {
-            User result;
-            var clas = new Class1();
-            using (var session = clas.OpenSession())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    result = session.QueryOver<User>().Where(u => (u.Password == password) && (u.Username == username)).List().FirstOrDefault();
-                    transaction.Commit();
-                }
-            }
-            return result;
         }
     }
 
