@@ -32,9 +32,8 @@ namespace RestApi.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var clas = new Class1();
-            var user = new User { Password = model.Password, Username = model.Username };
-            var response = clas.CheckUsernameAndPassword(user);
+            var clas = new DataProcessor();
+            var response = clas.ProccesData(model.Username, model.Password);
             var message = new LoginResponse();
             if (!String.IsNullOrEmpty(response))
             {

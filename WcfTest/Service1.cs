@@ -32,7 +32,7 @@ namespace WcfTest
 
         public string GetCountryName(CountryRequest request)
         {
-            var test = new Class1();
+            var test = new CountryRepository();
             var drzave = test.GetAll();
 
             return drzave[0].Name;

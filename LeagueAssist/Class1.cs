@@ -10,6 +10,78 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist
 {
+    public interface ICountryRepository
+    {
+        List<Country> GetAll();
+    }
+
+    public interface IUserRepository
+    {
+        User GetUserByUsernameAndPassword(string username, string password);
+    }
+
+    //stvorena za učenje Mock testiranja
+    public class DataProcessor
+    {
+        private IUserRepository _repository;
+
+        public IUserRepository Repository
+        {
+            get { return _repository; }
+            set { _repository = value; }
+        }
+
+        public DataProcessor()
+        {
+            _repository = new UserRepository();
+        }
+
+        public string ProccesData(string username, string password)
+        {
+            var message = "";
+            User user = _repository.GetUserByUsernameAndPassword(username, password);
+            if (user != null)
+                message = user.Id.ToString();
+            return message;
+        }
+    }
+
+    public class CountryRepository : ICountryRepository
+    {
+        public List<Country> GetAll()
+        {
+            var allCountries = new List<Country>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    allCountries = (List<Country>)session.QueryOver<Country>().List();
+                    transaction.Commit();
+                }
+            }
+            return allCountries;
+        }
+    }
+
+    public class UserRepository : IUserRepository
+    {
+        public User GetUserByUsernameAndPassword(string username, string password)
+        {
+            User result;
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = session.QueryOver<User>().Where(u => (u.Password == password) && (u.Username == username)).List().FirstOrDefault();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+    }
+
     public class Class1
     {
         private static ISessionFactory _sessionFactory;
@@ -89,36 +161,6 @@ namespace LeagueAssist
                     transaction.Commit();
                 }
             }
-        }
-
-        public List<Country> GetAll()
-        {
-            var allCountries = new List<Country>();
-            using (var session = OpenSession())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    allCountries = (List<Country>)session.QueryOver<Country>().List();
-                    transaction.Commit();
-                }
-            }
-            return allCountries;
-        }
-
-        public string CheckUsernameAndPassword(User user)
-        {
-            var message = "";
-            using (var session =OpenSession())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    var result = (User)session.QueryOver<User>().Where(u => (u.Password == user.Password) && (u.Username == user.Username)).List().FirstOrDefault();
-                    if (result != null)
-                        message = result.Id.ToString();
-                    transaction.Commit();
-                }
-            }
-            return message;
         }
 
         public List<PlayerPerformance> GetAllPlayerPerformance()

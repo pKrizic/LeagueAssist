@@ -12,5 +12,8 @@ namespace LeagueAssist.Entities
         public virtual string Username { get; set; }
         public virtual string Password { get; set; }
         public virtual Role Role { get; set; }
+
     }
+
+   
 }
