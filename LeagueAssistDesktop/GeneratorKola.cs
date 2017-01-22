@@ -30,9 +30,9 @@ namespace LeagueAssistDesktop
             var clas = new Class1();
             int seasonId = int.Parse(comboBox1.SelectedValue.ToString());
             int competitionId = int.Parse(comboBox2.SelectedValue.ToString());
-            List<int> dohvatiBrojEkipaULigi = clas.GetIdsOfClubsInCompetition(competitionId, seasonId);
+            List<int> dohvatiBrojEkipaULigi = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };//clas.GetIdsOfClubsInCompetition(competitionId, seasonId);
             var dict = RoundRobinScheduler(dohvatiBrojEkipaULigi);
-            clas.StoreMatchesFromSeason(dict, competitionId);
+            //clas.StoreMatchesFromSeason(dict, competitionId);
             MessageBox.Show("Kola za sljedeću sezonu su uspješno generirana.");
         }
 

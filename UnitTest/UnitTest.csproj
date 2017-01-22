@@ -53,6 +53,16 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeagueAssistDesktop\LeagueAssistDesktop.csproj">
+      <Project>{1d80aa88-9f6b-4c92-b870-8f7efd3106fc}</Project>
+      <Name>LeagueAssistDesktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeagueAssist\LeagueAssist.csproj">
+      <Project>{d74277fe-d8fb-436e-9708-608aa725f509}</Project>
+      <Name>LeagueAssist</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
