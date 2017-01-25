@@ -17,9 +17,9 @@ namespace LeagueAssistWeb.Controllers
             int idKluba = 2;
 
             var igraci = new List<PlayerListViewModel>();
-            
-            var clas = new Class1();
-            var listaMojihIgraca = clas.GetListOfClubPlayers(idKluba);
+
+            var clas = new UserProcessor();
+            var listaMojihIgraca = clas.GetClubPleyers(idKluba);
 
             // Dummy data
             PlayerListViewModel igrac = new PlayerListViewModel();
