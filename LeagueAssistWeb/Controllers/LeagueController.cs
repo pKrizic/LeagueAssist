@@ -23,8 +23,15 @@ namespace LeagueAssistWeb.Controllers
                 new SelectListItem{ Text="3. kolo", Value="3" }
             };
 
+            List<SelectListItem> leagues = new List<SelectListItem>{
+                new SelectListItem{ Text="1. HNL", Value="1" },
+                new SelectListItem{ Text="2. HNL", Value="2" },
+                new SelectListItem{ Text="3. HNL", Value="3" }
+            };
+
             ViewBag.sezonaID = seasons;
             ViewBag.koloID = fixtures;
+            ViewBag.ligaID = leagues;
 
             return View();
         }
