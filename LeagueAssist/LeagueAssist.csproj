@@ -73,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CityProcessor.cs" />
+    <Compile Include="CityRepository.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CompetitionProcessor.cs" />
     <Compile Include="CompetitionRepository.cs" />
@@ -148,9 +150,13 @@
     <Compile Include="UserProcessor.cs" />
     <Compile Include="MatchProcessor.cs" />
     <Compile Include="MatchRepository.cs" />
+    <Compile Include="OrganizationProcessor.cs" />
+    <Compile Include="OrganizationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonProcessor.cs" />
     <Compile Include="SeasonRepository.cs" />
+    <Compile Include="StadiumProcessor.cs" />
+    <Compile Include="StadiumRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
