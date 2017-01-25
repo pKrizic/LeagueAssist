@@ -18,14 +18,7 @@ namespace LeagueAssist
         List<PlayerPerformance> GetAllPlayerPerformance();
         Match GetMatch(int id);
         void UpdateMatch(Match match);    
-         string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista);
-         MatchStadiumInfo GetMatchStadiumInfo(int matchId);
-         List<MatchActivityPlayers> GetMatchActivityPlayers(int matchId);
-         MatchDetailInfo GetMatchDetailInfo(MatchStadiumInfo stadium, List<MatchActivityPlayers> activities, List<ListOfPlayers> players);
-         List<ListOfPlayers> GetListOfPlayers(int matchId);
-         List<MatchReferees> GetMatchesForReferee(int refereeId, int numberOfGames);
-         List<PlayerPerformance> GetAllPlayerPerformance();
-         List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
+        List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
     }
 
     public class MatchRepository : IMatchRepository
