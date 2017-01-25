@@ -147,7 +147,6 @@
     <Compile Include="MatchDetailInfo.cs" />
     <Compile Include="PlayerProcessor.cs" />
     <Compile Include="PlayerRepository.cs" />
-    <Compile Include="UserProcessor.cs" />
     <Compile Include="MatchProcessor.cs" />
     <Compile Include="MatchRepository.cs" />
     <Compile Include="OrganizationProcessor.cs" />
