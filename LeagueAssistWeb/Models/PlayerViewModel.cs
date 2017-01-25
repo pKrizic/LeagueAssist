@@ -7,17 +7,24 @@ namespace LeagueAssistWeb.Models
     public class PlayerListViewModel
     {
         public int Id { get; set; }
+        [Display(Name = "Ime")]
         public string FirstName { get; set; }
+        [Display(Name = "Prezime")]
         public string LastName { get; set; }
     }
 
     public class PlayerDetailsViewModel
     {
         public int id { get; set; }
+        [Display(Name = "Ime")]
         public string firstName { get; set; }
+        [Display(Name = "Prezime")]
         public string lastName { get; set; }
+        [Display(Name = "Datum rođenja")]
         public DateTime birthDate { get; set; }
+        [Display(Name = "Email")]
         public string email { get; set; }
+        [Display(Name = "Telefon")]
         public string phone { get; set; }
         public ContractViewModel contract { get; set; } 
         public HealthCheckViewModel healthCheck { get; set; }

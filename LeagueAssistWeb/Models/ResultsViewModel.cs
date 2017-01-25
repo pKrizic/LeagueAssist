@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace LeagueAssistWeb.Models
@@ -7,7 +8,8 @@ namespace LeagueAssistWeb.Models
     {
         public ClubDetailsViewModel homeClub { get; set; }
         public ClubDetailsViewModel guestClub { get; set; }
-        public int homeGoals { get; set; }
-        public int guestGoals { get; set; }
+        public int? homeGoals { get; set; }
+        public int? guestGoals { get; set; }
+        public DateTime matchDateTime { get; set; }
     }
 }
