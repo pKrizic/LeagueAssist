@@ -14,100 +14,6 @@ namespace LeagueAssistWeb.Controllers
     {
         public ActionResult Index(int? page, int? pageItems)
         {
-            int idClub = 2;
-
-            var igraci = new List<PlayerListViewModel>();
-
-            var clas = new UserProcessor();
-            var myPlayer = clas.GetClubPleyers(idClub);
-
-            //ovo je za dohvat podataka o klubu!!
-            //var club = new ClubProcessor();
-            //var myClub = club.GetClubInformation(idClub);
-            
-            //preko ovog mozemo dohvatit moje utakmice za sezonu, kolo i natjecanje!
-            //var m = new MatchProcessor();
-            //var listM = m.GetListClubMatchs(3, 3, 1, 1);
-
-            // Dummy data
-            PlayerListViewModel igrac = new PlayerListViewModel();
-            igrac.Id = 1;
-            igrac.FirstName = "Pero";
-            igrac.LastName = "Perić";
-            igraci.Add(igrac);
-            PlayerListViewModel igrac2 = new PlayerListViewModel();
-            igrac2.Id = 2;
-            igrac2.FirstName = "Jure";
-            igrac2.LastName = "Jurić";
-            igraci.Add(igrac2);
-            PlayerListViewModel igrac3 = new PlayerListViewModel();
-            igrac3.Id = 3;
-            igrac3.FirstName = "Marko";
-            igrac3.LastName = "Markić";
-            igraci.Add(igrac3);
-            PlayerListViewModel igrac4 = new PlayerListViewModel();
-            igrac4.Id = 4;
-            igrac4.FirstName = "Ivo";
-            igrac4.LastName = "Ivić";
-            igraci.Add(igrac4);
-            PlayerListViewModel igrac5 = new PlayerListViewModel();
-            igrac5.Id = 5;
-            igrac5.FirstName = "Ante";
-            igrac5.LastName = "Pepeo";
-            igraci.Add(igrac5);
-            PlayerListViewModel igrac6 = new PlayerListViewModel();
-            igrac6.Id = 6;
-            igrac6.FirstName = "Ante";
-            igrac6.LastName = "Bager";
-            igraci.Add(igrac6);
-            PlayerListViewModel igrac7 = new PlayerListViewModel();
-            igrac7.Id = 7;
-            igrac7.FirstName = "Ante";
-            igrac7.LastName = "Sibirski Plavac";
-            igraci.Add(igrac7);
-            PlayerListViewModel igrac8 = new PlayerListViewModel();
-            igrac8.Id = 8;
-            igrac8.FirstName = "Jusuf";
-            igrac8.LastName = "Dere đukelu";
-            igraci.Add(igrac8);
-            PlayerListViewModel igrac9 = new PlayerListViewModel();
-            igrac9.Id = 9;
-            igrac9.FirstName = "Nedaj seĐedo Nedaj";
-            igrac9.LastName = "seĐedo";
-            igraci.Add(igrac9);
-            PlayerListViewModel igrac10 = new PlayerListViewModel();
-            igrac10.Id = 10;
-            igrac10.FirstName = "Kokoš";
-            igrac10.LastName = "Kokošić";
-            igraci.Add(igrac10);
-            PlayerListViewModel igrac11 = new PlayerListViewModel();
-            igrac11.Id = 11;
-            igrac11.FirstName = "Igrač";
-            igrac11.LastName = "Igračić";
-            igraci.Add(igrac11);
-            PlayerListViewModel igrac12 = new PlayerListViewModel();
-            igrac12.Id = 12;
-            igrac12.FirstName = "Pas";
-            igrac12.LastName = "Mačka";
-            igraci.Add(igrac12);
-
-            //<Broj stavki po stranici>
-            List<SelectListItem> items = new List<SelectListItem>{
-                new SelectListItem{ Text="10", Value="10" },
-                new SelectListItem{ Text="15", Value="15" },
-                new SelectListItem{ Text="20", Value="20" }
-            };
-
-            ViewData["ItemsPerPage"] = new SelectList(items, "Value", "Text", pageItems);
-
-            ViewBag.CurrentPageSize = pageItems ?? 10;
-            //</Broj stavki po stranici>
-
-            //<Paginacija>
-            int pageSize = (pageItems ?? 10);
-            int pageNumber = (page ?? 1);
-            //</Paginacija>
-
             var userProcessor = new UserProcessor();
             int idClub = 2;
             var players = new List<PlayerListViewModel>();
@@ -131,6 +37,33 @@ namespace LeagueAssistWeb.Controllers
                 //players = null;
             }
 
+
+            //ovo je za dohvat podataka o klubu!!
+            //var club = new ClubProcessor();
+            //var myClub = club.GetClubInformation(idClub);
+            
+            //preko ovog mozemo dohvatit moje utakmice za sezonu, kolo i natjecanje!
+            //var m = new MatchProcessor();
+            //var listM = m.GetListClubMatchs(3, 3, 1, 1);
+
+            
+            //<Broj stavki po stranici>
+            List<SelectListItem> items = new List<SelectListItem>{
+                new SelectListItem{ Text="10", Value="10" },
+                new SelectListItem{ Text="15", Value="15" },
+                new SelectListItem{ Text="20", Value="20" }
+            };
+
+            ViewData["ItemsPerPage"] = new SelectList(items, "Value", "Text", pageItems);
+
+            ViewBag.CurrentPageSize = pageItems ?? 10;
+            //</Broj stavki po stranici>
+
+            //<Paginacija>
+            int pageSize = (pageItems ?? 10);
+            int pageNumber = (page ?? 1);
+            //</Paginacija>
+            
             return View(players.ToPagedList(pageNumber, pageSize));
         }
 
