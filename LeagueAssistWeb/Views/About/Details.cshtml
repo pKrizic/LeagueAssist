@@ -1,0 +1,82 @@
+﻿@model LeagueAssistWeb.Models.ClubDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClubDetailsViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.clubId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clubId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clubName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clubName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stadiumId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stadiumId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stadiumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stadiumName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stadiumCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stadiumCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stadiumAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stadiumAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cityId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cityId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cityName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
