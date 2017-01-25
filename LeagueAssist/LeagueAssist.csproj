@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="CountryRepository.cs" />
+    <Compile Include="DeclareMatchDateReferee.cs" />
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Competition.cs" />
     <Compile Include="Entities\Contract.cs" />

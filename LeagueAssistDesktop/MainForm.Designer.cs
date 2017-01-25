@@ -40,8 +40,8 @@
             this.generatorKolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledKolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.podaciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stadioniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,14 +120,14 @@
             // generatorKolaToolStripMenuItem
             // 
             this.generatorKolaToolStripMenuItem.Name = "generatorKolaToolStripMenuItem";
-            this.generatorKolaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.generatorKolaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.generatorKolaToolStripMenuItem.Text = "Generator kola";
             this.generatorKolaToolStripMenuItem.Click += new System.EventHandler(this.generatorKolaToolStripMenuItem_Click);
             // 
             // pregledKolaToolStripMenuItem
             // 
             this.pregledKolaToolStripMenuItem.Name = "pregledKolaToolStripMenuItem";
-            this.pregledKolaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pregledKolaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.pregledKolaToolStripMenuItem.Text = "Pregled kola";
             this.pregledKolaToolStripMenuItem.Click += new System.EventHandler(this.pregledKolaToolStripMenuItem_Click);
             // 
@@ -139,18 +139,18 @@
             this.podaciToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.podaciToolStripMenuItem.Text = "Podaci";
             // 
+            // stadioniToolStripMenuItem
+            // 
+            this.stadioniToolStripMenuItem.Name = "stadioniToolStripMenuItem";
+            this.stadioniToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.stadioniToolStripMenuItem.Text = "Stadioni";
+            // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // stadioniToolStripMenuItem
-            // 
-            this.stadioniToolStripMenuItem.Name = "stadioniToolStripMenuItem";
-            this.stadioniToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.stadioniToolStripMenuItem.Text = "Stadioni";
             // 
             // MainForm
             // 
