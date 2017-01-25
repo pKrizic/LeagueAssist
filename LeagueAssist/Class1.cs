@@ -5,6 +5,7 @@ using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,7 +41,7 @@ namespace LeagueAssist
     public class Class1
     {
         private static ISessionFactory _sessionFactory;
-
+       
         public ISession OpenSession()
         {
             try
@@ -164,6 +165,27 @@ namespace LeagueAssist
                     if (result != null && result.Count > 0)
                         message = result;
                     transaction.Commit();
+                }
+            }
+            return message;
+        }
+
+        //lista igraca koji pripadaju klubu
+        public string GetListOfClubPlayers(int id)
+        {
+            string message = "";
+            using(var session = OpenSession())
+            {
+                using(var transaction = session.BeginTransaction())
+                {
+                    Contract c = null;
+                    Person p = null;
+                    IList<Contract> listaigraca = session.QueryOver<Contract>(() => c)
+                                                       .JoinAlias(() => c.Person, () => p)
+                                                       .Where(() => p.Id == c.Person.Id)
+                                                       .List();
+
+                    message = JsonConvert.SerializeObject(listaigraca);
                 }
             }
             return message;
