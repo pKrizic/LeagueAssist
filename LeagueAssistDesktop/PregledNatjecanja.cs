@@ -15,6 +15,7 @@ namespace LeagueAssistDesktop
         public PregledNatjecanja()
         {
             InitializeComponent();
+            dataGridView1.DataSource = 
         }
     }
 }
