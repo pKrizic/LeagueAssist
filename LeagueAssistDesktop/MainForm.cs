@@ -58,7 +58,10 @@ namespace LeagueAssistDesktop
 
         private void pregledNatjecanjaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PregledNatjecanja pregledKolaForm = new PregledNatjecanja();
+            pregledKolaForm.MdiParent = this;
+            pregledKolaForm.Dock = DockStyle.Fill;
+            pregledKolaForm.Show();
         }
     }
 }
