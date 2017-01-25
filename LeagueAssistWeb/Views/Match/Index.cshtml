@@ -1,7 +1,7 @@
-﻿@model LeagueAssistWeb.Models.CupDetailsViewModel
+﻿@model LeagueAssistWeb.Models.MatchListViewModel
 
 @{
-    ViewBag.Title = "Kup";
+    ViewBag.Title = "Moje utakmice";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -9,20 +9,13 @@
 <hr />
 <br />
 
-@using (Html.BeginForm("Index", "Cup", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline row" }))
+@using (Html.BeginForm("Index", "Match", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline row" }))
 {
     <div class="panel-body" style="align-items:center">
         <div class="row">
             <div class="control-label col-md-2" align="right"><b>Sezona</b></div>
             <div class="col-md-10" align="left">
                 @Html.DropDownList("sezonaID", null, htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="control-label col-md-2" align="right"><b>Faza</b></div>
-            <div class="col-md-10" align="left">
-                @Html.DropDownList("fazaID", null, htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
         <br />
@@ -34,7 +27,7 @@
             </div>
         </div>
     </div>
-
+    
     <hr />
     <br />
 
@@ -42,7 +35,7 @@
         <div class="col-sm-12">
             <div class="panel panel-default">
                 <div class="col-sm-12 panel-heading clearfix">
-                    <span class="col-sm-6"><b>Raspored utakmica u odabranoj fazi</b></span>
+                    <span class="col-sm-6"><b>Raspored utakmica</b></span>
                     <span class="col-sm-6 text-right">
                     </span>
                 </div>
@@ -63,6 +56,7 @@
                                     <th>
                                         Gost
                                     </th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,12 +71,31 @@
                                             <td>
                                                 @item.homeClub
                                             </td>
+                                            @if (item.homeGoals != null && item.guestGoals != null)
+                                            {
                                             <td>
-                                                @item.homeGoals : @item.guestGoals
+                                                @item.homeGoals : @item.guestGoals   
                                             </td>
+                                            } else
+                                            {
+                                                <td></td>
+                                            }
                                             <td>
                                                 @item.guestClub
                                             </td>
+                                            @if (item.homeGoals != null && item.guestGoals != null)
+                                            {
+                                                <td></td>
+                                            }
+                                            else
+                                            {
+                                                <td align="right">
+                                                    <a href="@Url.Action("SignPlayers", new { id = Model.id })">
+                                                        <i class="glyphicon glyphicon-user"></i>
+                                                        <span class="sr-only">Prijavi postavu</span>
+                                                    </a>
+                                                </td>
+                                            }
                                         </tr>
                                     }
                                 }

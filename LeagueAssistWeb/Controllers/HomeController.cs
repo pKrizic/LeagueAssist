@@ -136,7 +136,12 @@ namespace LeagueAssistWeb.Controllers
             return View();
         }
 
-        public ActionResult RegisterExistingPlayer()
+        public ActionResult RegisterExistingPlayerSearch()
+        {
+            return View();
+        }
+
+        public ActionResult RegisterExistingPlayer(int? id)
         {
             return View();
         }
