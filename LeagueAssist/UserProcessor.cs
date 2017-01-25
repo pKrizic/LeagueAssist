@@ -22,7 +22,7 @@ namespace LeagueAssist
             _userRepository = new UserRepository();
         }
 
-        public IList<ClubPlayers> GetClubPleyers(int id)
+        public IList<ClubPlayers> GetClubPlayers(int id)
         {
             IList<ClubPlayers> result = _userRepository.GetListOfClubPlayers(id);
             return result;
