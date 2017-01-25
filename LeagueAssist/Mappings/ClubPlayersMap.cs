@@ -12,9 +12,10 @@ namespace LeagueAssist.Mappings
     {
         public ClubPlayersMap()
         {
+            Id(x => x.Id);
             Map(x => x.FirstName);
             Map(x => x.LastName);
-            Id(x => x.Organization_Id);
+            Map(x => x.Organization_Id);
         }
     }
 }

@@ -14,12 +14,12 @@ namespace LeagueAssistWeb.Controllers
     {
         public ActionResult Index(int? page, int? pageItems)
         {
-            int idKluba = 2;
+            int idClub = 2;
 
             var igraci = new List<PlayerListViewModel>();
 
             var clas = new UserProcessor();
-            var listaMojihIgraca = clas.GetClubPleyers(idKluba);
+            var myPlayer = clas.GetClubPleyers(idClub);
 
             // Dummy data
             PlayerListViewModel igrac = new PlayerListViewModel();
