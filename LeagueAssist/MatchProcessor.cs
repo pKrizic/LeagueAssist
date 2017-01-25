@@ -10,6 +10,7 @@ namespace LeagueAssist
     public class MatchProcessor
     {
         private IMatchRepository _matchRepository;
+        private IUserRepository _userRepository;
 
         public IMatchRepository Repository
         {
@@ -20,6 +21,7 @@ namespace LeagueAssist
         public MatchProcessor()
         {
             _matchRepository = new MatchRepository();
+            _userRepository = new UserRepository();
         }
 
 
@@ -47,9 +49,16 @@ namespace LeagueAssist
 
         public List<PlayerPerformance> GetPlayerPerformance()
         {
-            List<PlayerPerformance> result = GetPlayerPerformance();
+            List<PlayerPerformance> result =  _matchRepository.GetAllPlayerPerformance();
             return result;
+        }
 
+        public void SetMatchreferee(int id, int refereeId)
+        {
+            Match match = _matchRepository.GetMatch(id);
+            Person referee = _userRepository.GetPerson(refereeId);
+            match.Referee = referee;
+            _matchRepository.UpdateMatch(match);
         }
 
         public List<MatchReferees> GetListClubMatchs(int idClub, int season, int round, int competition)

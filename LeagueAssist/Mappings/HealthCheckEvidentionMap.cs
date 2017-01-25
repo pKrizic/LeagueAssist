@@ -14,8 +14,9 @@ namespace LeagueAssist.Mappings
         {
             Id(x => x.Id);
             References(x => x.Player);
-            Map(x => x.fromDate);
-            Map(x => x.toDate);
+            Map(x => x.FromDate);
+            Map(x => x.ToDate);
+            Map(x => x.Remark);
             Table("HealthCheckEvidention");
         }
     }
