@@ -40,6 +40,12 @@ namespace LeagueAssist
             return result;
         }
 
+        public List<Person> RetrieveReferees()
+        {
+            List<Person> result = _seasonRepository.GetPersons(1);
+            return result;
+        }
+
         public List<Match> RetrieveMatchesInOneFixture(int fixtureId)
         {
             List<Match> result = _seasonRepository.GetMatchesInOneFixture(fixtureId);

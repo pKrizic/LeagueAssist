@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using LeagueAssistWeb.Models;
 using PagedList.Mvc;
 using PagedList;
+using LeagueAssist;
 
 namespace LeagueAssistWeb.Controllers
 {
@@ -13,7 +14,12 @@ namespace LeagueAssistWeb.Controllers
     {
         public ActionResult Index(int? page, int? pageItems)
         {
+            int idKluba = 2;
+
             var igraci = new List<PlayerListViewModel>();
+
+            var clas = new UserProcessor();
+            var listaMojihIgraca = clas.GetClubPleyers(idKluba);
 
             // Dummy data
             PlayerListViewModel igrac = new PlayerListViewModel();

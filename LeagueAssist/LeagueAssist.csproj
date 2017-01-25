@@ -33,6 +33,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
       <Private>True</Private>
@@ -41,8 +45,16 @@
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Moq, Version=4.5.30.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.5.30\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
@@ -62,8 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="CompetitionProcessor.cs" />
+    <Compile Include="CompetitionRepository.cs" />
     <Compile Include="CountryRepository.cs" />
+    <Compile Include="DeclareMatchDateReferee.cs" />
     <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\ClubPlayers.cs" />
     <Compile Include="Entities\Competition.cs" />
     <Compile Include="Entities\Contract.cs" />
     <Compile Include="Entities\Country.cs" />
@@ -94,6 +110,7 @@
     <Compile Include="Entities\Season.cs" />
     <Compile Include="FluentNHibernateHelper.cs" />
     <Compile Include="Mappings\CityMap.cs" />
+    <Compile Include="Mappings\ClubPlayersMap.cs" />
     <Compile Include="Mappings\CompetitionMap.cs" />
     <Compile Include="Mappings\ContractMap.cs" />
     <Compile Include="Mappings\CountryMap.cs" />
@@ -124,6 +141,9 @@
     <Compile Include="Mappings\SeasonMap.cs" />
     <Compile Include="MatchActions.cs" />
     <Compile Include="MatchDetailInfo.cs" />
+    <Compile Include="UserProcessor.cs" />
+    <Compile Include="MatchProcessor.cs" />
+    <Compile Include="MatchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonProcessor.cs" />
     <Compile Include="SeasonRepository.cs" />
@@ -131,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
