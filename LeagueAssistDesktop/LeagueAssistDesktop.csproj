@@ -74,6 +74,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PopisSudacaILicenci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopisSudacaILicenci.Designer.cs">
+      <DependentUpon>PopisSudacaILicenci.cs</DependentUpon>
+    </Compile>
     <Compile Include="PregledIDetaljnoDefiniranjeKola.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +92,62 @@
     <Compile Include="PregledKlubova.Designer.cs">
       <DependentUpon>PregledKlubova.cs</DependentUpon>
     </Compile>
+    <Compile Include="PregledKola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledKola.Designer.cs">
+      <DependentUpon>PregledKola.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledNatjecanja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledNatjecanja.Designer.cs">
+      <DependentUpon>PregledNatjecanja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrikazSvihLicenci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrikazSvihLicenci.Designer.cs">
+      <DependentUpon>PrikazSvihLicenci.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StvoriNatjecanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StvoriNatjecanje.Designer.cs">
+      <DependentUpon>StvoriNatjecanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StvoriNovoNatjecanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StvoriNovoNatjecanje.Designer.cs">
+      <DependentUpon>StvoriNovoNatjecanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosKluba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosKluba.Designer.cs">
+      <DependentUpon>UnosKluba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosStadiona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosStadiona.Designer.cs">
+      <DependentUpon>UnosStadiona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrediKlub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrediKlub.Designer.cs">
+      <DependentUpon>UrediKlub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrediNatjecanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrediNatjecanje.Designer.cs">
+      <DependentUpon>UrediNatjecanje.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,11 +160,23 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PopisSudacaILicenci.resx">
+      <DependentUpon>PopisSudacaILicenci.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PregledIDetaljnoDefiniranjeKola.resx">
       <DependentUpon>PregledIDetaljnoDefiniranjeKola.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PregledKlubova.resx">
       <DependentUpon>PregledKlubova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledKola.resx">
+      <DependentUpon>PregledKola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledNatjecanja.resx">
+      <DependentUpon>PregledNatjecanja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrikazSvihLicenci.resx">
+      <DependentUpon>PrikazSvihLicenci.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,6 +187,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StvoriNatjecanje.resx">
+      <DependentUpon>StvoriNatjecanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StvoriNovoNatjecanje.resx">
+      <DependentUpon>StvoriNovoNatjecanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosKluba.resx">
+      <DependentUpon>UnosKluba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosStadiona.resx">
+      <DependentUpon>UnosStadiona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrediKlub.resx">
+      <DependentUpon>UrediKlub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrediNatjecanje.resx">
+      <DependentUpon>UrediNatjecanje.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

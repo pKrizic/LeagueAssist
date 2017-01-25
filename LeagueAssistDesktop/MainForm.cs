@@ -50,5 +50,15 @@ namespace LeagueAssistDesktop
             pregledKolaForm.Dock = DockStyle.Fill;
             pregledKolaForm.Show();
         }
+
+        private void natjecanjaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pregledNatjecanjaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

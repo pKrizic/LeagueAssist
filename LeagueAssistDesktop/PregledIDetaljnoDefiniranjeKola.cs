@@ -52,5 +52,10 @@ namespace LeagueAssistDesktop
             public string AwayTeam { get; set; }
             public DateTime Date { get; set; }
         }
+
+        private void PregledIDetaljnoDefiniranjeKola_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
