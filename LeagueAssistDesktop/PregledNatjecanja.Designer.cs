@@ -1,6 +1,6 @@
 ﻿namespace LeagueAssistDesktop
 {
-    partial class PregledKlubova
+    partial class PregledNatjecanja
     {
         /// <summary>
         /// Required designer variable.
@@ -35,27 +35,27 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(513, 229);
-            this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.Size = new System.Drawing.Size(516, 229);
+            this.dataGridView1.TabIndex = 4;
             // 
-            // PregledKlubova
+            // PregledNatjecanja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(537, 312);
+            this.ClientSize = new System.Drawing.Size(540, 314);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "PregledKlubova";
-            this.Text = "PregledKlubova";
-            this.Load += new System.EventHandler(this.PregledKlubova_Load_1);
+            this.Name = "PregledNatjecanja";
+            this.Text = "PregledNatjecanja";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

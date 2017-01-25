@@ -128,6 +128,8 @@
     <Compile Include="Mappings\SeasonMap.cs" />
     <Compile Include="MatchActions.cs" />
     <Compile Include="MatchDetailInfo.cs" />
+    <Compile Include="MatchProcessor.cs" />
+    <Compile Include="MatchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonProcessor.cs" />
     <Compile Include="SeasonRepository.cs" />
