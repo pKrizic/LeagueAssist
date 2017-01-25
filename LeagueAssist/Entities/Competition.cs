@@ -11,5 +11,13 @@ namespace LeagueAssist.Entities
         public virtual int Id { get; protected set; }
         public virtual string Name { get; set; }
         public virtual Organization ParentOrg { get; set; }
+           
+        public Competition() {
+        }
+        public Competition(string competitionName, Organization ParentOrg)
+        {
+            Name = competitionName;
+            this.ParentOrg = ParentOrg;
+        }
     }
 }
