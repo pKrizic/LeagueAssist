@@ -13,7 +13,7 @@ namespace RestApi.Controllers
         // GET: api/Country
         public IEnumerable<string> Get()
         {
-            var clas = new Class1();
+            var clas = new CountryRepository();
             var drzave = clas.GetAll();
             var listaImena = new List<string>();
             foreach (var d in drzave)

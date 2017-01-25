@@ -34,9 +34,8 @@ namespace LeagueAssistDesktop
                 return;
             }
 
-            var clas = new Class1();
-            var user = new User { Password = txt_password.Text, Username = txt_username.Text};
-            var response = clas.CheckUsernameAndPassword(user);
+            var clas = new DataProcessor();
+            var response = clas.ProccesData(txt_username.Text, txt_password.Text);
             if (response == "")
                 MessageBox.Show("Krivo korisničko ime ili lozinka");
             else
