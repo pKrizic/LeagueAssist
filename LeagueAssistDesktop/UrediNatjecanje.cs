@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueAssist;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,20 @@ namespace LeagueAssistDesktop
 {
     public partial class UrediNatjecanje : Form
     {
-        public UrediNatjecanje()
+        public UrediNatjecanje(string id, string name)
         {
             InitializeComponent();
+            textBox1.Text = id;
+            textBox2.Text = name;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(textBox1.Text);
+            string name = textBox2.Text;
+            var processor = new CompetitionProcessor();
+            processor.StoreChanges(id, name);
+            MessageBox.Show("Podaci su uspješno ažurirani");
         }
     }
 }

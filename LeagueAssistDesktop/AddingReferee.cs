@@ -28,7 +28,9 @@ namespace LeagueAssistDesktop
             int matchId = int.Parse(textBox1.Text);
             int refereeId = int.Parse(comboBox1.SelectedValue.ToString());
 
-            //update match
+            var matchProcessor = new MatchProcessor();
+            matchProcessor.SetMatchreferee(matchId, refereeId);
+            MessageBox.Show("Podaci su uspješno ažurirani");
         }
     }
 }

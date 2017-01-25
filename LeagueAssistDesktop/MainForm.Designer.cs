@@ -36,7 +36,9 @@
             this.kluboviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledKlubovaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.urediKlubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prikazSvihLicenciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.koloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generatorKolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledKolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,9 +49,6 @@
             this.unosSudcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prikazSudacaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prikazSvihLicenciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.urediKlubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.urediNatjecanjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,8 +72,7 @@
             this.natjecanjaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pregledNatjecanjaToolStripMenuItem,
             this.kreirajNatjecanjeToolStripMenuItem,
-            this.stvoriNovoNatjecanjeToolStripMenuItem,
-            this.urediNatjecanjeToolStripMenuItem});
+            this.stvoriNovoNatjecanjeToolStripMenuItem});
             this.natjecanjaToolStripMenuItem.Name = "natjecanjaToolStripMenuItem";
             this.natjecanjaToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.natjecanjaToolStripMenuItem.Text = "Natjecanja";
@@ -125,6 +123,13 @@
             this.dodajKlubToolStripMenuItem.Text = "Dodaj klub";
             this.dodajKlubToolStripMenuItem.Click += new System.EventHandler(this.dodajKlubToolStripMenuItem_Click);
             // 
+            // urediKlubToolStripMenuItem
+            // 
+            this.urediKlubToolStripMenuItem.Name = "urediKlubToolStripMenuItem";
+            this.urediKlubToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.urediKlubToolStripMenuItem.Text = "Uredi klub";
+            this.urediKlubToolStripMenuItem.Click += new System.EventHandler(this.urediKlubToolStripMenuItem_Click);
+            // 
             // licenceToolStripMenuItem
             // 
             this.licenceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -133,6 +138,13 @@
             this.licenceToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.licenceToolStripMenuItem.Text = "Licence";
             this.licenceToolStripMenuItem.Click += new System.EventHandler(this.licenceToolStripMenuItem_Click);
+            // 
+            // prikazSvihLicenciToolStripMenuItem
+            // 
+            this.prikazSvihLicenciToolStripMenuItem.Name = "prikazSvihLicenciToolStripMenuItem";
+            this.prikazSvihLicenciToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.prikazSvihLicenciToolStripMenuItem.Text = "Prikaz svih licenci";
+            this.prikazSvihLicenciToolStripMenuItem.Click += new System.EventHandler(this.prikazSvihLicenciToolStripMenuItem_Click);
             // 
             // koloToolStripMenuItem
             // 
@@ -173,7 +185,7 @@
             this.stadioniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.unosStadionaToolStripMenuItem});
             this.stadioniToolStripMenuItem.Name = "stadioniToolStripMenuItem";
-            this.stadioniToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stadioniToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.stadioniToolStripMenuItem.Text = "Stadioni";
             this.stadioniToolStripMenuItem.Click += new System.EventHandler(this.stadioniToolStripMenuItem_Click);
             // 
@@ -190,20 +202,20 @@
             this.unosSudcaToolStripMenuItem,
             this.prikazSudacaToolStripMenuItem});
             this.sudciToolStripMenuItem.Name = "sudciToolStripMenuItem";
-            this.sudciToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sudciToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.sudciToolStripMenuItem.Text = "Sudci";
             // 
             // unosSudcaToolStripMenuItem
             // 
             this.unosSudcaToolStripMenuItem.Name = "unosSudcaToolStripMenuItem";
-            this.unosSudcaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unosSudcaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.unosSudcaToolStripMenuItem.Text = "Unos sudca";
             this.unosSudcaToolStripMenuItem.Click += new System.EventHandler(this.unosSudcaToolStripMenuItem_Click);
             // 
             // prikazSudacaToolStripMenuItem
             // 
             this.prikazSudacaToolStripMenuItem.Name = "prikazSudacaToolStripMenuItem";
-            this.prikazSudacaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.prikazSudacaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.prikazSudacaToolStripMenuItem.Text = "Popis sudaca";
             this.prikazSudacaToolStripMenuItem.Click += new System.EventHandler(this.prikazSudacaToolStripMenuItem_Click);
             // 
@@ -213,27 +225,6 @@
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // prikazSvihLicenciToolStripMenuItem
-            // 
-            this.prikazSvihLicenciToolStripMenuItem.Name = "prikazSvihLicenciToolStripMenuItem";
-            this.prikazSvihLicenciToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.prikazSvihLicenciToolStripMenuItem.Text = "Prikaz svih licenci";
-            this.prikazSvihLicenciToolStripMenuItem.Click += new System.EventHandler(this.prikazSvihLicenciToolStripMenuItem_Click);
-            // 
-            // urediKlubToolStripMenuItem
-            // 
-            this.urediKlubToolStripMenuItem.Name = "urediKlubToolStripMenuItem";
-            this.urediKlubToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.urediKlubToolStripMenuItem.Text = "Uredi klub";
-            this.urediKlubToolStripMenuItem.Click += new System.EventHandler(this.urediKlubToolStripMenuItem_Click);
-            // 
-            // urediNatjecanjeToolStripMenuItem
-            // 
-            this.urediNatjecanjeToolStripMenuItem.Name = "urediNatjecanjeToolStripMenuItem";
-            this.urediNatjecanjeToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.urediNatjecanjeToolStripMenuItem.Text = "Uredi natjecanje";
-            this.urediNatjecanjeToolStripMenuItem.Click += new System.EventHandler(this.urediNatjecanjeToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -274,6 +265,5 @@
         private System.Windows.Forms.ToolStripMenuItem prikazSudacaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikazSvihLicenciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem urediKlubToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem urediNatjecanjeToolStripMenuItem;
     }
 }

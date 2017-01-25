@@ -156,14 +156,6 @@ namespace LeagueAssistDesktop
             urediKlubForm.Dock = DockStyle.Fill;
             urediKlubForm.Show();
         }
-
-        private void urediNatjecanjeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UrediNatjecanje urediNatjecanjeForm = new UrediNatjecanje();
-            urediNatjecanjeForm.MdiParent = this;
-            urediNatjecanjeForm.Dock = DockStyle.Fill;
-            urediNatjecanjeForm.Show();
-        }
     }
 }
 

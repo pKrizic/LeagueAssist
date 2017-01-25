@@ -9,13 +9,15 @@ namespace LeagueAssist
 {
     public interface IMatchRepository
     {
-         string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista);
-         MatchStadiumInfo GetMatchStadiumInfo(int matchId);
-         List<MatchActivityPlayers> GetMatchActivityPlayers(int matchId);
-         MatchDetailInfo GetMatchDetailInfo(MatchStadiumInfo stadium, List<MatchActivityPlayers> activities, List<ListOfPlayers> players);
-         List<ListOfPlayers> GetListOfPlayers(int matchId);
-         List<MatchReferees> GetMatchesForReferee(int refereeId, int numberOfGames);
-         List<PlayerPerformance> GetAllPlayerPerformance();
+        string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista);
+        MatchStadiumInfo GetMatchStadiumInfo(int matchId);
+        List<MatchActivityPlayers> GetMatchActivityPlayers(int matchId);
+        MatchDetailInfo GetMatchDetailInfo(MatchStadiumInfo stadium, List<MatchActivityPlayers> activities, List<ListOfPlayers> players);
+        List<ListOfPlayers> GetListOfPlayers(int matchId);
+        List<MatchReferees> GetMatchesForReferee(int refereeId, int numberOfGames);
+        List<PlayerPerformance> GetAllPlayerPerformance();
+        Match GetMatch(int id);
+        void UpdateMatch(Match match);    
     }
 
     public class MatchRepository : IMatchRepository
@@ -168,6 +170,34 @@ namespace LeagueAssist
                 }
             }
             return message;
+        }
+
+        public Match GetMatch(int id)
+        {
+            var result = new Match();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = session.Get<Match>(id);
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public void UpdateMatch(Match match)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(match);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

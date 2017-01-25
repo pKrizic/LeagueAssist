@@ -11,32 +11,6 @@ using System.Threading.Tasks;
 namespace LeagueAssist
 {
 
-    //stvorena za učenje Mock testiranja
-    public class DataProcessor
-    {
-        private IUserRepository _repository;
-
-        public IUserRepository Repository
-        {
-            get { return _repository; }
-            set { _repository = value; }
-        }
-
-        public DataProcessor()
-        {
-            _repository = new UserRepository();
-        }
-
-        public string ProccesData(string username, string password)
-        {
-            var message = "";
-            User user = _repository.GetUserByUsernameAndPassword(username, password);
-            if (user != null)
-                message = user.Id.ToString();
-            return message;
-        }
-    }
-
     public class Class1
     {
         private static ISessionFactory _sessionFactory;

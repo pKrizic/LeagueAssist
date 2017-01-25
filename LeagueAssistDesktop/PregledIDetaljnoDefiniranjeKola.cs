@@ -32,6 +32,36 @@ namespace LeagueAssistDesktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (dataGridView1.Rows[e.RowIndex].Cells[0].Value != null)
+                {
+                    AddingReferee frm2 = new AddingReferee(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    frm2.Show();
+                }
+            }
+        }
+
+        private class Match
+        {
+            public int Id { get; set; }
+            public string HomeTeam { get; set; }
+            public string AwayTeam { get; set; }
+            public DateTime Date { get; set; }
+        }
+
+        private void PregledIDetaljnoDefiniranjeKola_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             var matches = _seasonProcessor.RetrieveMatchesInOneFixture(int.Parse(comboBox2.SelectedValue.ToString()));
             var lista = new List<Match>();
             var sudci = _seasonProcessor.RetrieveReferees();
@@ -50,33 +80,6 @@ namespace LeagueAssistDesktop
             {
                 DataGridViewButtonCell button = (row.Cells["ButtonColumnName"] as DataGridViewButtonCell);
             }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-            {
-                if (dataGridView1.Rows[e.RowIndex].Cells[0].Value != null)
-                {
-                    AddingReferee frm2 = new AddingReferee(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    frm2.Show();
-                }
-
-            }
-        }
-
-        private class Match
-        {
-            public int Id { get; set; }
-            public string HomeTeam { get; set; }
-            public string AwayTeam { get; set; }
-            public DateTime Date { get; set; }
-        }
-
-        private void PregledIDetaljnoDefiniranjeKola_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

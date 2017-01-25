@@ -27,5 +27,13 @@ namespace LeagueAssist
             List<Competition> result = _competitionRepository.GetCompetitions();
             return result;
         }
+
+        public void StoreChanges(int id, string name)
+        {
+            var competition = _competitionRepository.GetCompetition(id);
+            competition.Name = name;
+            _competitionRepository.UpdateCompetition(competition);
+
+        }
     }
 }
