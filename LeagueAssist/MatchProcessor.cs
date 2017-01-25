@@ -52,5 +52,11 @@ namespace LeagueAssist
 
         }
 
+        public List<MatchReferees> GetListClubMatchs(int idClub, int season, int round, int competition)
+        {
+            List<MatchReferees> match = _matchRepository.GetClubMatchs(idClub, season, round, competition);
+            return match;
+        }
+
     }
 }

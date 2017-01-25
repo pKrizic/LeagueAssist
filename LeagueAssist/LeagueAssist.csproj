@@ -79,6 +79,7 @@
     <Compile Include="CountryRepository.cs" />
     <Compile Include="DeclareMatchDateReferee.cs" />
     <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\ClubInfo.cs" />
     <Compile Include="Entities\ClubPlayers.cs" />
     <Compile Include="Entities\Competition.cs" />
     <Compile Include="Entities\Contract.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Entities\Season.cs" />
     <Compile Include="FluentNHibernateHelper.cs" />
     <Compile Include="Mappings\CityMap.cs" />
+    <Compile Include="Mappings\ClubInfoMap.cs" />
     <Compile Include="Mappings\ClubPlayersMap.cs" />
     <Compile Include="Mappings\CompetitionMap.cs" />
     <Compile Include="Mappings\ContractMap.cs" />
@@ -141,12 +143,14 @@
     <Compile Include="Mappings\SeasonMap.cs" />
     <Compile Include="MatchActions.cs" />
     <Compile Include="MatchDetailInfo.cs" />
+    <Compile Include="ClubProcessor.cs" />
     <Compile Include="UserProcessor.cs" />
     <Compile Include="MatchProcessor.cs" />
     <Compile Include="MatchRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonProcessor.cs" />
     <Compile Include="SeasonRepository.cs" />
+    <Compile Include="ClubRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

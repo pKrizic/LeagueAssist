@@ -21,6 +21,14 @@ namespace LeagueAssistWeb.Controllers
             var clas = new UserProcessor();
             var myPlayer = clas.GetClubPleyers(idClub);
 
+            //ovo je za dohvat podataka o klubu!!
+            //var club = new ClubProcessor();
+            //var myClub = club.GetClubInformation(idClub);
+            
+            //preko ovog mozemo dohvatit moje utakmice za sezonu, kolo i natjecanje!
+            //var m = new MatchProcessor();
+            //var listM = m.GetListClubMatchs(3, 3, 1, 1);
+
             // Dummy data
             PlayerListViewModel igrac = new PlayerListViewModel();
             igrac.Id = 1;
