@@ -30,5 +30,9 @@ namespace LeagueAssistDesktop
             //dataGridView1.AutoGenerateColumns = true;
             //dataGridView1.AllowUserToAddRows = true;
         }
+
+        private void PregledKlubova_Load_1(object sender, EventArgs e)
+        {
+                    }
     }
 }
