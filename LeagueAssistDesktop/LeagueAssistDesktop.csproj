@@ -74,12 +74,6 @@
     <Compile Include="IzmjenaSudca.Designer.cs">
       <DependentUpon>IzmjenaSudca.cs</DependentUpon>
     </Compile>
-    <Compile Include="KreirajNatjecanje.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KreirajNatjecanje.Designer.cs">
-      <DependentUpon>KreirajNatjecanje.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,9 +171,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IzmjenaSudca.resx">
       <DependentUpon>IzmjenaSudca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="KreirajNatjecanje.resx">
-      <DependentUpon>KreirajNatjecanje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

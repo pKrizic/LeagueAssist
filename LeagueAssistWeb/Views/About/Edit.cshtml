@@ -1,75 +1,103 @@
 ﻿@model LeagueAssistWeb.Models.ClubDetailsViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Uredi podatke o klubu";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
+<hr />
+<br />
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>ClubDetailsViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.clubName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.clubName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.clubName, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="col-sm-12 panel-heading clearfix">
+                <span class="col-sm-6"><b>Podaci o klubu</b></span>
+                <span class="col-sm-6 text-right">
+                </span>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.stadiumName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.stadiumName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.stadiumName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.stadiumCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.stadiumCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.stadiumCapacity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.stadiumAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.stadiumAddress, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.stadiumAddress, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cityId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cityId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cityId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cityName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cityName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cityName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <table class="table table-borderless" style="border-top: none">
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Naziv kluba:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td align="left" class="col-xs-8" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Grad:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DropDownList("gradID", null, htmlAttributes: new { @class = "form-control" })
+                            </td>
+                            <td align="left" class="col-xs-8" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:none" />
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+<hr />
+<br />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="col-sm-12 panel-heading clearfix">
+                <span class="col-sm-6"><b>Podaci o stadionu</b></span>
+                <span class="col-sm-6 text-right">
+                </span>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <table class="table table-borderless" style="border-top: none">
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Naziv stadiona:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.EditorFor(model => model.stadium.name, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Kapacitet:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.EditorFor(model => model.stadium.capacity, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td align="left" class="col-xs-4" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Adresa:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.EditorFor(model => model.stadium.address, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Grad:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DropDownList("stadiumGradID", null, htmlAttributes: new { @class = "form-control" })
+                            </td>
+                            <td align="left" class="col-xs-4" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:none" />
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<p>
+    <div class="form-group">
+        <div class="col-xs-12" align="right">
+            <a href="@Url.Action("Edit")" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-save"></span>
+                Spremi
+            </a>
+        </div>
+    </div>
+</p>
+<br />

@@ -10,6 +10,7 @@ namespace LeagueAssist
     public interface ICompetitionRepository
     {
         List<Competition> GetCompetitions();
+        void StoreCompetition(Competition competition);
         void UpdateCompetition(Competition competition);
         Competition GetCompetition(int id);
     }
@@ -55,6 +56,20 @@ namespace LeagueAssist
                 }
             }
             return result;
+        }
+
+        public void StoreCompetition(Competition competition)
+        {
+            var result = competition;
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(result);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

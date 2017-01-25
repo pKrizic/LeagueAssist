@@ -13,5 +13,15 @@ namespace LeagueAssist.Entities
         public virtual int Capacity { get; set; }
         public virtual string Address { get; set; }
         public virtual City City { get; set; } 
+
+        public Stadium() { }
+        
+        public Stadium(string Name, int Capacity, string Adress, City City)
+        {
+            this.Name = Name;
+            this.Capacity = Capacity;
+            this.Address = Adress;
+            this.City = City;
+        }
     }
 }

@@ -18,33 +18,35 @@
     <br />
 
     <table class="table table-hover">
-        <tr style="border-bottom: none">
-            <th class="col-xs-4" style="border-bottom: none">
-                Ime
-            </th>
-            <th class="col-xs-4" style="border-bottom: none">
-                Prezime
-            </th>
-            <th class="col-xs-1" style="border-bottom: none;text-align: right">
-            </th>
-        </tr>
+        <thead style="border-bottom:solid; border-bottom-color:darkgray">
+            <tr style="border-bottom: none">
+                <th class="col-xs-4" style="border-bottom: none">
+                    Ime
+                </th>
+                <th class="col-xs-4" style="border-bottom: none">
+                    Prezime
+                </th>
+                <th class="col-xs-1" style="border-bottom: none;text-align: right">
+                </th>
+            </tr>
+        </thead>
         @if (Model != null)
         {
             foreach (var item in Model)
             {
                 <tr class="table-hover">
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
+                        @Html.DisplayFor(modelItem => item.firstName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
+                        @Html.DisplayFor(modelItem => item.lastName)
                     </td>
                     <td align="right">
-                        <a href="@Url.Action("Edit", new { id = item.Id })" style="margin-right:10px">
+                        <a href="@Url.Action("EditPlayer", new { id = item.getId() })" style="margin-right:10px">
                             <i class="glyphicon glyphicon-pencil"></i>
                             <span class="sr-only">Uredi</span>
                         </a>
-                        <a href="@Url.Action("EndPlayerContract", new { id = item.Id })">
+                        <a href="@Url.Action("EndPlayerContract", new { id = item.getId() })">
                             <i class="glyphicon glyphicon-ban-circle"></i>
                             <span class="sr-only">Obriši</span>
                         </a>
@@ -61,13 +63,13 @@
                 <b>Prikaz @Html.DropDownList("pageItems", ViewData["ItemsPerPage"] as SelectList, htmlAttributes: new { @class = "input-sm", @style = "width:65px; height:25px" }) po stranici</b>
             </div>
             <div class="col-xs-4" align="right">
-                <a href="@Url.Action("Create")" class="btn btn-primary">
+                <a href="@Url.Action("RegisterExistingPlayerSearch")" class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus-sign"></span>
                     Registriraj postojećeg igrača
                 </a>
             </div>
             <div class="col-xs-2" align="right">
-                <a href="@Url.Action("Create")" class="btn btn-primary">
+                <a href="@Url.Action("RegisterNewPlayer")" class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus-sign"></span>
                     Registriraj novog igrača
                 </a>

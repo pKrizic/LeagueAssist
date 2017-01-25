@@ -214,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MatchViewModel.cs" />
     <Compile Include="Models\SeasonViewModel.cs" />
     <Compile Include="Models\LeagueViewModel.cs" />
     <Compile Include="Models\ResultsViewModel.cs" />
@@ -289,17 +290,18 @@
     <Content Include="Views\About\Details.cshtml" />
     <Content Include="Views\About\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\RegisterExistingPlayer.cshtml" />
+    <Content Include="Views\Home\RegisterExistingPlayerSearch.cshtml" />
     <Content Include="Views\Home\RegisterNewPlayer.cshtml" />
     <Content Include="Views\Home\EditPlayer.cshtml" />
     <Content Include="Views\Home\PlayerDetails.cshtml" />
     <Content Include="Views\Home\EndPlayerContract.cshtml" />
     <Content Include="Views\Cup\Index.cshtml" />
     <Content Include="Views\League\Index.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Match\SignPlayers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Match\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
@@ -309,6 +311,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeagueAssist\LeagueAssist.csproj">
+      <Project>{d74277fe-d8fb-436e-9708-608aa725f509}</Project>
+      <Name>LeagueAssist</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

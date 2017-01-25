@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using LeagueAssistWeb.Models;
 using PagedList.Mvc;
 using PagedList;
+using LeagueAssist;
 
 namespace LeagueAssistWeb.Controllers
 {
@@ -13,70 +14,6 @@ namespace LeagueAssistWeb.Controllers
     {
         public ActionResult Index(int? page, int? pageItems)
         {
-            var igraci = new List<PlayerListViewModel>();
-
-            // Dummy data
-            PlayerListViewModel igrac = new PlayerListViewModel();
-            igrac.Id = 1;
-            igrac.FirstName = "Pero";
-            igrac.LastName = "Perić";
-            igraci.Add(igrac);
-            PlayerListViewModel igrac2 = new PlayerListViewModel();
-            igrac2.Id = 2;
-            igrac2.FirstName = "Jure";
-            igrac2.LastName = "Jurić";
-            igraci.Add(igrac2);
-            PlayerListViewModel igrac3 = new PlayerListViewModel();
-            igrac3.Id = 3;
-            igrac3.FirstName = "Marko";
-            igrac3.LastName = "Markić";
-            igraci.Add(igrac3);
-            PlayerListViewModel igrac4 = new PlayerListViewModel();
-            igrac4.Id = 4;
-            igrac4.FirstName = "Ivo";
-            igrac4.LastName = "Ivić";
-            igraci.Add(igrac4);
-            PlayerListViewModel igrac5 = new PlayerListViewModel();
-            igrac5.Id = 5;
-            igrac5.FirstName = "Ante";
-            igrac5.LastName = "Pepeo";
-            igraci.Add(igrac5);
-            PlayerListViewModel igrac6 = new PlayerListViewModel();
-            igrac6.Id = 6;
-            igrac6.FirstName = "Ante";
-            igrac6.LastName = "Bager";
-            igraci.Add(igrac6);
-            PlayerListViewModel igrac7 = new PlayerListViewModel();
-            igrac7.Id = 7;
-            igrac7.FirstName = "Ante";
-            igrac7.LastName = "Sibirski Plavac";
-            igraci.Add(igrac7);
-            PlayerListViewModel igrac8 = new PlayerListViewModel();
-            igrac8.Id = 8;
-            igrac8.FirstName = "Jusuf";
-            igrac8.LastName = "Dere đukelu";
-            igraci.Add(igrac8);
-            PlayerListViewModel igrac9 = new PlayerListViewModel();
-            igrac9.Id = 9;
-            igrac9.FirstName = "Nedaj seĐedo Nedaj";
-            igrac9.LastName = "seĐedo";
-            igraci.Add(igrac9);
-            PlayerListViewModel igrac10 = new PlayerListViewModel();
-            igrac10.Id = 10;
-            igrac10.FirstName = "Kokoš";
-            igrac10.LastName = "Kokošić";
-            igraci.Add(igrac10);
-            PlayerListViewModel igrac11 = new PlayerListViewModel();
-            igrac11.Id = 11;
-            igrac11.FirstName = "Igrač";
-            igrac11.LastName = "Igračić";
-            igraci.Add(igrac11);
-            PlayerListViewModel igrac12 = new PlayerListViewModel();
-            igrac12.Id = 12;
-            igrac12.FirstName = "Pas";
-            igrac12.LastName = "Mačka";
-            igraci.Add(igrac12);
-
             //<Broj stavki po stranici>
             List<SelectListItem> items = new List<SelectListItem>{
                 new SelectListItem{ Text="10", Value="10" },
@@ -94,7 +31,30 @@ namespace LeagueAssistWeb.Controllers
             int pageNumber = (page ?? 1);
             //</Paginacija>
 
-            return View(igraci.ToPagedList(pageNumber, pageSize));
+            var userProcessor = new UserProcessor();
+            int idClub = 2;
+            var players = new List<PlayerListViewModel>();
+
+            try
+            {
+                var myPlayers = userProcessor.GetClubPlayers(idClub);
+
+                foreach (var item in myPlayers)
+                {
+                    PlayerListViewModel player = new PlayerListViewModel();
+                    player.setId(item.Id);
+                    player.setFirstName(item.FirstName);
+                    player.setLastName(item.LastName);
+
+                    players.Add(player);
+                }
+            }
+            catch (Exception e)
+            {
+                //players = null;
+            }
+
+            return View(players.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: /Home/Details/5
@@ -106,7 +66,37 @@ namespace LeagueAssistWeb.Controllers
         // GET: /Home/EditPlayer/5
         public ActionResult EditPlayer(int id)
         {
-            return View();
+            var playerProcessor = new PlayerProcessor();
+            var player = new PlayerDetailsViewModel();
+            player.contract = new ContractViewModel();
+            player.healthCheck = new HealthCheckViewModel();
+
+            try
+            {
+                var myPlayer = playerProcessor.RetrievePlayerDetails(id);
+                decimal test;
+
+                player.id = myPlayer.Id;
+                player.firstName = myPlayer.FirstName;
+                player.lastName = myPlayer.LastName;
+                player.birthDate = myPlayer.BirthDate;
+                player.email = myPlayer.Email;
+                player.phone = myPlayer.Phone;
+                player.contract.annualSalary = myPlayer.AnnualSalary;
+                player.contract.dateFrom = myPlayer.DateFrom;
+                player.contract.dateTo = myPlayer.DateTo;
+                player.contract.foreigner = myPlayer.Foreigner;
+                player.contract.numberOnShirt = myPlayer.NumberOnShirt;
+                player.healthCheck.dateFrom = myPlayer.FromDate;
+                player.healthCheck.dateTo = myPlayer.ToDate;
+                player.healthCheck.remark = myPlayer.Remark;
+
+            }
+            catch (Exception e)
+            {
+                player = null;
+            }
+            return View(player);
         }
 
         // POST: /Home/EditPlayer/5
@@ -136,7 +126,12 @@ namespace LeagueAssistWeb.Controllers
             return View();
         }
 
-        public ActionResult RegisterExistingPlayer()
+        public ActionResult RegisterExistingPlayerSearch()
+        {
+            return View();
+        }
+
+        public ActionResult RegisterExistingPlayer(int? id)
         {
             return View();
         }

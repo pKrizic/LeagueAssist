@@ -15,5 +15,6 @@ namespace LeagueAssist.Entities
         public virtual Organization Organization { get; set; }
         public virtual bool Foreigner { get; set; }
         public virtual int NumberOnShirt { get; set; }
+        public virtual decimal AnnualSalary { get; set; }
     }
 }

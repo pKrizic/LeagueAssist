@@ -1,0 +1,122 @@
+﻿@model List<LeagueAssistWeb.Models.PlayerListViewModel>
+
+@{
+    ViewBag.Title = "Registriraj postojećeg igrača";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm("SearchPlayers", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline row" }))
+{
+    <div class="container">
+        <div class="col-sm-offset-1 col-sm-10">
+            <div class="panel panel-default">
+                <div class="col-sm-12 panel-heading clearfix">
+                    <span class="col-sm-3"><b>Filteri</b></span>
+                    <span type="button" data-toggle="collapse" class="glyphicon glyphicon-filter col-sm-9" data-target="#filterBody" align="right" />
+                </div>
+                <div id="filterBody" class="panel-body collapse" style="align-items:center">
+                    <div class="row">
+                        <div class="col-xs-3" align="right">
+                            <br />
+                            <b>Ime:</b>
+                        </div>
+                        <div class="col-sm-2" align="left">
+                            <br />
+                            @Html.TextBox("ImeSearch", ViewBag.ImeSearch as string, new { @class = "form-control" })
+                        </div>
+                        <div class="col-xs-3" align="right">
+                            <br />
+                            <b>Prezime:</b>
+                        </div>
+                        <div class="col-sm-2" align="left">
+                            <br />
+                            @Html.TextBox("PrezimeSearch", ViewBag.PrezimeSearch as string, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3" align="right">
+                            <br />
+                            <b>Godina rođenja od:</b>
+                        </div>
+                        <div class="col-sm-2" align="left">
+                            <br />
+                            @Html.TextBox("GodinaOdSearch", ViewBag.GodinaOdSearch as string, new { @class = "form-control" })
+                        </div>
+                        <div class="col-xs-3" align="right">
+                            <br />
+                            <b>Godina rođenja do:</b>
+                        </div>
+                        <div class="col-sm-2" align="left">
+                            <br />
+                            @Html.TextBox("GodinaDoSearch", ViewBag.GodinaDoSearch as string, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3" align="right">
+                            <br />
+                            <b>Ima klub:</b>
+                        </div>
+                        <div class="col-sm-2" align="left">
+                            <br />
+                            @Html.CheckBox("ImaKlubSearch", false, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6" align="right">
+                            <br />
+                            <button type="submit" value="Pretraži" class="btn btn-info">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pretraži
+                            </button>
+                        </div>
+                        <div class="col-sm-5" align="left">
+                            <br />
+                            <input type="button" class="btn btn-danger" value="Odustani" onclick="@("window.location.href='" + @Url.Action("SearchPlayers", "Home") + "'");" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Ime
+            </th>
+            <th>
+                Prezime
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.firstName
+                    </td>
+                    <td>
+                        @item.lastName
+                    </td>
+                    <td style="width: 1%;white-space: nowrap;">
+                        <button type="button" class="btn btn-success btn-sm" onclick="location.href='@Url.Action("RegisterExistingPlayerSearch", "Home", new { id = @item.Id })'">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            Uredi
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
