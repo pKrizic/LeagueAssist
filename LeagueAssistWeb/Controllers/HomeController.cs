@@ -42,15 +42,16 @@ namespace LeagueAssistWeb.Controllers
                 foreach (var item in myPlayers)
                 {
                     PlayerListViewModel player = new PlayerListViewModel();
-                    player.Id = item.Id;
-                    player.FirstName = item.FirstName;
-                    player.LastName = item.LastName;
+                    player.setId(item.Id);
+                    player.setFirstName(item.FirstName);
+                    player.setLastName(item.LastName);
+
                     players.Add(player);
                 }
             }
             catch (Exception e)
             {
-                players = null;
+                //players = null;
             }
 
             return View(players.ToPagedList(pageNumber, pageSize));
@@ -65,7 +66,37 @@ namespace LeagueAssistWeb.Controllers
         // GET: /Home/EditPlayer/5
         public ActionResult EditPlayer(int id)
         {
-            return View();
+            var playerProcessor = new PlayerProcessor();
+            var player = new PlayerDetailsViewModel();
+            player.contract = new ContractViewModel();
+            player.healthCheck = new HealthCheckViewModel();
+
+            try
+            {
+                var myPlayer = playerProcessor.RetrievePlayerDetails(id);
+                decimal test;
+
+                player.id = myPlayer.Id;
+                player.firstName = myPlayer.FirstName;
+                player.lastName = myPlayer.LastName;
+                player.birthDate = myPlayer.BirthDate;
+                player.email = myPlayer.Email;
+                player.phone = myPlayer.Phone;
+                player.contract.annualSalary = myPlayer.AnnualSalary;
+                player.contract.dateFrom = myPlayer.DateFrom;
+                player.contract.dateTo = myPlayer.DateTo;
+                player.contract.foreigner = myPlayer.Foreigner;
+                player.contract.numberOnShirt = myPlayer.NumberOnShirt;
+                player.healthCheck.dateFrom = myPlayer.FromDate;
+                player.healthCheck.dateTo = myPlayer.ToDate;
+                player.healthCheck.remark = myPlayer.Remark;
+
+            }
+            catch (Exception e)
+            {
+                player = null;
+            }
+            return View(player);
         }
 
         // POST: /Home/EditPlayer/5

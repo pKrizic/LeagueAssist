@@ -36,17 +36,17 @@
             {
                 <tr class="table-hover">
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
+                        @Html.DisplayFor(modelItem => item.firstName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
+                        @Html.DisplayFor(modelItem => item.lastName)
                     </td>
                     <td align="right">
-                        <a href="@Url.Action("EditPlayer", new { id = item.Id })" style="margin-right:10px">
+                        <a href="@Url.Action("EditPlayer", new { id = item.getId() })" style="margin-right:10px">
                             <i class="glyphicon glyphicon-pencil"></i>
                             <span class="sr-only">Uredi</span>
                         </a>
-                        <a href="@Url.Action("EndPlayerContract", new { id = item.Id })">
+                        <a href="@Url.Action("EndPlayerContract", new { id = item.getId() })">
                             <i class="glyphicon glyphicon-ban-circle"></i>
                             <span class="sr-only">Obriši</span>
                         </a>

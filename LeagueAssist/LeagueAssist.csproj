@@ -99,6 +99,7 @@
     <Compile Include="Entities\Penalty.cs" />
     <Compile Include="Entities\PenaltyEvidention.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\PlayerDetails.cs" />
     <Compile Include="Entities\PlayerPerformance.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Selection.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Mappings\PenaltyEvidentionMap.cs" />
     <Compile Include="Mappings\PenaltyMap.cs" />
     <Compile Include="Mappings\PersonMap.cs" />
+    <Compile Include="Mappings\PlayerDetailsMap.cs" />
     <Compile Include="Mappings\PlayerPerformanceMap.cs" />
     <Compile Include="Mappings\RoleMap.cs" />
     <Compile Include="Mappings\SelectionMap.cs" />
@@ -141,6 +143,8 @@
     <Compile Include="Mappings\SeasonMap.cs" />
     <Compile Include="MatchActions.cs" />
     <Compile Include="MatchDetailInfo.cs" />
+    <Compile Include="PlayerProcessor.cs" />
+    <Compile Include="PlayerRepository.cs" />
     <Compile Include="UserProcessor.cs" />
     <Compile Include="MatchProcessor.cs" />
     <Compile Include="MatchRepository.cs" />
