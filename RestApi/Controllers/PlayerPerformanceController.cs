@@ -16,8 +16,9 @@ namespace RestApi.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var clas = new Class1();
-            var response = clas.GetAllPlayerPerformance();
+            //var clas = new Class1();
+            var matchProcessor = new MatchProcessor();
+            var response = matchProcessor.GetPlayerPerformance();
             var message = new PlayerPerformanceResponse();
             if (response.Count > 0 && response != null)
             {

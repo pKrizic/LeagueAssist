@@ -68,6 +68,12 @@
     <Compile Include="GeneratorKola.Designer.cs">
       <DependentUpon>GeneratorKola.cs</DependentUpon>
     </Compile>
+    <Compile Include="IzmjenaSudca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzmjenaSudca.Designer.cs">
+      <DependentUpon>IzmjenaSudca.cs</DependentUpon>
+    </Compile>
     <Compile Include="KreirajNatjecanje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,12 @@
     <Compile Include="UnosStadiona.Designer.cs">
       <DependentUpon>UnosStadiona.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnosSudca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosSudca.Designer.cs">
+      <DependentUpon>UnosSudca.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrediKlub.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneratorKola.resx">
       <DependentUpon>GeneratorKola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzmjenaSudca.resx">
+      <DependentUpon>IzmjenaSudca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KreirajNatjecanje.resx">
       <DependentUpon>KreirajNatjecanje.cs</DependentUpon>
@@ -207,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnosStadiona.resx">
       <DependentUpon>UnosStadiona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosSudca.resx">
+      <DependentUpon>UnosSudca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UrediKlub.resx">
       <DependentUpon>UrediKlub.cs</DependentUpon>

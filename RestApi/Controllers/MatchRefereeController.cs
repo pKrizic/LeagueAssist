@@ -30,11 +30,17 @@ namespace RestApi.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
+            /*
             var clas = new Class1();
             var response = clas.GetMatchesForReferee(int.Parse(model.Id), int.Parse(model.BrojUtakmica));
             var result = new MatchRefereeResponse();
             result.listResponse = response;
+            */
+            var matchProcessor = new MatchProcessor();
+            var response = matchProcessor.RetrieveMatchesforReferee(int.Parse(model.Id), int.Parse(model.BrojUtakmica));
+            var result = new MatchRefereeResponse();
+            result.listResponse = response;
+
 
             return Ok(result);
         }

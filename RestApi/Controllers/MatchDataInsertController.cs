@@ -30,9 +30,14 @@ namespace RestApi.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
+            /*
             var clas = new Class1();
             clas.UpdateMatch(int.Parse(model.Id), int.Parse(model.HomeGoals), int.Parse(model.AwayGoals), model.Description, model.MatchActions);
+            return Ok();
+            */
+
+            var matchProcessor = new MatchProcessor();
+            matchProcessor.UpdateMatchInfo(int.Parse(model.Id), int.Parse(model.HomeGoals), int.Parse(model.AwayGoals), model.Description, model.MatchActions);
             return Ok();
         }
 

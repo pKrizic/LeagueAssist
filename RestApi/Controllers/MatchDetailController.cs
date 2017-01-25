@@ -31,6 +31,7 @@ namespace RestApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            /*
             var clas = new Class1();
             var Stadium = clas.GetMatchStadiumInfo(int.Parse(model.matchId));
             var MPActivity = clas.GetMatchActivityPlayers(int.Parse(model.matchId));
@@ -38,6 +39,11 @@ namespace RestApi.Controllers
 
             var result = new MatchDetailResponse();
             result.matchDetail = clas.GetMatchDetailInfo(Stadium, MPActivity, Players);
+            */
+            var matchProcessor = new MatchProcessor();
+            var response = matchProcessor.RetrieveMatchDetails(int.Parse(model.matchId));
+            var result = new MatchDetailResponse();
+            result.matchDetail = response;
 
             return Ok(result);
 
