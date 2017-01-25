@@ -34,15 +34,36 @@ namespace LeagueAssistDesktop
         {
             var matches = _seasonProcessor.RetrieveMatchesInOneFixture(int.Parse(comboBox2.SelectedValue.ToString()));
             var lista = new List<Match>();
+            var sudci = _seasonProcessor.RetrieveReferees();
             foreach (var match in matches)
                 lista.Add(new Match { Id = match.Id, HomeTeam = match.FirstOrg.Name, AwayTeam = match.SecondOrg.Name, Date = match.DateTime });
             dataGridView1.DataSource = lista;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            var buttonCol = new DataGridViewButtonColumn();
+            buttonCol.UseColumnTextForButtonValue = true;
+            buttonCol.Name = "ButtonColumnName";
+            buttonCol.HeaderText = "Sudac";
+            buttonCol.Text = "Postavi sudca";
+
+            dataGridView1.Columns.Add(buttonCol);
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataGridViewButtonCell button = (row.Cells["ButtonColumnName"] as DataGridViewButtonCell);
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var lista = dataGridView1.DataSource;
-            var nesto = _seasonProcessor.Repository.GetMatchesInOneFixture(1);
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (dataGridView1.Rows[e.RowIndex].Cells[0].Value != null)
+                {
+                    AddingReferee frm2 = new AddingReferee(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    frm2.Show();
+                }
+
+            }
         }
 
         private class Match

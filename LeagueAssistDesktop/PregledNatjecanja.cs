@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueAssist;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace LeagueAssistDesktop
         public PregledNatjecanja()
         {
             InitializeComponent();
+            var proc = new CompetitionProcessor();
+            var objects = proc.RetrieveCompetitions();
+            dataGridView1.DataSource = objects.Select(o => new
+            { Id = o.Id, Naziv = o.Name}).ToList();
+            dataGridView1.Columns[1].Width = 300;
         }
     }
 }

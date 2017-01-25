@@ -15,6 +15,7 @@ namespace LeagueAssist
         void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId);
         List<Fixture> GetFixtures();
         List<Match> GetMatchesInOneFixture(int fixtureId);
+        List<Person> GetPersons(int type);
     }
     public class SeasonRepository : ISeasonRepository
     {
@@ -27,6 +28,21 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     result = (List<Fixture>)session.QueryOver<Fixture>().List<Fixture>();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public List<Person> GetPersons(int type)
+        {
+            var result = new List<Person>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<Person>)session.QueryOver<Person>().Where(x => x.Type.Id == type).List<Person>();
                     transaction.Commit();
                 }
             }
@@ -116,7 +132,8 @@ namespace LeagueAssist
                                 FirstOrg = firstOrg,
                                 SecondOrg = secondOrg,
                                 Fixture = round,
-                                Competition = competition
+                                Competition = competition,
+                                DateTime = DateTime.Now.AddDays(round.Id * 7)
                             };
                             session.SaveOrUpdate(match);
                         }
