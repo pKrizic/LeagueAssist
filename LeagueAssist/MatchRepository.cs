@@ -18,7 +18,7 @@ namespace LeagueAssist
         List<PlayerPerformance> GetAllPlayerPerformance();
         Match GetMatch(int id);
         void UpdateMatch(Match match);    
-         List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
+        List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
     }
 
     public class MatchRepository : IMatchRepository

@@ -15,11 +15,13 @@ namespace LeagueAssist.Mappings
             Id(x => x.Id);
             Map(x => x.OrgName);
             Map(x => x.OrgCityName);
+            Map(x => x.OrgCityId);
             Map(x => x.Address);
             Map(x => x.Capacity);
             Map(x => x.StadiumName);
             Map(x => x.StadiumId);
             Map(x => x.StadiumCityName);
+            Map(x => x.StadiumCityId);
             Table("ClubInfo");
             ReadOnly();
         }
