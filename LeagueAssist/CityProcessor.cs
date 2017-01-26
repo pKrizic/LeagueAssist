@@ -7,7 +7,7 @@ using LeagueAssist.Entities;
 
 namespace LeagueAssist
 {
-    class CityProcessor
+    public class CityProcessor
     {
         private ICityRepository _cityRepository;
 
@@ -20,6 +20,11 @@ namespace LeagueAssist
         public CityProcessor()
         {
             _cityRepository = new CityRepository();
+        }
+
+        public List<City> ListOfCity()
+        {
+            return _cityRepository.getCities();
         }
     }
 }

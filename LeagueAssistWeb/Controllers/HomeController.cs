@@ -36,11 +36,6 @@ namespace LeagueAssistWeb.Controllers
             {
                 //players = null;
             }
-
-
-            //ovo je za dohvat podataka o klubu!!
-            //var club = new ClubProcessor();
-            //var myClub = club.GetClubInformation(idClub);
             
             //preko ovog mozemo dohvatit moje utakmice za sezonu, kolo i natjecanje!
             //var m = new MatchProcessor();
