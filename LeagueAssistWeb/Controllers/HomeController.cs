@@ -92,11 +92,13 @@ namespace LeagueAssistWeb.Controllers
                 player.birthDate = myPlayer.BirthDate;
                 player.email = myPlayer.Email;
                 player.phone = myPlayer.Phone;
+                player.contract.id = myPlayer.ContractId;
                 player.contract.annualSalary = myPlayer.AnnualSalary;
                 player.contract.dateFrom = myPlayer.DateFrom;
                 player.contract.dateTo = myPlayer.DateTo;
                 player.contract.foreigner = myPlayer.Foreigner;
                 player.contract.numberOnShirt = myPlayer.NumberOnShirt;
+                player.healthCheck.id = myPlayer.HealthCheckId;
                 player.healthCheck.dateFrom = myPlayer.FromDate;
                 player.healthCheck.dateTo = myPlayer.ToDate;
                 player.healthCheck.remark = myPlayer.Remark;
@@ -111,8 +113,12 @@ namespace LeagueAssistWeb.Controllers
 
         // POST: /Home/EditPlayer/5
         [HttpPost]
-        public ActionResult EditPlayer(int id, FormCollection collection)
+        public ActionResult EditPlayer(int id, PlayerDetailsViewModel model, FormCollection collection)
         {
+            var playerProcessor = new PlayerProcessor();
+
+            //playerProcessor.StorePlayerDetailsChanges();
+
             try
             {
                 // TODO: Add update logic here

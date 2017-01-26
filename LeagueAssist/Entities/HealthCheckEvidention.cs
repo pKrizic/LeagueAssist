@@ -8,7 +8,7 @@ namespace LeagueAssist.Entities
 {
     public class HealthCheckEvidention
     {
-        public virtual int Id { get; protected set; }
+        public virtual int Id { get; set; }
         public virtual Person Player { get; set; }
         public virtual DateTime FromDate { get; set; }
         public virtual DateTime ToDate { get; set; }

@@ -8,7 +8,7 @@ namespace LeagueAssist.Entities
 {
     public class Contract
     {
-        public virtual int Id { get; protected set; }
+        public virtual int Id { get; set; }
         public virtual Person Person { get; set; }
         public virtual DateTime DateFrom { get; set; }
         public virtual DateTime DateTo { get; set; }

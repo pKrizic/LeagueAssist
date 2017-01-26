@@ -14,11 +14,13 @@ namespace LeagueAssist.Entities
         public virtual string Email { get; set; }
         public virtual DateTime BirthDate { get; set; }
         public virtual string Phone { get; set; }
+        public virtual int ContractId { get; set; }
         public virtual decimal AnnualSalary { get; set; }
         public virtual DateTime DateFrom { get; set; }
         public virtual DateTime DateTo { get; set; }
         public virtual int NumberOnShirt { get; set; }
         public virtual bool Foreigner { get; set; }
+        public virtual int HealthCheckId { get; set; }
         public virtual DateTime FromDate { get; set; }
         public virtual DateTime ToDate { get; set; }
         public virtual string Remark { get; set; }
