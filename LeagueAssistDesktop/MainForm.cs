@@ -156,6 +156,14 @@ namespace LeagueAssistDesktop
             urediKlubForm.Dock = DockStyle.Fill;
             urediKlubForm.Show();
         }
+
+        private void klubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UnosLicencaKlub licencaKlub = new UnosLicencaKlub();
+            licencaKlub.MdiParent = this;
+            licencaKlub.Dock = DockStyle.Fill;
+            licencaKlub.Show();
+        }
     }
 }
 

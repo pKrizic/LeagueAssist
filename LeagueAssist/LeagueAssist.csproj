@@ -88,7 +88,7 @@
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\HealthCheckEvidention.cs" />
     <Compile Include="Entities\License.cs" />
-    <Compile Include="Entities\LicenseEvidention.cs" />
+    <Compile Include="Entities\LicenseClubEvidention.cs" />
     <Compile Include="Entities\ListOfMatch.cs" />
     <Compile Include="Entities\ListOfPlayers.cs" />
     <Compile Include="Entities\Match.cs" />
@@ -114,6 +114,8 @@
     <Compile Include="Entities\OrgCompetition.cs" />
     <Compile Include="Entities\Season.cs" />
     <Compile Include="FluentNHibernateHelper.cs" />
+    <Compile Include="LicenseProcessor.cs" />
+    <Compile Include="LicenseRepository.cs" />
     <Compile Include="Mappings\CityMap.cs" />
     <Compile Include="Mappings\ClubInfoMap.cs" />
     <Compile Include="Mappings\ClubPlayersMap.cs" />

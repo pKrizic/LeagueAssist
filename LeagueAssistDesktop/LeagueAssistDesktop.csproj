@@ -139,6 +139,12 @@
     <Compile Include="UnosKluba.Designer.cs">
       <DependentUpon>UnosKluba.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnosLicencaKlub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicencaKlub.Designer.cs">
+      <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnosStadiona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnosKluba.resx">
       <DependentUpon>UnosKluba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicencaKlub.resx">
+      <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnosStadiona.resx">
       <DependentUpon>UnosStadiona.cs</DependentUpon>

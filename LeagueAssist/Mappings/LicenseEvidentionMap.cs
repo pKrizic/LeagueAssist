@@ -8,16 +8,15 @@ using LeagueAssist.Entities;
 
 namespace LeagueAssist.Mappings
 {
-    class LicenseEvidentionMap : ClassMap<LicenseEvidention>
+    class LicenseClubEvidentionMap : ClassMap<LicenseClubEvidention>
     {
-        public LicenseEvidentionMap()
+        public LicenseClubEvidentionMap()
         {
             Id(x => x.Id);
             References(x => x.Organization);
             References(x => x.Season);
             References(x => x.License);
-            References(x => x.Competition);
-            Table("LicenseEvidention");
+            Table("LicenseClubEvidention");
         }
     }
 }

@@ -10,5 +10,6 @@ namespace LeagueAssist.Entities
     {
         public virtual int Id { get; protected set; }
         public virtual string Type { get; set; }
+        public virtual Competition Competition { get; set; }
     }
 }
