@@ -31,14 +31,14 @@ namespace UnitTest
             User user = new User();
 
             var repository = new Mock<IUserRepository>();
-            repository.Setup(x => x.GetUserByUsernameAndPassword(username, password)).Returns(user);
+            repository.Setup(x => x.GetUserByUsernameAndPassword(username, password, 1)).Returns(user);
 
             DataProcessor processor = new DataProcessor();
             processor.Repository = (IUserRepository)repository.Object;
 
-            var res = processor.ProccesData(username, password);
+            var res = processor.ProccesData(username, password, 1);
 
-            repository.Verify(x => x.GetUserByUsernameAndPassword(username, password), Times.Exactly(1));
+            repository.Verify(x => x.GetUserByUsernameAndPassword(username, password, 1), Times.Exactly(1));
         }
     }
 }

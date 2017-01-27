@@ -36,12 +36,11 @@ namespace LeagueAssistWeb.Controllers
             {
                 //players = null;
             }
-            
+
             //preko ovog mozemo dohvatit moje utakmice za sezonu, kolo i natjecanje!
             //var m = new MatchProcessor();
             //var listM = m.GetListClubMatchs(3, 3, 1, 1);
 
-            
             //<Broj stavki po stranici>
             List<SelectListItem> items = new List<SelectListItem>{
                 new SelectListItem{ Text="10", Value="10" },
