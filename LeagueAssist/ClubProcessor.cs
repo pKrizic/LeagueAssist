@@ -26,7 +26,6 @@ namespace LeagueAssist
         {
             ClubInfo result = _clubRepository.GetClubInfo(id);
             return result;
-
         }
 
         public Organization getMyClub(int idUser)
