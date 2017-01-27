@@ -18,8 +18,8 @@ namespace LeagueAssist.Mappings
             Map(x => x.BirthDate);
             Map(x => x.Email);
             Map(x => x.Phone);
-            References(x => x.Type);
-            References(x => x.User);
+            References(x => x.Type).Not.LazyLoad();
+            References(x => x.User).Not.LazyLoad();
         }
     }
 }

@@ -108,7 +108,7 @@
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Selection.cs" />
     <Compile Include="Entities\Stadium.cs" />
-    <Compile Include="Entities\Type.cs" />
+    <Compile Include="Entities\PersonType.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Fixture.cs" />
     <Compile Include="Entities\OrgCompetition.cs" />
@@ -142,7 +142,7 @@
     <Compile Include="Mappings\RoleMap.cs" />
     <Compile Include="Mappings\SelectionMap.cs" />
     <Compile Include="Mappings\StadiumMap.cs" />
-    <Compile Include="Mappings\TypeMap.cs" />
+    <Compile Include="Mappings\PersonTypeMap.cs" />
     <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="Mappings\FixtureMap.cs" />
     <Compile Include="Mappings\OrgCompetitionMap.cs" />
@@ -169,6 +169,10 @@
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Processors\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -23,10 +23,10 @@ namespace LeagueAssist
             _repository = new UserRepository();
         }
 
-        public string ProccesData(string username, string password)
+        public string ProccesData(string username, string password, int roleId)
         {
             var message = "";
-            User user = _repository.GetUserByUsernameAndPassword(username, password);
+            User user = _repository.GetUserByUsernameAndPassword(username, password, roleId);
             if (user != null)
                 message = user.Id.ToString();
             return message;

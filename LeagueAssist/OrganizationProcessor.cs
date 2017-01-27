@@ -25,5 +25,11 @@ namespace LeagueAssist
             List<Organization> result = _organizationRepository.getOrganizations();
             return result;
         }
+
+    public Organization getOrganization(int id)
+        {
+            Organization result = _organizationRepository.getOrganization(id);
+            return result;
+        }
     }
 }
