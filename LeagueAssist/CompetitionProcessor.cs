@@ -28,20 +28,33 @@ namespace LeagueAssist
             return result;
         }
 
-        public void PrepareStoreCompetition(String competitionName, Organization Organization)
+        public string PrepareStoreCompetition(String competitionName, Organization Organization)
         {
-           
-            var result = new Competition(competitionName, Organization);
-            _competitionRepository.StoreCompetition(result);
-
+            var message = "";
+            if (String.IsNullOrEmpty(competitionName))
+                message = "Neka polja nisu popunjena";
+            else
+            {
+                var result = new Competition(competitionName, Organization);
+                _competitionRepository.StoreCompetition(result);
+                message = "Uspješno spremljeno natjecanje";
+            }
+            return message;
         }
 
-        public void StoreChanges(int id, string name)
+        public string StoreChanges(int id, string name)
         {
-            var competition = _competitionRepository.GetCompetition(id);
-            competition.Name = name;
-            _competitionRepository.UpdateCompetition(competition);
-
+            var message = "";
+            if (String.IsNullOrEmpty(name))
+                message = "Upišite naziv natjecanja.";
+            else
+            {
+                var competition = _competitionRepository.GetCompetition(id);
+                competition.Name = name;
+                _competitionRepository.UpdateCompetition(competition);
+                message = "Podaci su uspješno spremljeni.";
+            }
+            return message;
         }
     }
 }
