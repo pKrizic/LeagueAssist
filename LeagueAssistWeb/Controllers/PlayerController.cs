@@ -117,13 +117,15 @@ namespace LeagueAssistWeb.Controllers
         [HttpPost]
         public ActionResult EditPlayer(int id, PlayerDetailsViewModel model, FormCollection collection)
         {
+            int idClub = 2;
             var playerProcessor = new PlayerProcessor();
-            
+            var organization = RetrieveOrganization(idClub);
+
             try
             {
                 if(ModelState.IsValid)
                 {
-                    playerProcessor.StorePlayerDetailsChanges(model.player, model.contract, model.healthCheck);
+                    playerProcessor.StorePlayerDetailsChanges(model.player, model.contract, model.healthCheck, organization);
                     return RedirectToAction("Index");
                 }    
             }
@@ -175,7 +177,7 @@ namespace LeagueAssistWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult RegisterNewPlayer(int id, PlayerDetailsViewModel model, FormCollection collection)
+        public ActionResult RegisterNewPlayer(PlayerDetailsViewModel model, FormCollection collection)
         {
             var idClub = 2;
             var playerProcessor = new PlayerProcessor();
@@ -194,7 +196,6 @@ namespace LeagueAssistWeb.Controllers
                 return View();
             }
 
-            return View();
             return View();
         }
 

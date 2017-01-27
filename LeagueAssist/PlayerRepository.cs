@@ -13,6 +13,7 @@ namespace LeagueAssist
         Person GetPlayer(int playerId);
         Contract GetContract(int contractId);
         HealthCheckEvidention GetHealthCheck(int healthCheckId);
+        List<PersonType> GetPlayerTypes();
         void UpdatePlayer(Person player);
         void UpdateContract(Contract contract);
         void UpdateHealthCheck(HealthCheckEvidention healthCheck);
@@ -73,6 +74,21 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     result = (HealthCheckEvidention)session.QueryOver<HealthCheckEvidention>().Where(x => x.Id == healthCheckId).List().First();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public List<PersonType> GetPlayerTypes()
+        {
+            var result = new List<PersonType>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<PersonType>)session.QueryOver<PersonType>().List<PersonType>();
                     transaction.Commit();
                 }
             }

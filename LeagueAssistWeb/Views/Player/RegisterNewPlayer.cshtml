@@ -7,6 +7,9 @@
 <h2>@ViewBag.Title</h2>
 <hr />
 <br />
+
+@using (Html.BeginForm("RegisterNewPlayer", "Player", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
 <div class="row">
     <div class="col-sm-12">
         <div class="panel panel-default">
@@ -162,15 +165,15 @@
 <br />
 <p>
     <div class="form-group">
-        <div class="col-xs-12" align="right">
-            <a href="@Url.Action("RegisterNewPlayer")" class="btn btn-success">
-                <span class="glyphicon glyphicon-floppy-save"></span>
-                Registriraj
-            </a>
+        <div class="form-group">
+            <div class="col-xs-12" align="right">
+                <input type="submit" value="Registriraj" class="btn btn-success" />
+            </div>
         </div>
     </div>
 </p>
 <br />
+}
 
 <div>
     @Html.ActionLink("Povratak na popis", "Index")
