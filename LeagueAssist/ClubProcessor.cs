@@ -29,5 +29,10 @@ namespace LeagueAssist
 
         }
 
+        public Organization getMyClub(int idUser)
+        {
+            return _clubRepository.GetOrganizationInfo(idUser);
+        }
+
     }
 }
