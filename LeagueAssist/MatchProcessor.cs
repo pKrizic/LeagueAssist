@@ -18,6 +18,12 @@ namespace LeagueAssist
             set { _matchRepository = value; }
         }
 
+        public IUserRepository UserRepository
+        {
+            get { return _userRepository; }
+            set { _userRepository = value; }
+        }
+
         public MatchProcessor()
         {
             _matchRepository = new MatchRepository();
