@@ -14,7 +14,7 @@ namespace LeagueAssist.Entities
         public virtual DateTime BirthDate { get; set; }
         public virtual string Email { get; set; }
         public virtual string Phone { get; set; }
-        public virtual Type Type { get; set; }
+        public virtual PersonType Type { get; set; }
         public virtual User User { get; set; }
     }
 }

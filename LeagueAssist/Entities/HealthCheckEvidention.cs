@@ -13,5 +13,15 @@ namespace LeagueAssist.Entities
         public virtual DateTime FromDate { get; set; }
         public virtual DateTime ToDate { get; set; }
         public virtual string Remark { get; set; }
+
+        public HealthCheckEvidention() { }
+
+        public HealthCheckEvidention(HealthCheckEvidention healthCheck)
+        {
+            this.Player = healthCheck.Player;
+            this.FromDate = healthCheck.FromDate;
+            this.ToDate = healthCheck.ToDate;
+            this.Remark = healthCheck.Remark;
+        }
     }
 }

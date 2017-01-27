@@ -16,5 +16,18 @@ namespace LeagueAssist.Entities
         public virtual bool Foreigner { get; set; }
         public virtual int NumberOnShirt { get; set; }
         public virtual decimal AnnualSalary { get; set; }
+
+        public Contract() { }
+        
+        public Contract(Contract contract)
+        {
+            this.Person = contract.Person;
+            this.DateFrom = contract.DateFrom;
+            this.DateTo = contract.DateTo;
+            this.Organization = contract.Organization;
+            this.Foreigner = contract.Foreigner;
+            this.NumberOnShirt = contract.NumberOnShirt;
+            this.AnnualSalary = contract.AnnualSalary;
+        }
     }
 }

@@ -1,16 +1,12 @@
 ﻿@model LeagueAssistWeb.Models.PlayerDetailsViewModel
 
 @{
-    ViewBag.Title = "Raskini ugovor s igračem";
-    ViewBag.Subtitle = "Jeste li sigurni da želite raskinuti ugovor s ovim igračem?";
+    ViewBag.Title = "Registriraj novog igrača";
 }
 
 <h2>@ViewBag.Title</h2>
-
 <hr />
-<h4>@ViewBag.Subtitle</h4>
 <br />
-
 <div class="row">
     <div class="col-sm-12">
         <div class="panel panel-default">
@@ -26,29 +22,29 @@
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Ime:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.player.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Email:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.player.Email, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-4" style="border-top: none"></td>
                         </tr>
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Prezime:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.player.LastName, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Telefon:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.player.Phone, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-4" style="border-top: none"></td>
                         </tr>
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Datum rođenja:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.birthDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.player.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-2" style="border-top: none"></td>
                             <td align="right" class="col-xs-2" style="border-top: none"></td>
@@ -81,29 +77,73 @@
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Plaća (god.):</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.contract.annualSalary, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.contract.AnnualSalary, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Broj na dresu:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.contract.numberOnShirt, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.contract.NumberOnShirt, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-4" style="border-top: none"></td>
                         </tr>
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi od:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.contract.dateFrom, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.contract.DateFrom, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi do:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.contract.dateTo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.contract.DateTo, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-4" style="border-top: none"></td>
                         </tr>
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Stranac:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.DisplayFor(model => model.contract.foreigner, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.contract.Foreigner, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td align="left" class="col-xs-2" style="border-top: none"></td>
+                            <td align="right" class="col-xs-2" style="border-top: none"></td>
+                            <td align="right" class="col-xs-4" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:none" />
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<br />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="col-sm-12 panel-heading clearfix">
+                <span class="col-sm-6"><b>Podaci o lječnčikom</b></span>
+                <span class="col-sm-6 text-right">
+                </span>
+            </div>
+
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <table class="table table-borderless" style="border-top: none">
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi od:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.EditorFor(model => model.healthCheck.FromDate, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi do:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.EditorFor(model => model.healthCheck.ToDate, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td align="left" class="col-xs-4" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Napomena:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.TextAreaFor(model => model.healthCheck.Remark, new { @class = "form-control", @rows = "8" })
                             </td>
                             <td align="left" class="col-xs-2" style="border-top: none"></td>
                             <td align="right" class="col-xs-2" style="border-top: none"></td>
@@ -123,15 +163,15 @@
 <p>
     <div class="form-group">
         <div class="col-xs-12" align="right">
-            <a href="@Url.Action("EndPlayerContract")" class="btn btn-danger">
-                <span class="glyphicon glyphicon-ban-circle"></span>
-                Raskini
+            <a href="@Url.Action("RegisterNewPlayer")" class="btn btn-success">
+                <span class="glyphicon glyphicon-floppy-save"></span>
+                Registriraj
             </a>
         </div>
     </div>
 </p>
 <br />
 
-<p>
+<div>
     @Html.ActionLink("Povratak na popis", "Index")
-</p>
+</div>

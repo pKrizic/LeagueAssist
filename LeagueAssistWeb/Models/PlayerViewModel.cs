@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using LeagueAssist.Entities;
 
 namespace LeagueAssistWeb.Models
 {
@@ -45,6 +46,15 @@ namespace LeagueAssistWeb.Models
 
     public class PlayerDetailsViewModel
     {
+        public Person player { get; set; }
+        public Contract contract { get; set; } 
+        public HealthCheckEvidention healthCheck { get; set; }
+        
+    }
+
+    /*
+    public class Person
+    {
         public int id { get; set; }
         [Display(Name = "Ime")]
         public string firstName { get; set; }
@@ -56,12 +66,9 @@ namespace LeagueAssistWeb.Models
         public string email { get; set; }
         [Display(Name = "Telefon")]
         public string phone { get; set; }
-        public ContractViewModel contract { get; set; } 
-        public HealthCheckViewModel healthCheck { get; set; }
-        
     }
 
-    public class ContractViewModel
+    public class Contract
     {
         public int? id { get; set; }
         public DateTime? dateFrom { get; set; }
@@ -71,11 +78,12 @@ namespace LeagueAssistWeb.Models
         public decimal? annualSalary { get; set; }
     }
 
-    public class HealthCheckViewModel
+    public class HealthCheck
     {
         public int? id { get; set; }
         public DateTime? dateFrom { get; set; }
         public DateTime? dateTo { get; set; }
         public string remark { get; set; }
     }
+    */
 }

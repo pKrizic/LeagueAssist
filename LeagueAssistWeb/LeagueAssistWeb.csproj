@@ -206,7 +206,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CupController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\LeagueController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
@@ -289,12 +289,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\About\Details.cshtml" />
     <Content Include="Views\About\Edit.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\RegisterExistingPlayerSearch.cshtml" />
-    <Content Include="Views\Home\RegisterNewPlayer.cshtml" />
-    <Content Include="Views\Home\EditPlayer.cshtml" />
-    <Content Include="Views\Home\PlayerDetails.cshtml" />
-    <Content Include="Views\Home\EndPlayerContract.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
+    <Content Include="Views\Player\RegisterExistingPlayerSearch.cshtml" />
+    <Content Include="Views\Player\RegisterNewPlayer.cshtml" />
+    <Content Include="Views\Player\EditPlayer.cshtml" />
+    <Content Include="Views\Player\PlayerDetails.cshtml" />
+    <Content Include="Views\Player\EndPlayerContract.cshtml" />
     <Content Include="Views\Cup\Index.cshtml" />
     <Content Include="Views\League\Index.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />

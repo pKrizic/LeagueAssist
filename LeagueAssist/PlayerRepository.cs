@@ -28,7 +28,7 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     result = (PlayerDetails)session.QueryOver<PlayerDetails>().Where(x => x.Id == playerId).OrderBy(x => x.DateTo).Desc.List().First();
-                    transaction.Commit();
+                    //transaction.Commit();
                 }
             }
             return result;

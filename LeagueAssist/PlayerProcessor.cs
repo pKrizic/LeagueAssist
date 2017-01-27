@@ -46,55 +46,76 @@ namespace LeagueAssist
             return healthCheck;
         }
 
-        public void StorePlayerDetailsChanges(PlayerDetails playerDetails)
+        public void StorePlayerDetailsChanges(Person player, Contract contract, HealthCheckEvidention healthCheck, Organization organization)
         {
-            Person player = new Person();
-            Contract contract = new Contract();
-            HealthCheckEvidention healthCheck = new HealthCheckEvidention();
-
-            player.Id = playerDetails.Id;
-            player.FirstName = playerDetails.FirstName;
-            player.LastName = playerDetails.LastName;
-            player.BirthDate = playerDetails.BirthDate;
-            player.Email = playerDetails.Email;
-            player.Phone = playerDetails.Phone;
-
-            contract.Id = playerDetails.ContractId;
-            contract.DateFrom = playerDetails.DateFrom;
-            contract.DateTo = playerDetails.DateTo;
-            contract.AnnualSalary = playerDetails.AnnualSalary;
-            contract.NumberOnShirt = playerDetails.NumberOnShirt;
-            contract.Foreigner = playerDetails.Foreigner;
-
-            healthCheck.Id = playerDetails.HealthCheckId;
-            healthCheck.FromDate = playerDetails.FromDate;
-            healthCheck.ToDate = playerDetails.ToDate;
-            healthCheck.Remark = playerDetails.Remark;
-
             StorePlayerChanges(player);
-            StoreContractChanges(contract);
-            StoreHealthCheckChanges(healthCheck);
+
+            if (contract.Id == 0)
+            {
+                contract.Person = player;
+                contract.Organization = organization;
+                StoreNewContract(contract);
+            } else
+            {
+                StoreContractChanges(contract);
+            }
+            
+            if (healthCheck.Id == 0)
+            {
+                healthCheck.Player = player;
+                StoreNewHealthCheck(healthCheck);
+            } else
+            {
+                StoreHealthCheckChanges(healthCheck);
+            }
         }
 
         public void StorePlayerChanges(Person player)
         {
             var _player = RetrievePlayer(player.Id);
-            _player = player;
+            _player.FirstName = player.FirstName;
+            _player.LastName = player.LastName;
+            _player.BirthDate = player.BirthDate;
+            _player.Email = player.Email;
+            _player.Phone = player.Phone;
+
             _playerRepository.UpdatePlayer(_player);
         }
 
         public void StoreContractChanges(Contract contract)
         {
             var _contract = RetrieveContract(contract.Id);
-            _contract = contract;
+
+            _contract.DateFrom = contract.DateFrom;
+            _contract.DateTo = contract.DateTo;
+            _contract.AnnualSalary = contract.AnnualSalary;
+            _contract.NumberOnShirt = contract.NumberOnShirt;
+            _contract.Foreigner = contract.Foreigner;
+
             _playerRepository.UpdateContract(_contract);
         }
 
         public void StoreHealthCheckChanges(HealthCheckEvidention healthCheck)
         {
             var _healthCheck = RetrieveHealthCheck(healthCheck.Id);
-            _healthCheck = healthCheck;
+
+            _healthCheck.FromDate = healthCheck.FromDate;
+            _healthCheck.ToDate = healthCheck.ToDate;
+            _healthCheck.Remark = healthCheck.Remark;
+
             _playerRepository.UpdateHealthCheck(_healthCheck);
+        }
+
+        public void StoreNewHealthCheck(HealthCheckEvidention healthCheck)
+        {
+            var _healthCheck = new HealthCheckEvidention(healthCheck);
+            _playerRepository.UpdateHealthCheck(_healthCheck);
+        }
+
+        public void StoreNewContract(Contract contract)
+        {
+            var _contract = new Contract(contract);
+            _playerRepository.UpdateContract(_contract);
         }
     }
 }
