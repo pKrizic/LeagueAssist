@@ -13,6 +13,7 @@ namespace LeagueAssist
         void StoreCompetition(Competition competition);
         void UpdateCompetition(Competition competition);
         Competition GetCompetition(int id);
+        void AddCompetitionAndClubs(List<OrgCompetition> orgComp);
     }
     public class CompetitionRepository : ICompetitionRepository
     {
@@ -68,6 +69,20 @@ namespace LeagueAssist
                 {
                     session.SaveOrUpdate(result);
                     transaction.Commit();
+                }
+            }
+        }
+
+        public void AddCompetitionAndClubs(List<OrgCompetition> orgComp)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var trans = session.BeginTransaction())
+                {
+                    foreach (var org in orgComp)
+                        session.SaveOrUpdate(org);
+                    trans.Commit();
                 }
             }
         }

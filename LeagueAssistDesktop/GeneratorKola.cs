@@ -30,8 +30,8 @@ namespace LeagueAssistDesktop
             int seasonId = int.Parse(comboBox1.SelectedValue.ToString());
             int competitionId = int.Parse(comboBox2.SelectedValue.ToString());
             var seasonProcessor = new SeasonProcessor();
-            seasonProcessor.GenerateTheFixturesForTheSeason(competitionId, seasonId);
-            MessageBox.Show("Kola za sljedeću sezonu su uspješno generirana.");
+            var message = seasonProcessor.GenerateTheFixturesForTheSeason(competitionId, seasonId);
+            MessageBox.Show(message);
         }
     }
 }

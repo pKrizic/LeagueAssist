@@ -10,10 +10,9 @@ namespace LeagueAssistWeb.Controllers
 {
     public class AboutController : Controller
     {
-        // GET: About/Details/
-        public ActionResult Details()
+
+        public ClubDetailsViewModel retrieveClub(int idClub)
         {
-            int idClub = 2;
             var clubProcessor = new ClubProcessor();
             var myClub = clubProcessor.GetClubInformation(idClub);
 
@@ -22,44 +21,35 @@ namespace LeagueAssistWeb.Controllers
             club.city = new CityDetailsViewModel();
             club.stadium = new StadiumDetailsViewModel();
             club.stadium.city = new CityDetailsViewModel();
-
+            //club info
             club.id = myClub.Id;
             club.name = myClub.OrgName;
             club.city.id = myClub.OrgCityId;
             club.city.name = myClub.OrgCityName;
-
+            //stadium info
             club.stadium.id = myClub.StadiumId;
             club.stadium.name = myClub.StadiumName;
             club.stadium.address = myClub.Address;
             club.stadium.capacity = myClub.Capacity;
             club.stadium.city.id = myClub.StadiumCityId;
             club.stadium.city.name = myClub.StadiumCityName;
+
+            return club;
+        }
+
+        // GET: About/Details/
+        public ActionResult Details()
+        {
+            int idClub = 2;
+            var club = retrieveClub(idClub);
+            
             return View(club);
         }
 
         // GET: About/Edit/5
         public ActionResult Edit(int id)
         {
-            var clubProcessor = new ClubProcessor();
-            var myClub = clubProcessor.GetClubInformation(id);
-
-
-            var club = new ClubDetailsViewModel();
-            club.city = new CityDetailsViewModel();
-            club.stadium = new StadiumDetailsViewModel();
-            club.stadium.city = new CityDetailsViewModel();
-
-            club.id = myClub.Id;
-            club.name = myClub.OrgName;
-            club.city.id = myClub.OrgCityId;
-            club.city.name = myClub.OrgCityName;
-
-            club.stadium.id = myClub.StadiumId;
-            club.stadium.name = myClub.StadiumName;
-            club.stadium.address = myClub.Address;
-            club.stadium.capacity = myClub.Capacity;
-            club.stadium.city.id = myClub.StadiumCityId;
-            club.stadium.city.name = myClub.StadiumCityName;
+            var club = retrieveClub(id);
 
             var cityProcessor = new CityProcessor();
             var listOfCity = cityProcessor.ListOfCity();

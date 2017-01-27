@@ -25,8 +25,8 @@ namespace LeagueAssistDesktop
             int id = int.Parse(textBox1.Text);
             string name = textBox2.Text;
             var processor = new CompetitionProcessor();
-            processor.StoreChanges(id, name);
-            MessageBox.Show("Podaci su uspješno ažurirani");
+            var result = processor.StoreChanges(id, name);
+            MessageBox.Show(result);
         }
     }
 }

@@ -16,6 +16,8 @@ namespace LeagueAssist.Mappings
             Map(x => x.FirstName);
             Map(x => x.LastName);
             Map(x => x.Organization_Id);
+            Map(x => x.DateFrom);
+            Map(x => x.DateTo);
         }
     }
 }

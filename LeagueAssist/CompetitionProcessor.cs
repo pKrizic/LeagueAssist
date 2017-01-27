@@ -28,20 +28,42 @@ namespace LeagueAssist
             return result;
         }
 
-        public void PrepareStoreCompetition(String competitionName, Organization Organization)
+        public string PrepareStoreCompetition(String competitionName, Organization Organization)
         {
-           
-            var result = new Competition(competitionName, Organization);
-            _competitionRepository.StoreCompetition(result);
-
+            var message = "";
+            if (String.IsNullOrEmpty(competitionName))
+                message = "Neka polja nisu popunjena";
+            else
+            {
+                var result = new Competition(competitionName, Organization);
+                _competitionRepository.StoreCompetition(result);
+                message = "Uspješno spremljeno natjecanje";
+            }
+            return message;
         }
 
-        public void StoreChanges(int id, string name)
+        public string StoreOrganizationsIncompetition(Competition comp, Season season, List<Organization> listOrg)
         {
-            var competition = _competitionRepository.GetCompetition(id);
-            competition.Name = name;
-            _competitionRepository.UpdateCompetition(competition);
+            List<OrgCompetition> listOrgComp = new List<OrgCompetition>();
+            foreach (var org in listOrg)
+                listOrgComp.Add(new OrgCompetition { Organization = org, Competition = comp, Season = season });
+            _competitionRepository.AddCompetitionAndClubs(listOrgComp);
+            return "Podaci su uspješno spremljeni";
+        }
 
+        public string StoreChanges(int id, string name)
+        {
+            var message = "";
+            if (String.IsNullOrEmpty(name))
+                message = "Upišite naziv natjecanja.";
+            else
+            {
+                var competition = _competitionRepository.GetCompetition(id);
+                competition.Name = name;
+                _competitionRepository.UpdateCompetition(competition);
+                message = "Podaci su uspješno spremljeni.";
+            }
+            return message;
         }
     }
 }

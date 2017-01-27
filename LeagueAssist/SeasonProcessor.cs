@@ -52,11 +52,20 @@ namespace LeagueAssist
             return result;
         }
 
-        public void GenerateTheFixturesForTheSeason (int competitionId, int seasonId)
+        public string GenerateTheFixturesForTheSeason (int competitionId, int seasonId)
         {
+            bool alreadyCreated = _seasonRepository.MatchesGenerated(competitionId);
+            string message = "";
+            if (alreadyCreated)
+            {
+                message = "Već ste kreirali kola za narednu sezonu";
+                return message;
+            }
             List<int> clubIds = _seasonRepository.GetIdsOfClubsInCompetition(competitionId, seasonId);
             var dict = RoundRobinScheduler(clubIds);
             _seasonRepository.StoreMatchesFromSeason(dict, competitionId);
+            message = "Kola su uspješno generirana";
+            return message;
         }
 
         private Dictionary<int, List<int[]>> RoundRobinScheduler(List<int> ids)
@@ -65,7 +74,7 @@ namespace LeagueAssist
             List<int[]> listaParova = new List<int[]>();
             if ((ids.Count % 2) == 1)
                 ids.Add(0);
-            int brojKola = (ids.Count - 1);
+            int numberOfRounds = (ids.Count - 1);
             int halfSize = ids.Count / 2;
 
             List<int> teams = new List<int>();
@@ -73,7 +82,7 @@ namespace LeagueAssist
             teams.AddRange(ids.Skip(1).Take(halfSize - 1).ToArray().Reverse());
             int teamsSize = teams.Count;
 
-            for (int day = 0; day < brojKola; day++)
+            for (int day = 0; day < numberOfRounds; day++)
             {
                 dict.Add(day + 1, null);
                 int teamIdx = day % teamsSize;

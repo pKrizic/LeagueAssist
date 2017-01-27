@@ -21,6 +21,7 @@ namespace LeagueAssist
         Organization GetClub(int id);
         OrgStadium GetOrgStadForClub(int id);
         void UpdateClub(Organization org, OrgStadium stadium);
+        Organization GetOrganizationInfo(int idUser);
     }
 
     public class ClubRepository : IClubRepository
@@ -209,5 +210,21 @@ namespace LeagueAssist
             return message;
         }
 
+
+        public Organization GetOrganizationInfo(int idUser)
+        {
+            Organization message = null;
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    message = session.QueryOver<Organization>().Where(u => (u.User.Id == idUser)).List().FirstOrDefault();
+                    transaction.Commit();
+
+                }
+            }
+            return message;
+        }
     }
 }

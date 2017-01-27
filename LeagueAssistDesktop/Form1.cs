@@ -28,14 +28,14 @@ namespace LeagueAssistDesktop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txt_password.Text == "" || txt_username.Text == "" )
+            if (String.IsNullOrEmpty(txt_username.Text) || String.IsNullOrEmpty(txt_password.Text))
             {
                 MessageBox.Show("Upišite korisničko ime i lozinku");
                 return;
             }
 
             var clas = new DataProcessor();
-            var response = clas.ProccesData(txt_username.Text, txt_password.Text);
+            var response = clas.ProccesData(txt_username.Text, txt_password.Text, 1);
             if (response == "")
                 MessageBox.Show("Krivo korisničko ime ili lozinka");
             else

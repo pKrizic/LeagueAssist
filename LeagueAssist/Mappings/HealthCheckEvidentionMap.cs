@@ -13,7 +13,7 @@ namespace LeagueAssist.Mappings
         public HealthCheckEvidentionMap()
         {
             Id(x => x.Id);
-            References(x => x.Player);
+            References(x => x.Player).Not.LazyLoad();
             Map(x => x.FromDate);
             Map(x => x.ToDate);
             Map(x => x.Remark);
