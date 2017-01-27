@@ -42,6 +42,15 @@ namespace LeagueAssist
             return message;
         }
 
+        public string StoreOrganizationsIncompetition(Competition comp, Season season, List<Organization> listOrg)
+        {
+            List<OrgCompetition> listOrgComp = new List<OrgCompetition>();
+            foreach (var org in listOrg)
+                listOrgComp.Add(new OrgCompetition { Organization = org, Competition = comp, Season = season });
+            _competitionRepository.AddCompetitionAndClubs(listOrgComp);
+            return "Podaci su uspješno spremljeni";
+        }
+
         public string StoreChanges(int id, string name)
         {
             var message = "";
