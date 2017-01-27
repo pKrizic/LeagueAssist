@@ -10,6 +10,7 @@ namespace LeagueAssist
     public interface IOrganizationRepository
     {
         List<Organization> getOrganizations();
+        Organization getOrganization(int id);
     }
     class OrganizationRepository : IOrganizationRepository
     {
@@ -22,6 +23,21 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     result = (List<Organization>)session.QueryOver<Organization>().List<Organization>();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public Organization getOrganization(int id)
+        {
+            var result = new Organization();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (Organization)session.QueryOver<Organization>().Where(u => u.Id == id).List().First();
                     transaction.Commit();
                 }
             }

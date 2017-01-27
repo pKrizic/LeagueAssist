@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist.Entities
 {
-    public class Type
+    public class PersonType
     {
         public virtual int Id { get; protected set; }
         public virtual string Name { get; set; }

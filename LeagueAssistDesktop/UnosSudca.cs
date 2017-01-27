@@ -43,7 +43,8 @@ namespace LeagueAssistDesktop
             string email = textBox4.Text;
             string phone = textBox5.Text;
             var user = (User)comboBox1.SelectedItem;
-            procesor.SaveUpdatePerson(id, name, lastName, date, email, phone, user);
+            var message = procesor.SaveUpdatePerson(id, name, lastName, date, email, phone, user);
+            MessageBox.Show(message);
         }
     }
 }

@@ -231,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(937, 375);
+            this.ClientSize = new System.Drawing.Size(937, 409);
             this.Controls.Add(this.menuStrip2);
             this.Name = "MainForm";
             this.Text = "MainForm";

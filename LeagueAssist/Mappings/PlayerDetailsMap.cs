@@ -19,10 +19,12 @@ namespace LeagueAssist.Mappings
             Map(x => x.Email);
             Map(x => x.Phone);
             Map(x => x.AnnualSalary);
+            Map(x => x.ContractId);
             Map(x => x.DateFrom);
             Map(x => x.DateTo);
             Map(x => x.Foreigner);
             Map(x => x.NumberOnShirt);
+            Map(x => x.HealthCheckId);
             Map(x => x.FromDate);
             Map(x => x.ToDate);
             Map(x => x.Remark);

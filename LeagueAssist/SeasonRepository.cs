@@ -16,6 +16,7 @@ namespace LeagueAssist
         List<Fixture> GetFixtures();
         List<Match> GetMatchesInOneFixture(int fixtureId);
         List<Person> GetPersons(int type);
+        bool MatchesGenerated(int competitionId);
     }
     public class SeasonRepository : ISeasonRepository
     {
@@ -111,6 +112,23 @@ namespace LeagueAssist
             return message;
         }
 
+        public bool MatchesGenerated(int competitionId)
+        {
+            var clas = new Class1();
+            bool created = false;
+            var result = new Match();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (Match)session.QueryOver<Match>().Where(m => m.Competition.Id == competitionId && m.DateTime > DateTime.Now && m.DateTime < DateTime.Now.AddYears(1)).List().FirstOrDefault();
+                    transaction.Commit();
+                }
+            }
+            if (result != null)
+                created = true;
+            return created;
+        }
         public void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId)
         {
             var clas = new Class1();

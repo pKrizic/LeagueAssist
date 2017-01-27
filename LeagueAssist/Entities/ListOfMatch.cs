@@ -18,5 +18,4 @@ namespace LeagueAssist.Entities
         public virtual int fixture_Id { get; set; }
         public virtual DateTime DateTime { get; set; }
     }
-
 }

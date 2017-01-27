@@ -13,10 +13,10 @@ namespace LeagueAssist.Mappings
         ContractMap()
         {
             Id(x => x.Id);
-            References(x => x.Person);
+            References(x => x.Person).Not.LazyLoad();
             Map(x => x.DateFrom);
             Map(x => x.DateTo);
-            References(x => x.Organization);
+            References(x => x.Organization).Not.LazyLoad();
             Map(x => x.Foreigner);
             Map(x => x.NumberOnShirt);
             Map(x => x.AnnualSalary);

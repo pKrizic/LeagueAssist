@@ -35,13 +35,8 @@ namespace LeagueAssistDesktop
         private void button1_Click(object sender, EventArgs e)
         {
             var org = (Organization)comboBox1.SelectedItem;
-            if (!String.IsNullOrEmpty(textBox2.Text))
-            {
-                cp.PrepareStoreCompetition(textBox2.Text, org);
-                MessageBox.Show("Uspješno uneseno natjecanje");
-            }
-            else
-                MessageBox.Show("Neka polja nisu popunjena");
+            var result = cp.PrepareStoreCompetition(textBox2.Text, org);
+            MessageBox.Show(result);
         }
     }
 }

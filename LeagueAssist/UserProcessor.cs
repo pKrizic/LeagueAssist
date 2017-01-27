@@ -38,21 +38,29 @@ namespace LeagueAssist
             return referee;
         }
 
-        public void SaveUpdatePerson(int id, string ime, string prezime, string date, string email, string telefon, User user)
+        public string SaveUpdatePerson(int id, string ime, string prezime, string date, string email, string telefon, User user)
         {
             var person = new Person();
+            var message = "";
             if (id != 0)
                 person = _repository.GetPerson(id);
 
-            person.Type = _repository.GetType(1);
-            person.FirstName = ime;
-            person.LastName = prezime;
-            person.BirthDate = Convert.ToDateTime(date);
-            person.Email = email;
-            person.Phone = telefon;
-            person.User = user;
+            if (String.IsNullOrEmpty(ime) || String.IsNullOrEmpty(prezime) || String.IsNullOrEmpty(date) || String.IsNullOrEmpty(email) || String.IsNullOrEmpty(telefon))
+                message = "Nisu popunjena sva polja, popunite polja pa pokušajte ponovo";
+            else
+            {
+                person.Type = _repository.GetType(1);
+                person.FirstName = ime;
+                person.LastName = prezime;
+                person.BirthDate = Convert.ToDateTime(date);
+                person.Email = email;
+                person.Phone = telefon;
+                person.User = user;
 
-            _repository.SaveUpdatePerson(person);
+                _repository.SaveUpdatePerson(person);
+                message = "Podaci su uspješno spremljeni";
+            }
+            return message;
         }
     }
 

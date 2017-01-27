@@ -28,7 +28,7 @@ namespace LeagueAssistDesktop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txt_password.Text == "" || txt_username.Text == "" )
+            if (String.IsNullOrEmpty(txt_username.Text) || String.IsNullOrEmpty(txt_password.Text))
             {
                 MessageBox.Show("Upišite korisničko ime i lozinku");
                 return;

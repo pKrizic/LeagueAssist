@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist.Mappings
 {
-    public class TypeMap : ClassMap<Entities.Type>
+    public class PersonTypeMap : ClassMap<PersonType>
     {
-        TypeMap()
+        public PersonTypeMap()
         {
             Id(x => x.Id);
             Map(x => x.Name);
-            Table("Type");
+            Table("PersonType");
         }
     }
 }

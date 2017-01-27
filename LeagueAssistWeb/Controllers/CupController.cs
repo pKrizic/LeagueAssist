@@ -11,6 +11,12 @@ namespace LeagueAssistWeb.Controllers
         // GET: Cup
         public ActionResult Index()
         {
+            List<SelectListItem> cups = new List<SelectListItem>{
+                new SelectListItem{ Text="Kup 1", Value="1" },
+                new SelectListItem{ Text="Kup 2", Value="2" },
+                new SelectListItem{ Text="Kup 3", Value="3" }
+            };
+
             List<SelectListItem> seasons = new List<SelectListItem>{
                 new SelectListItem{ Text="2013/2014", Value="1" },
                 new SelectListItem{ Text="2014/2015", Value="2" },
@@ -25,6 +31,7 @@ namespace LeagueAssistWeb.Controllers
 
             ViewBag.fazaID = phases;
             ViewBag.sezonaID = seasons;
+            ViewBag.competitionID = cups;
 
             return View();
         }
