@@ -21,12 +21,12 @@ namespace LeagueAssistWeb.Controllers
             club.city = new CityDetailsViewModel();
             club.stadium = new StadiumDetailsViewModel();
             club.stadium.city = new CityDetailsViewModel();
-
+            //club info
             club.id = myClub.Id;
             club.name = myClub.OrgName;
             club.city.id = myClub.OrgCityId;
             club.city.name = myClub.OrgCityName;
-
+            //stadium info
             club.stadium.id = myClub.StadiumId;
             club.stadium.name = myClub.StadiumName;
             club.stadium.address = myClub.Address;
