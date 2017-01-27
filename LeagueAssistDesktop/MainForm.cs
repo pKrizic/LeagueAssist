@@ -149,13 +149,7 @@ namespace LeagueAssistDesktop
             prikazSvihLicenciForm.Show();
         }
 
-        private void urediKlubToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UrediKlub urediKlubForm = new UrediKlub();
-            urediKlubForm.MdiParent = this;
-            urediKlubForm.Dock = DockStyle.Fill;
-            urediKlubForm.Show();
-        }
+        
     }
 }
 
