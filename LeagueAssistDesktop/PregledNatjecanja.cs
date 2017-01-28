@@ -42,8 +42,8 @@ namespace LeagueAssistDesktop
             {
                 if (dataGridView1.Rows[e.RowIndex].Cells[0].Value != null)
                 {
-                    UrediNatjecanje frm2 = new UrediNatjecanje(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
-                    frm2.Show();
+                   UrediNatjecanje frm2 = new UrediNatjecanje(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+                   frm2.Show();
                 }
 
             }

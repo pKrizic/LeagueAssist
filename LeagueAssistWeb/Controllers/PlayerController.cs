@@ -79,8 +79,18 @@ namespace LeagueAssistWeb.Controllers
 
         public ActionResult Index(int? page, int? pageItems)
         {
+            int idClub;
+            try
+            {
+                Organization myClub = Session["MyClub"] as Organization;
+                idClub = myClub.Id;
+            }
+            catch
+            {
+                idClub = 2;
+            }
             var userProcessor = new UserProcessor();
-            int idClub = 2;
+            
             var players = new List<PlayerListViewModel>();
 
             try
@@ -101,12 +111,11 @@ namespace LeagueAssistWeb.Controllers
             {
                 //players = null;
             }
-            
+
             //preko ovog mozemo dohvatit moje utakmice za sezonu, kolo i natjecanje!
             //var m = new MatchProcessor();
             //var listM = m.GetListClubMatchs(3, 3, 1, 1);
 
-            
             //<Broj stavki po stranici>
             List<SelectListItem> items = new List<SelectListItem>{
                 new SelectListItem{ Text="10", Value="10" },

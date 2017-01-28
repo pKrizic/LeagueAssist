@@ -10,7 +10,7 @@ namespace LeagueAssist
 {
     public interface IUserRepository
     {
-        User GetUserByUsernameAndPassword(string username, string password);
+        User GetUserByUsernameAndPassword(string username, string password, int roleId);
         IList<ClubPlayers> GetListOfClubPlayers(int id);
         Person GetPerson(int id);
         void SaveUpdatePerson(Person person);
@@ -20,7 +20,7 @@ namespace LeagueAssist
 
     public class UserRepository : IUserRepository
     {
-        public User GetUserByUsernameAndPassword(string username, string password)
+        public User GetUserByUsernameAndPassword(string username, string password, int roleId)
         {
             User result;
             var clas = new Class1();
@@ -28,7 +28,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    result = session.QueryOver<User>().Where(u => (u.Password == password) && (u.Username == username)).List().FirstOrDefault();
+                    result = session.QueryOver<User>().Where(u => (u.Password == password) && (u.Username == username) && (u.Role.Id == roleId)).List().FirstOrDefault();
                     transaction.Commit();
                 }
             }

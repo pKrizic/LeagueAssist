@@ -36,7 +36,6 @@
             this.kluboviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledKlubovaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.urediKlubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prikazSvihLicenciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.koloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,8 +102,7 @@
             // 
             this.kluboviToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pregledKlubovaToolStripMenuItem,
-            this.dodajKlubToolStripMenuItem,
-            this.urediKlubToolStripMenuItem});
+            this.dodajKlubToolStripMenuItem});
             this.kluboviToolStripMenuItem.Name = "kluboviToolStripMenuItem";
             this.kluboviToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.kluboviToolStripMenuItem.Text = "Klubovi";
@@ -122,13 +120,6 @@
             this.dodajKlubToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.dodajKlubToolStripMenuItem.Text = "Dodaj klub";
             this.dodajKlubToolStripMenuItem.Click += new System.EventHandler(this.dodajKlubToolStripMenuItem_Click);
-            // 
-            // urediKlubToolStripMenuItem
-            // 
-            this.urediKlubToolStripMenuItem.Name = "urediKlubToolStripMenuItem";
-            this.urediKlubToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.urediKlubToolStripMenuItem.Text = "Uredi klub";
-            this.urediKlubToolStripMenuItem.Click += new System.EventHandler(this.urediKlubToolStripMenuItem_Click);
             // 
             // licenceToolStripMenuItem
             // 
@@ -264,6 +255,5 @@
         private System.Windows.Forms.ToolStripMenuItem unosSudcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikazSudacaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikazSvihLicenciToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem urediKlubToolStripMenuItem;
     }
 }

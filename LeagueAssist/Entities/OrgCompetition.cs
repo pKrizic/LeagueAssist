@@ -12,5 +12,12 @@ namespace LeagueAssist.Entities
         public virtual Organization Organization { get; set; }
         public virtual Competition Competition { get; set; }
         public virtual Season Season { get; set; }
+
+        //public OrgCompetition(Organization org, Competition comp, Season season)
+        //{
+        //    this.Organization = org;
+        //    this.Competition = comp;
+        //    this.Season = season;
+        //}
     }
 }

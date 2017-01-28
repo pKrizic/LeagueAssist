@@ -35,7 +35,7 @@ namespace LeagueAssistDesktop
             }
 
             var clas = new DataProcessor();
-            var response = clas.ProccesData(txt_username.Text, txt_password.Text);
+            var response = clas.ProccesData(txt_username.Text, txt_password.Text, 1);
             if (response == "")
                 MessageBox.Show("Krivo korisničko ime ili lozinka");
             else
