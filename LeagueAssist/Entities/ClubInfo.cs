@@ -18,5 +18,6 @@ namespace LeagueAssist.Entities
         public virtual int StadiumId { get; set; }
         public virtual string StadiumCityName { get; set; }
         public virtual int StadiumCityId { get; set; }
+        public virtual int UserOrgId { get; set; }
     }
 }

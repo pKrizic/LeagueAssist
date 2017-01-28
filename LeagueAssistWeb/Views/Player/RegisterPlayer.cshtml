@@ -1,14 +1,14 @@
 ﻿@model LeagueAssistWeb.Models.PlayerDetailsViewModel
 
 @{
-    ViewBag.Title = "Registriraj novog igrača";
+    ViewBag.Title = "Registriraj igrača";
 }
 
 <h2>@ViewBag.Title</h2>
 <hr />
 <br />
 
-@using (Html.BeginForm("RegisterNewPlayer", "Player", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("RegisterPlayer", "Player", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 <div class="row">
     <div class="col-sm-12">
@@ -25,6 +25,7 @@
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Ime:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.HiddenFor(model => model.player.Id)
                                 @Html.EditorFor(model => model.player.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Email:</b></td>

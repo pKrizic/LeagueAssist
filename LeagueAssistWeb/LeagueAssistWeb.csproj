@@ -280,7 +280,7 @@
     <Content Include="Views\About\Edit.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\RegisterExistingPlayerSearch.cshtml" />
-    <Content Include="Views\Player\RegisterNewPlayer.cshtml" />
+    <Content Include="Views\Player\RegisterPlayer.cshtml" />
     <Content Include="Views\Player\EditPlayer.cshtml" />
     <Content Include="Views\Player\PlayerDetails.cshtml" />
     <Content Include="Views\Player\EndPlayerContract.cshtml" />
@@ -288,6 +288,7 @@
     <Content Include="Views\League\Index.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
     <Content Include="Views\Match\SignPlayers.cshtml" />
+    <Content Include="Views\Player\RegisterExistingPlayer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
