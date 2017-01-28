@@ -11,6 +11,7 @@ namespace LeagueAssistWeb.Controllers
         // GET: League
         public ActionResult Index()
         {
+
             List<SelectListItem> seasons = new List<SelectListItem>{
                 new SelectListItem{ Text="2013/2014", Value="1" },
                 new SelectListItem{ Text="2014/2015", Value="2" },

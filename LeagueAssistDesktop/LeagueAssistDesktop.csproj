@@ -74,6 +74,18 @@
     <Compile Include="IzmjenaSudca.Designer.cs">
       <DependentUpon>IzmjenaSudca.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenceKlubIspis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenceKlubIspis.Designer.cs">
+      <DependentUpon>LicenceKlubIspis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceSudciIspis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenceSudciIspis.Designer.cs">
+      <DependentUpon>LicenceSudciIspis.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IzmjenaSudca.resx">
       <DependentUpon>IzmjenaSudca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenceKlubIspis.resx">
+      <DependentUpon>LicenceKlubIspis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenceSudciIspis.resx">
+      <DependentUpon>LicenceSudciIspis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

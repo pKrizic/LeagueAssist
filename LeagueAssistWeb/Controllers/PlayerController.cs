@@ -51,8 +51,18 @@ namespace LeagueAssistWeb.Controllers
 
         public ActionResult Index(int? page, int? pageItems)
         {
+            int idClub;
+            try
+            {
+                Organization myClub = Session["MyClub"] as Organization;
+                idClub = myClub.Id;
+            }
+            catch
+            {
+                idClub = 2;
+            }
             var userProcessor = new UserProcessor();
-            int idClub = 2;
+            
             var players = new List<PlayerListViewModel>();
 
             try

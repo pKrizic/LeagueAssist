@@ -23,10 +23,18 @@ namespace LeagueAssist
         {
             return Repository.getLicenses();
         }
+        public List<LicenseClubEvidention> LicenseClubReturn()
+        {
+            return Repository.getAllClubLicenses();
+        }
         public void startLicenseStore(Organization org, Season s, License l)
         {
             LicenseClubEvidention lce = new LicenseClubEvidention(org, s, l);
             Repository.storeClubLicense(lce);
+        }
+        public List<LicenseRefereeEvidention> LicenseRefereeReturn()
+        {
+            return Repository.gettAllRefereeLicenses();
         }
     }
 }

@@ -164,6 +164,22 @@ namespace LeagueAssistDesktop
             licencaKlub.Dock = DockStyle.Fill;
             licencaKlub.Show();
         }
+
+        private void klubToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LicenceKlubIspis licenceKlub = new LicenceKlubIspis();
+            licenceKlub.MdiParent = this;
+            licenceKlub.Dock = DockStyle.Fill;
+            licenceKlub.Show();
+        }
+
+        private void sudciToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LicenceSudciIspis licenceSudci = new LicenceSudciIspis();
+            licenceSudci.MdiParent = this;
+            licenceSudci.Dock = DockStyle.Fill;
+            licenceSudci.Show();
+        }
     }
 }
 

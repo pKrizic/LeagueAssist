@@ -89,6 +89,7 @@
     <Compile Include="Entities\HealthCheckEvidention.cs" />
     <Compile Include="Entities\License.cs" />
     <Compile Include="Entities\LicenseClubEvidention.cs" />
+    <Compile Include="Entities\LicenseRefereeEvidention.cs" />
     <Compile Include="Entities\ListOfMatch.cs" />
     <Compile Include="Entities\ListOfPlayers.cs" />
     <Compile Include="Entities\Match.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PlayerDetails.cs" />
     <Compile Include="Entities\PlayerPerformance.cs" />
+    <Compile Include="Entities\Referee.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Selection.cs" />
     <Compile Include="Entities\Stadium.cs" />
@@ -123,8 +125,9 @@
     <Compile Include="Mappings\ContractMap.cs" />
     <Compile Include="Mappings\CountryMap.cs" />
     <Compile Include="Mappings\HealthCheckEvidentionMap.cs" />
-    <Compile Include="Mappings\LicenseEvidentionMap.cs" />
+    <Compile Include="Mappings\LicenseClubEvidentionMap.cs" />
     <Compile Include="Mappings\LicenseMap.cs" />
+    <Compile Include="Mappings\LicenseRefereeEvidentionMap.cs" />
     <Compile Include="Mappings\ListOfMatchMap.cs" />
     <Compile Include="Mappings\ListOfPlayersMap.cs" />
     <Compile Include="Mappings\MatchActivityMap.cs" />
@@ -141,6 +144,7 @@
     <Compile Include="Mappings\PersonMap.cs" />
     <Compile Include="Mappings\PlayerDetailsMap.cs" />
     <Compile Include="Mappings\PlayerPerformanceMap.cs" />
+    <Compile Include="Mappings\RefereeMap.cs" />
     <Compile Include="Mappings\RoleMap.cs" />
     <Compile Include="Mappings\SelectionMap.cs" />
     <Compile Include="Mappings\StadiumMap.cs" />

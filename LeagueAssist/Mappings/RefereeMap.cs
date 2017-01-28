@@ -8,15 +8,15 @@ using LeagueAssist.Entities;
 
 namespace LeagueAssist.Mappings
 {
-    public class CompetitionMap: ClassMap<Competition>
-    { 
-        public CompetitionMap()
+    public class RefereeMap : ClassMap<Referee>
+    {
+        public  RefereeMap()
         {
             Id(x => x.Id);
-            Map(x => x.Name);
-            References(x => x.ParentOrg);
-            Map(x => x.Type);
-            Table("Competition");
+            Map(x => x.lastName);
+            Map(x => x.firstName);
+            Table("Referees");
+            ReadOnly();
         }
     }
 }

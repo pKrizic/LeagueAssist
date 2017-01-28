@@ -13,9 +13,9 @@ namespace LeagueAssist.Mappings
         public LicenseClubEvidentionMap()
         {
             Id(x => x.Id);
-            References(x => x.Organization);
-            References(x => x.Season);
-            References(x => x.License);
+            References(x => x.Organization).Not.LazyLoad();
+            References(x => x.Season).Not.LazyLoad();
+            References(x => x.License).Not.LazyLoad(); ;
             Table("LicenseClubEvidention");
         }
     }
