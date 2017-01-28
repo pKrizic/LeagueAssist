@@ -22,6 +22,7 @@ namespace LeagueAssist.Mappings
             Map(x => x.StadiumId);
             Map(x => x.StadiumCityName);
             Map(x => x.StadiumCityId);
+            Map(x => x.UserOrgId);
             Table("ClubInfo");
             ReadOnly();
         }

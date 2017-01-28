@@ -110,9 +110,9 @@
                         @item.lastName
                     </td>
                     <td style="width: 1%;white-space: nowrap;">
-                        <button type="button" class="btn btn-success btn-sm" onclick="location.href='@Url.Action("RegisterExistingPlayerSearch", "Home", new { id = @item.id })'">
+                        <button type="button" class="btn btn-success btn-sm" onclick="location.href='@Url.Action("RegisterPlayer", "Player", new { id = @item.id })'">
                             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                            Uredi
+                            Registriraj
                         </button>
                     </td>
                 </tr>

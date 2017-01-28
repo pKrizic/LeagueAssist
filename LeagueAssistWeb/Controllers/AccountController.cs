@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LeagueAssistWeb.Models;
 using LeagueAssist;
+using System.Web.Security;
 
 namespace LeagueAssistWeb.Controllers
 {
@@ -58,6 +59,16 @@ namespace LeagueAssistWeb.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            FormsAuthentication.SignOut();
+            Response.AddHeader("Cache-Control", "no-cache, no-store,must-revalidate");
+            Response.AddHeader("Pragma", "no-cache");
+            Response.AddHeader("Expires", "0");
+
+
+            Session.Clear();
+            Response.Cookies.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -84,6 +95,9 @@ namespace LeagueAssistWeb.Controllers
                 var myClub = clubProcessor.getMyClub(Int32.Parse(loginOK));
                 Session["MyClub"] = myClub;
                 return RedirectToAction("Index", "Player");
+            } else
+            {
+                TempData["Error"] = "Unijeli ste pogrešan username/password. Molimo pokušajte ponovno.";
             }
             
             return View(model);
@@ -105,11 +119,21 @@ namespace LeagueAssistWeb.Controllers
         //
         // POST: /Account/LogOff
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            FormsAuthentication.SignOut();
+            Response.AddHeader("Cache-Control", "no-cache, no-store,must-revalidate");
+            Response.AddHeader("Pragma", "no-cache");
+            Response.AddHeader("Expires", "0");
+            
+
+            Session.Clear();
+            Response.Cookies.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+
+            //Session["MyClub"] = null;
+            return RedirectToAction("Login", "Account");
         }
 
         private IAuthenticationManager AuthenticationManager

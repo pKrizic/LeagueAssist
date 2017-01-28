@@ -17,6 +17,7 @@ namespace LeagueAssist
         List<MatchReferees> GetMatchesForReferee(int refereeId, int numberOfGames);
         List<PlayerPerformance> GetAllPlayerPerformance();
         Match GetMatch(int id);
+        List<Match> GetSeasonMatchList(int clubId, int seasonId);
         void UpdateMatch(Match match);    
         List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
     }
@@ -186,6 +187,23 @@ namespace LeagueAssist
                 }
             }
             return result;
+        }
+
+        public List<Match> GetSeasonMatchList(int clubId, int seasonId)
+        {
+            var message = new List<Match>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<Match>)session.QueryOver<Match>().Where(u => (u.Season.Id == seasonId) && (u.FirstOrg.Id == clubId || u.SecondOrg.Id == clubId)).List();
+                    if (result != null && result.Count > 0)
+                        message = result;
+                    transaction.Commit();
+                }
+            }
+            return message;
         }
 
         public void UpdateMatch(Match match)

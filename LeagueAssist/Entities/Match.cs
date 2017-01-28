@@ -14,6 +14,7 @@ namespace LeagueAssist.Entities
         public virtual Competition Competition { get; set; }
         public virtual Fixture Fixture { get; set; }
         public virtual Person Referee { get; set; }
+        public virtual Season Season { get; set; }
         public virtual DateTime DateTime { get; set; }
         public virtual int FirstOrgScore { get; set; }
         public virtual int SecondOrgScore { get; set; }
