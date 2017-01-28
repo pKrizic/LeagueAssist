@@ -32,6 +32,23 @@ namespace LeagueAssist
             LicenseClubEvidention lce = new LicenseClubEvidention(org, s, l);
             Repository.storeClubLicense(lce);
         }
+        public void updateClubLicense(int id, Organization o, Season s, License l)
+        {
+           LicenseClubEvidention st = Repository.getClubLicense(id);
+            st.License = l;
+            Repository.updateClubLicense(st);
+        }
+        public void updateRefereeLicense(int id, Referee o, Season s, License l)
+        {
+            LicenseRefereeEvidention lre = Repository.getRefereeLicense(id);
+            lre.license = l;
+            Repository.updateRefereeLicense(lre);
+        }
+        public LicenseRefereeEvidention GetRefereeInformation(int id)
+        {
+            LicenseRefereeEvidention result = Repository.getRefereeLicense(id);
+            return result;
+        }
         public List<LicenseRefereeEvidention> LicenseRefereeReturn()
         {
             return Repository.gettAllRefereeLicenses();

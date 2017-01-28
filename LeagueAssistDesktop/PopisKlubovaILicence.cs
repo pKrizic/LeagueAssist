@@ -1,5 +1,4 @@
-﻿using LeagueAssist;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,25 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LeagueAssist;
+using LeagueAssist.Entities;
 
 namespace LeagueAssistDesktop
 {
-    public partial class PopisSudacaILicenci : Form
+    public partial class PopisKlubovaILicence : Form
     {
-        public PopisSudacaILicenci()
+        public PopisKlubovaILicence()
         {
             InitializeComponent();
-            var proc = new SeasonProcessor();
-            var referees = proc.RetrieveReferees(); 
-            dataGridView1.DataSource = referees.Select(o => new
-            { Id = o.Id, Ime = o.FirstName, Prezime = o.LastName, Rođenje = o.BirthDate, Email = o.Email, Telefon = o.Phone }).ToList();
-
+            LicenseProcessor lp = new LicenseProcessor();
+            var obj = lp.LicenseClubReturn();
+            dataGridView1.DataSource = obj.Select(o => new
+            { Id = o.Id, Name = o.Organization.Name, season = o.Season.Name, license = o.License.Type}).ToList();
             dataGridView1.CellClick += dataGridView1_CellClick;
             var buttonCol = new DataGridViewButtonColumn();
             buttonCol.UseColumnTextForButtonValue = true;
             buttonCol.Name = "ButtonColumnName";
             buttonCol.HeaderText = "";
-            buttonCol.Text = "Uredi suca";
+            buttonCol.Text = "Uredi licencu";
             dataGridView1.Columns.Add(buttonCol);
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -41,11 +41,12 @@ namespace LeagueAssistDesktop
             {
                 if (dataGridView1.Rows[e.RowIndex].Cells[0].Value != null)
                 {
-                    UnosSudca frm2 = new UnosSudca(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString()));
+                    LicenseClub frm2 = new LicenseClub(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                     frm2.Show();
                 }
 
             }
         }
     }
-}
+    }
+

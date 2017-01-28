@@ -9,8 +9,8 @@ namespace LeagueAssist.Entities
     public class Referee
     {
         public virtual int Id { get; set; }
+        public virtual string firstName{ get; set; }
         public virtual string lastName { get; set; }
-        public virtual string firstName { get; set; }
         public override string ToString()
         {
             return lastName+" "+firstName;
