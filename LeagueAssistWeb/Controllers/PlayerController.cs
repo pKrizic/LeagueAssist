@@ -85,7 +85,7 @@ namespace LeagueAssistWeb.Controllers
                 Organization myClub = Session["MyClub"] as Organization;
                 idClub = myClub.Id;
             }
-            catch
+            catch (Exception e)
             {
                 idClub = 2;
             }
