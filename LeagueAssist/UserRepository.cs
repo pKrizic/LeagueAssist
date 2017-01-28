@@ -65,7 +65,7 @@ namespace LeagueAssist
             return result;
         }
 
-        public Entities.PersonType GetType(int id)
+        public PersonType GetType(int id)
         {
             var result = new Entities.PersonType();
             var clas = new Class1();
@@ -73,7 +73,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    result = session.Get<Entities.PersonType>(id);
+                    result = session.Get<PersonType>(id);
                     transaction.Commit();
                 }
             }

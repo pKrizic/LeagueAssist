@@ -43,6 +43,34 @@ namespace LeagueAssistWeb.Controllers
             return player;
         }
 
+        public List<PlayerListViewModel> GetFreePlayers()
+        {
+            var playerProcessor = new PlayerProcessor();
+            int idClub = 2;
+            var players = new List<PlayerListViewModel>();
+
+            try
+            {
+                var myPlayers = playerProcessor.RetrieveFreePlayers();
+
+                foreach (var item in myPlayers)
+                {
+                    PlayerListViewModel player = new PlayerListViewModel();
+                    player.setId(item.Id);
+                    player.setFirstName(item.FirstName);
+                    player.setLastName(item.LastName);
+
+                    players.Add(player);
+                }
+            }
+            catch (Exception e)
+            {
+                //players = null;
+            }
+
+            return players;
+        } 
+
         public Organization RetrieveOrganization(int id)
         {
             var organizationProcessor = new OrganizationProcessor();
@@ -162,22 +190,39 @@ namespace LeagueAssistWeb.Controllers
             {
                 return View();
             }
-
-            return View();
         }
 
-        public ActionResult RegisterNewPlayer()
+        public ActionResult RegisterPlayer(int id)
         {
-            PlayerDetailsViewModel player = new PlayerDetailsViewModel();
-            player.player = new Person();
-            player.contract = new Contract();
-            player.healthCheck = new HealthCheckEvidention();
+            if (id != 0)
+            {
+                var player = RetrievePlayer(id);
 
-            return View(player);
+                // Initialize new contract
+                player.contract.Id = 0;
+                player.contract.DateFrom = DateTime.MinValue;
+                player.contract.DateTo = DateTime.MinValue;
+
+                // Initialize new healthCheck
+                player.healthCheck.FromDate = DateTime.MinValue;
+                player.healthCheck.ToDate = DateTime.MinValue;
+
+                return View(player);
+            }
+            else
+            {
+                // Initialize new player, contract and healthCheck
+                PlayerDetailsViewModel player = new PlayerDetailsViewModel();
+                player.player = new Person();
+                player.contract = new Contract();
+                player.healthCheck = new HealthCheckEvidention();
+
+                return View(player);
+            }
         }
 
         [HttpPost]
-        public ActionResult RegisterNewPlayer(PlayerDetailsViewModel model, FormCollection collection)
+        public ActionResult RegisterPlayer(PlayerDetailsViewModel model, FormCollection collection)
         {
             var idClub = 2;
             var playerProcessor = new PlayerProcessor();
@@ -201,7 +246,8 @@ namespace LeagueAssistWeb.Controllers
 
         public ActionResult RegisterExistingPlayerSearch()
         {
-            return View();
+            List<PlayerListViewModel> players = GetFreePlayers();
+            return View(players);
         }
 
         public ActionResult RegisterExistingPlayer(int? id)

@@ -22,7 +22,11 @@ namespace LeagueAssist
             _playerRepository = new PlayerRepository();
         }
 
-        //public List<PlayerDetails> RetrieveFreePlayers()
+        public IList<ClubPlayers> RetrieveFreePlayers()
+        {
+            IList<ClubPlayers> result = _playerRepository.GetListOfFreePlayers();
+            return result;
+        }
 
         public PlayerDetails RetrievePlayerDetails(int playerId)
         {
