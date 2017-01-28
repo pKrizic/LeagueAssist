@@ -47,6 +47,12 @@ namespace LeagueAssist
             return result;
         }
 
+        public List<Match> RetrieveSeasonMatchList (int clubId, int seasonId)
+        {
+            List<Match> result = _matchRepository.GetSeasonMatchList(clubId, seasonId);
+            return result;
+        }
+
         public string UpdateMatchInfo(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista)
         {
             string result = _matchRepository.UpdateMatch(id, HomeGoals, AwayGoals, Desc, lista);
