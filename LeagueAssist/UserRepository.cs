@@ -16,6 +16,7 @@ namespace LeagueAssist
         void SaveUpdatePerson(Person person);
         List<User> GetUsers();
         Entities.PersonType GetType(int id);
+        Person GetPersonFromUserId(int id);
     }
 
     public class UserRepository : IUserRepository
@@ -104,6 +105,22 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     message = session.QueryOver<ClubPlayers>().Where(u => (u.Organization_Id == id) && (u.DateFrom <= DateTime.Now) && (u.DateTo >= DateTime.Now)).List();
+                    transaction.Commit();
+
+                }
+            }
+            return message;
+        }
+
+        public Person GetPersonFromUserId(int id)
+        {
+            Person message = null;
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    message = session.QueryOver<Person>().Where(u => u.User.Id == id).List().First();
                     transaction.Commit();
 
                 }

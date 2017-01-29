@@ -33,7 +33,7 @@ namespace RestApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             var clas = new DataProcessor();
-            var response = clas.ProccesData(model.Username, model.Password, 1);
+            var response = clas.ProccesData(model.Username, model.Password, Int32.Parse(model.Type));
             var message = new LoginResponse();
             if (!String.IsNullOrEmpty(response))
             {

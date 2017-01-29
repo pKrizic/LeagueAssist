@@ -27,8 +27,9 @@ namespace LeagueAssist
         {
             var message = "";
             User user = _repository.GetUserByUsernameAndPassword(username, password, roleId);
+            Person person = _repository.GetPersonFromUserId(user.Id);
             if (user != null)
-                message = user.Id.ToString();
+                message = person.Id.ToString();
             return message;
         }
 

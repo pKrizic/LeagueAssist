@@ -15,5 +15,9 @@ namespace RestApi.Models
         [Required]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        [Required]
+        [Display(Name = "Type")]
+        public string Type { get; set; }
     }
 }
