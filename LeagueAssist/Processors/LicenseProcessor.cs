@@ -34,7 +34,7 @@ namespace LeagueAssist
         }
         public void updateClubLicense(int id, Organization o, Season s, License l)
         {
-           LicenseClubEvidention st = Repository.getClubLicense(id);
+            LicenseClubEvidention st = Repository.getClubLicense(id);
             st.License = l;
             Repository.updateClubLicense(st);
         }
@@ -52,6 +52,33 @@ namespace LeagueAssist
         public List<LicenseRefereeEvidention> LicenseRefereeReturn()
         {
             return Repository.gettAllRefereeLicenses();
+        }
+
+        public void saveRefereeLicense(Referee refer, Season seas, License lic)
+        {
+            var result = new LicenseRefereeEvidention();
+            
+            result.referee = refer;
+            result.season = seas;
+            result.license = lic;
+
+            _licenseRepository.AddRefereeLicense(result);
+
+        }
+
+        public void saveLicence(string name, Competition comp)
+        {
+            var result = new License();
+            result.Type = name;
+            result.Competition = comp;
+
+            _licenseRepository.AddLicense(result);
+        }
+
+        public List<Referee> RetrieveReferees()
+        {
+            var result = _licenseRepository.GetAllReferees();
+            return result;
         }
     }
 }

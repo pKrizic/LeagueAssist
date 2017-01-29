@@ -18,6 +18,9 @@ namespace LeagueAssist
         void updateClubLicense(LicenseClubEvidention lce);
         LicenseRefereeEvidention getRefereeLicense(int id);
         void updateRefereeLicense(LicenseRefereeEvidention lre);
+        void AddRefereeLicense(LicenseRefereeEvidention refLic);
+        void AddLicense(License licenca);
+        List<Referee> GetAllReferees();
     }
     public class LicenseRepository : ILicenseRepository
     {
@@ -145,5 +148,50 @@ namespace LeagueAssist
                 }
             }
         }
+
+        public void AddRefereeLicense(LicenseRefereeEvidention refLic)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(refLic);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public void AddLicense(License licenca)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(licenca);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public List<Referee> GetAllReferees()
+        {
+            var message = new List<Referee>();
+            var clas = new Class1();
+            using(var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<Referee>)session.QueryOver<Referee>().List<Referee>();
+
+                    if (result != null && result.Count > 0)
+                        message = result;
+                    transaction.Commit();
+                }
+            }
+            return message;
+        }
+
     }
 }

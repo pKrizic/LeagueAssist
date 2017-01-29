@@ -181,6 +181,18 @@
     <Compile Include="UnosLicencaKlub.Designer.cs">
       <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnosLicencaSudac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicencaSudac.Designer.cs">
+      <DependentUpon>UnosLicencaSudac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicence.Designer.cs">
+      <DependentUpon>UnosLicence.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnosStadiona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnosLicencaKlub.resx">
       <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicencaSudac.resx">
+      <DependentUpon>UnosLicencaSudac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicence.resx">
+      <DependentUpon>UnosLicence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnosStadiona.resx">
       <DependentUpon>UnosStadiona.cs</DependentUpon>
