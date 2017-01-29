@@ -87,7 +87,7 @@ namespace LeagueAssistWeb.Controllers
 
             var dataProcesor = new DataProcessor();
             //kao treći parametar umjesto 7 staviti id koji će predstavljat ulogu osobe u klubu
-            string loginOK = dataProcesor.ProccesData(model.Username, model.Password, 7);
+            string loginOK = dataProcesor.ProccesData(model.Username, model.Password, 2);
 
             if (loginOK != "")
             {

@@ -77,6 +77,8 @@ namespace LeagueAssistWeb.Controllers
             {
                 var clubCityID = Request.Form["gradID"];
                 var stadiumCityID = Request.Form["stadiumGradID"];
+
+
                 //azurirat stadione i klub
                 return RedirectToAction("Details");
             }
