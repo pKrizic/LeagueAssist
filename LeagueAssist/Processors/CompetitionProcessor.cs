@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LeagueAssist
 {
@@ -28,14 +29,18 @@ namespace LeagueAssist
             return result;
         }
 
-        public string PrepareStoreCompetition(String competitionName, Organization Organization)
+        public string PrepareStoreCompetition(String competitionName, Organization Organization, RadioButton radio)
         {
             var message = "";
+            Competition result;
             if (String.IsNullOrEmpty(competitionName))
                 message = "Neka polja nisu popunjena";
             else
             {
-                var result = new Competition(competitionName, Organization);
+                if (radio.Text.Equals("Liga"))
+                    result = new Competition(competitionName, Organization, 1);
+                else
+                    result = new Competition(competitionName, Organization, 0);
                 _competitionRepository.StoreCompetition(result);
                 message = "Uspješno spremljeno natjecanje";
             }

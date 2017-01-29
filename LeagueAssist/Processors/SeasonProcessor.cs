@@ -28,6 +28,12 @@ namespace LeagueAssist
             return result;
         }
 
+        public List<Season> RetrieveSeasons()
+        {
+            List<Season> result = _seasonRepository.GetSeasons();
+            return result;
+        }
+
         public List<Competition> RetrieveCompetitions()
         {
             List<Competition> result = _seasonRepository.GetCompetititons();

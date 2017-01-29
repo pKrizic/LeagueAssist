@@ -16,16 +16,3 @@ else
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
-
-$(document).on('click', '.btnConfirm', function(){
-    $.ajax({
-        url: '@Url.Action("LogOff", "Account")',
-        type: 'POST',
-        cache: false,
-        async: true,
-        data: $('form').serialize(),
-        success: function(result){
-        //do something
-        }
-        });
-        });

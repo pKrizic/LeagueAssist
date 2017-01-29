@@ -17,7 +17,7 @@ namespace LeagueAssistDesktop
         {
             InitializeComponent();
             var proc = new SeasonProcessor();
-            var referees = proc.RetrieveReferees();
+            var referees = proc.RetrieveReferees(); 
             dataGridView1.DataSource = referees.Select(o => new
             { Id = o.Id, Ime = o.FirstName, Prezime = o.LastName, Rođenje = o.BirthDate, Email = o.Email, Telefon = o.Phone }).ToList();
 

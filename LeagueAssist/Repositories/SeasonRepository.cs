@@ -12,6 +12,7 @@ namespace LeagueAssist
         List<int> GetIdsOfClubsInCompetition(int competitionId, int seasonId);
         List<Competition> GetCompetititons();
         List<Season> GetSeasons(DateTime date);
+        List<Season> GetSeasons();
         void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId);
         List<Fixture> GetFixtures();
         List<Match> GetMatchesInOneFixture(int fixtureId);
@@ -104,6 +105,23 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     var result = (List<Season>)session.QueryOver<Season>().Where(s => s.StartDay > date).OrderBy(s => s.StartDay).Asc.List();
+                    if (result != null && result.Count > 0)
+                        message = result;
+                    transaction.Commit();
+                }
+            }
+            return message;
+        }
+
+        public List<Season> GetSeasons()
+        {
+            var message = new List<Season>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var result = (List<Season>)session.QueryOver<Season>().List();
                     if (result != null && result.Count > 0)
                         message = result;
                     transaction.Commit();

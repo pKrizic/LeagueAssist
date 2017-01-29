@@ -45,6 +45,7 @@ namespace LeagueAssistDesktop
             var user = (User)comboBox1.SelectedItem;
             var message = procesor.SaveUpdatePerson(id, name, lastName, date, email, phone, user);
             MessageBox.Show(message);
+            this.Hide();
         }
     }
 }

@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LeagueAssist.ClubProcessor">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECgAIAAIAQAAgAAAwAAAAAAIAACIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClubProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.CityRepository">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>CityRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LeagueAssist.CityProcessor">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CityProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.ClubRepository" Collapsed="true">
+    <Position X="12.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAQAAAAAAiAAAAAAIAAAgAAAAAAAIAEAAAAAUAgAQ=</HashCode>
+      <FileName>ClubRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LeagueAssist.CompetitionProcessor">
+    <Position X="11" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAIAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAABAg=</HashCode>
+      <FileName>CompetitionProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.CompetitionRepository" Collapsed="true">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAEAAAAAAAAAAAACAAAAAAEAAAA=</HashCode>
+      <FileName>CompetitionRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LeagueAssist.MatchProcessor">
+    <Position X="16" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABAgAIhBAAAAAAAAIAAAgAAAAAAAwAAAAAAAAAAAAA=</HashCode>
+      <FileName>MatchProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+      <Property Name="UserRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.MatchRepository" Collapsed="true">
+    <Position X="13.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAABMAAACAAACAgIAAIAIAAA=</HashCode>
+      <FileName>MatchRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LeagueAssist.OrganizationProcessor">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAABAAAAAACAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrganizationProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.OrganizationRepository" Collapsed="true">
+    <Position X="17.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrganizationRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LeagueAssist.PlayerProcessor">
+    <Position X="15.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoAAAAYAAgAAAgBAAAAAAABIAAAgAAAAMAABAgAAAAA=</HashCode>
+      <FileName>PlayerProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.PlayerRepository" Collapsed="true">
+    <Position X="12.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAQAAAAAAABAAAAAAEAAAAAAQAAAIAAAAAAAAkAQAA=</HashCode>
+      <FileName>PlayerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LeagueAssist.SeasonProcessor">
+    <Position X="17.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAEIAAAIAIAAAAAAAQQAAAAAAAAAAAAAACAAABAA=</HashCode>
+      <FileName>SeasonProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.SeasonRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAABgAAAAAAAAAAAAAAAAQAAkAAJA=</HashCode>
+      <FileName>SeasonRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LeagueAssist.UserProcessor">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="LeagueAssist.ICityRepository">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>CityRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LeagueAssist.IClubRepository">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAQAAAAAAiAAAAAAIAAAgAAAAAAAIAEAAAAAUAgAQ=</HashCode>
+      <FileName>ClubRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LeagueAssist.ICompetitionRepository" Collapsed="true">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAEAAAAAAAAAAAACAAAAAAEAAAA=</HashCode>
+      <FileName>CompetitionRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LeagueAssist.IMatchRepository" Collapsed="true">
+    <Position X="13.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAABMAAACAAACAgIAAIAIAAA=</HashCode>
+      <FileName>MatchRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LeagueAssist.IUserRepository">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEIAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAEAAAAAAAA=</HashCode>
+      <FileName>UserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LeagueAssist.IOrganizationRepository" Collapsed="true">
+    <Position X="17.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrganizationRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LeagueAssist.IPlayerRepository" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAQAAAAAAABAAAAAAEAAAAAAQAAAIAAAAAAAAkAQAA=</HashCode>
+      <FileName>PlayerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="LeagueAssist.ISeasonRepository" Collapsed="true">
+    <Position X="19.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAABgAAAAAAAAAAAAAAAAQAAkAAJA=</HashCode>
+      <FileName>SeasonRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

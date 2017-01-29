@@ -74,17 +74,53 @@
     <Compile Include="IzmjenaSudca.Designer.cs">
       <DependentUpon>IzmjenaSudca.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicencaSudac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicencaSudac.Designer.cs">
+      <DependentUpon>LicencaSudac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceKlubIspis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenceKlubIspis.Designer.cs">
+      <DependentUpon>LicenceKlubIspis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceSudciIspis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenceSudciIspis.Designer.cs">
+      <DependentUpon>LicenceSudciIspis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseClub.Designer.cs">
+      <DependentUpon>LicenseClub.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PopisKlubovaILicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopisKlubovaILicence.Designer.cs">
+      <DependentUpon>PopisKlubovaILicence.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopisSudacaILicenci.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PopisSudacaILicenci.Designer.cs">
       <DependentUpon>PopisSudacaILicenci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopisSudciLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopisSudciLicence.Designer.cs">
+      <DependentUpon>PopisSudciLicence.cs</DependentUpon>
     </Compile>
     <Compile Include="PregledIDetaljnoDefiniranjeKola.cs">
       <SubType>Form</SubType>
@@ -139,6 +175,24 @@
     <Compile Include="UnosKluba.Designer.cs">
       <DependentUpon>UnosKluba.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnosLicencaKlub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicencaKlub.Designer.cs">
+      <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosLicencaSudac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicencaSudac.Designer.cs">
+      <DependentUpon>UnosLicencaSudac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicence.Designer.cs">
+      <DependentUpon>UnosLicence.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnosStadiona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,11 +226,29 @@
     <EmbeddedResource Include="IzmjenaSudca.resx">
       <DependentUpon>IzmjenaSudca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LicencaSudac.resx">
+      <DependentUpon>LicencaSudac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenceKlubIspis.resx">
+      <DependentUpon>LicenceKlubIspis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenceSudciIspis.resx">
+      <DependentUpon>LicenceSudciIspis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseClub.resx">
+      <DependentUpon>LicenseClub.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PopisKlubovaILicence.resx">
+      <DependentUpon>PopisKlubovaILicence.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PopisSudacaILicenci.resx">
       <DependentUpon>PopisSudacaILicenci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopisSudciLicence.resx">
+      <DependentUpon>PopisSudciLicence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PregledIDetaljnoDefiniranjeKola.resx">
       <DependentUpon>PregledIDetaljnoDefiniranjeKola.cs</DependentUpon>
@@ -210,6 +282,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnosKluba.resx">
       <DependentUpon>UnosKluba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicencaKlub.resx">
+      <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicencaSudac.resx">
+      <DependentUpon>UnosLicencaSudac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicence.resx">
+      <DependentUpon>UnosLicence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnosStadiona.resx">
       <DependentUpon>UnosStadiona.cs</DependentUpon>

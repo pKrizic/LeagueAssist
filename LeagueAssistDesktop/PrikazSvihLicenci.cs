@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LeagueAssist;
 
 namespace LeagueAssistDesktop
 {
@@ -15,6 +16,10 @@ namespace LeagueAssistDesktop
         public PrikazSvihLicenci()
         {
             InitializeComponent();
+            LicenseProcessor lp = new LicenseProcessor();
+            var obj = lp.licenseReturn();
+            dataGridView1.DataSource = obj.Select(o => new
+            { Id = o.Id, Name = o.Type}).ToList();
         }
     }
 }
