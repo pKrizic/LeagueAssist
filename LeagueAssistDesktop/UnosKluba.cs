@@ -41,8 +41,8 @@ namespace LeagueAssistDesktop
             var stadium = (Stadium)comboBox1.SelectedItem;
             var city = (City)comboBox2.SelectedItem;
             var user = (User)comboBox3.SelectedItem;
-            clubProcessor.saveClub(name, stadium, city, user);
-            MessageBox.Show("Dobro je sve.");
+            var result = clubProcessor.saveClub(name, stadium, city, user);
+            MessageBox.Show(result);
         }
     }
 }

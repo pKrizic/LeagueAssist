@@ -56,19 +56,29 @@ namespace LeagueAssist
             return result;
         }
 
-        public void saveClub(string name, Stadium stadium, City city, User user)
+        public string saveClub(string name, Stadium stadium, City city, User user)
         {
+            var message = "";
             var result = new Organization();
             var result2 = new OrgStadium();
 
-            result.Name = name;
-            result.City = city;
-            result.User = user;
+            if (!String.IsNullOrEmpty(name))
+            {
+                result.Name = name;
+                result.City = city;
+                result.User = user;
 
-            result2.Organization = result;
-            result2.Stadium = stadium;
+                result2.Organization = result;
+                result2.Stadium = stadium;
 
-            _clubRepository.AddClub(result, result2);
+                _clubRepository.AddClub(result, result2);
+                message = "Podaci su uspješno spremljeni";
+            }
+            else
+                message = "Ime kluba nije uneseno";
+
+            return message;
+            
         }
 
         public void updateClub(int id, string name, Stadium stadium, City city, User user)

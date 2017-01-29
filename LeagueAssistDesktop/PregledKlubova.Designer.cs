@@ -37,7 +37,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(513, 229);
+            this.dataGridView1.Size = new System.Drawing.Size(569, 229);
             this.dataGridView1.TabIndex = 5;
             // 
             // PregledKlubova
@@ -45,7 +45,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(537, 312);
+            this.ClientSize = new System.Drawing.Size(783, 312);
             this.Controls.Add(this.dataGridView1);
             this.Name = "PregledKlubova";
             this.Text = "PregledKlubova";

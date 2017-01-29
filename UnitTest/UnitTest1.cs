@@ -213,7 +213,7 @@ namespace UnitTest
             processor.SetMatchreferee(id, refereeId);
 
             matchRepository.Verify(x => x.GetMatch(id), Times.Exactly(1));
-            //ako odkomentiramo liniju test pada
+            //ako odkomentiramo liniju test ne prolazi
             //matchRepository.Verify(x => x.GetMatchActivityPlayers(id), Times.Exactly(1)); 
             userRepository.Verify(x => x.GetPerson(refereeId), Times.Exactly(1));
         }

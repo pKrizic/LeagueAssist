@@ -27,6 +27,7 @@ namespace LeagueAssistDesktop
             var processor = new CompetitionProcessor();
             var result = processor.StoreChanges(id, name);
             MessageBox.Show(result);
+            this.Hide();
         }
     }
 }
