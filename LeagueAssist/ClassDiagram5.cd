@@ -25,16 +25,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="LeagueAssist.SeasonProcessor">
-    <Position X="8" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAEIAAAIAIAAAAAAAQQAAAAAAAAAAAAAACAAABAA=</HashCode>
-      <FileName>SeasonProcessor.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Repository" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="LeagueAssist.SeasonRepository">
     <Position X="9.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>

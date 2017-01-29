@@ -45,7 +45,7 @@ namespace LeagueAssistDesktop
                 mainF.FormClosed += new FormClosedEventHandler(MainForm_FormClosing);
                 mainF.IsMdiContainer = true;
                 mainF.Show();
-            //}
+            }
 
         }
         private void MainForm_FormClosing(object sender, FormClosedEventArgs e)
