@@ -35,8 +35,11 @@ namespace LeagueAssistDesktop
         private void button1_Click(object sender, EventArgs e)
         {
             var org = (Organization)comboBox1.SelectedItem;
-            var result = cp.PrepareStoreCompetition(textBox2.Text, org);
+            var radio = groupBox1.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked);
+            var result = cp.PrepareStoreCompetition(textBox2.Text, org, radio);
             MessageBox.Show(result);
         }
+
+       
     }
 }

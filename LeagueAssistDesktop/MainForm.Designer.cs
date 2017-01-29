@@ -48,6 +48,8 @@
             this.unosSudcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prikazSudacaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.klubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sudciToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,6 +134,9 @@
             // 
             // prikazSvihLicenciToolStripMenuItem
             // 
+            this.prikazSvihLicenciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.klubToolStripMenuItem,
+            this.sudciToolStripMenuItem1});
             this.prikazSvihLicenciToolStripMenuItem.Name = "prikazSvihLicenciToolStripMenuItem";
             this.prikazSvihLicenciToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.prikazSvihLicenciToolStripMenuItem.Text = "Prikaz svih licenci";
@@ -217,6 +222,20 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // klubToolStripMenuItem
+            // 
+            this.klubToolStripMenuItem.Name = "klubToolStripMenuItem";
+            this.klubToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.klubToolStripMenuItem.Text = "Klubovi";
+            this.klubToolStripMenuItem.Click += new System.EventHandler(this.klubToolStripMenuItem_Click);
+            // 
+            // sudciToolStripMenuItem1
+            // 
+            this.sudciToolStripMenuItem1.Name = "sudciToolStripMenuItem1";
+            this.sudciToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sudciToolStripMenuItem1.Text = "Sudci";
+            this.sudciToolStripMenuItem1.Click += new System.EventHandler(this.sudciToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,5 +274,7 @@
         private System.Windows.Forms.ToolStripMenuItem unosSudcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikazSudacaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikazSvihLicenciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem klubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sudciToolStripMenuItem1;
     }
 }

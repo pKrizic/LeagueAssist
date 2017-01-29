@@ -149,7 +149,21 @@ namespace LeagueAssistDesktop
             prikazSvihLicenciForm.Show();
         }
 
-        
+        private void klubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PopisKlubovaILicence pregled = new PopisKlubovaILicence();
+            pregled.MdiParent = this;
+            pregled.Dock = DockStyle.Fill;
+            pregled.Show();
+        }
+
+        private void sudciToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PopisSudciLicence sudciLic = new PopisSudciLicence();
+            sudciLic.MdiParent = this;
+            sudciLic.Dock = DockStyle.Fill;
+            sudciLic.Show();
+        }
     }
 }
 

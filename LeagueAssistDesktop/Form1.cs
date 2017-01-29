@@ -34,12 +34,12 @@ namespace LeagueAssistDesktop
                 return;
             }
 
-            //var clas = new DataProcessor();
-            //var response = clas.ProccesData(txt_username.Text, txt_password.Text, 1);
-            //if (response == "")
-            //    MessageBox.Show("Krivo korisničko ime ili lozinka");
-            //else
-            //{
+            var clas = new DataProcessor();
+            var response = clas.ProccesData(txt_username.Text, txt_password.Text, 7);
+            if (response == "")
+                MessageBox.Show("Krivo korisničko ime ili lozinka");
+            else
+            {
                 this.Hide();
                 MainForm mainF = new MainForm();
                 mainF.FormClosed += new FormClosedEventHandler(MainForm_FormClosing);

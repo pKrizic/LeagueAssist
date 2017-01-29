@@ -14,7 +14,7 @@ namespace LeagueAssistDesktop
 {
     public partial class UnosKluba : Form
     {
-        public UnosKluba()
+        public UnosKluba(int id = 0)
         {
             InitializeComponent();
             var clubProcessor = new ClubProcessor();
@@ -27,6 +27,19 @@ namespace LeagueAssistDesktop
             comboBox3.DataSource = clubProcessor.RetrieveAllUsers();
             comboBox3.DisplayMember = "UserName";
             comboBox3.ValueMember = "Id";
+            if (id != 0)
+            {
+                var refere = clubProcessor.GetClubInformation(id);
+                comboBox1.DataSource = clubProcessor.RetrieveAllStadiums();
+                comboBox1.DisplayMember = "Name";
+                comboBox1.ValueMember = "Id";
+                comboBox2.DataSource = clubProcessor.RetrieveAllCities();
+                comboBox2.DisplayMember = "Name";
+                comboBox2.ValueMember = "Id";
+                comboBox3.DataSource = clubProcessor.RetrieveAllUsers();
+                comboBox3.DisplayMember = "UserName";
+                comboBox3.ValueMember = "Id";
+            }
         }
 
         private void UnosKluba_Load(object sender, EventArgs e)

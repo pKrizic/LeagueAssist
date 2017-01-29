@@ -73,12 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CityProcessor.cs" />
-    <Compile Include="CityRepository.cs" />
+    <Compile Include="Processors\CityProcessor.cs" />
+    <Compile Include="Repositories\CityRepository.cs" />
     <Compile Include="SessionFactory.cs" />
-    <Compile Include="CompetitionProcessor.cs" />
-    <Compile Include="CompetitionRepository.cs" />
-    <Compile Include="CountryRepository.cs" />
+    <Compile Include="Processors\CompetitionProcessor.cs" />
+    <Compile Include="Repositories\CompetitionRepository.cs" />
+    <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="DeclareMatchDateReferee.cs" />
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\ClubInfo.cs" />
@@ -88,7 +88,8 @@
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\HealthCheckEvidention.cs" />
     <Compile Include="Entities\License.cs" />
-    <Compile Include="Entities\LicenseEvidention.cs" />
+    <Compile Include="Entities\LicenseClubEvidention.cs" />
+    <Compile Include="Entities\LicenseRefereeEvidention.cs" />
     <Compile Include="Entities\ListOfMatch.cs" />
     <Compile Include="Entities\ListOfPlayers.cs" />
     <Compile Include="Entities\Match.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PlayerDetails.cs" />
     <Compile Include="Entities\PlayerPerformance.cs" />
+    <Compile Include="Entities\Referee.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Selection.cs" />
     <Compile Include="Entities\Stadium.cs" />
@@ -114,6 +116,8 @@
     <Compile Include="Entities\OrgCompetition.cs" />
     <Compile Include="Entities\Season.cs" />
     <Compile Include="FluentNHibernateHelper.cs" />
+    <Compile Include="Processors\LicenseProcessor.cs" />
+    <Compile Include="Repositories\LicenseRepository.cs" />
     <Compile Include="Mappings\CityMap.cs" />
     <Compile Include="Mappings\ClubInfoMap.cs" />
     <Compile Include="Mappings\ClubPlayersMap.cs" />
@@ -121,8 +125,9 @@
     <Compile Include="Mappings\ContractMap.cs" />
     <Compile Include="Mappings\CountryMap.cs" />
     <Compile Include="Mappings\HealthCheckEvidentionMap.cs" />
-    <Compile Include="Mappings\LicenseEvidentionMap.cs" />
+    <Compile Include="Mappings\LicenseClubEvidentionMap.cs" />
     <Compile Include="Mappings\LicenseMap.cs" />
+    <Compile Include="Mappings\LicenseRefereeEvidentionMap.cs" />
     <Compile Include="Mappings\ListOfMatchMap.cs" />
     <Compile Include="Mappings\ListOfPlayersMap.cs" />
     <Compile Include="Mappings\MatchActivityMap.cs" />
@@ -139,6 +144,7 @@
     <Compile Include="Mappings\PersonMap.cs" />
     <Compile Include="Mappings\PlayerDetailsMap.cs" />
     <Compile Include="Mappings\PlayerPerformanceMap.cs" />
+    <Compile Include="Mappings\RefereeMap.cs" />
     <Compile Include="Mappings\RoleMap.cs" />
     <Compile Include="Mappings\SelectionMap.cs" />
     <Compile Include="Mappings\StadiumMap.cs" />
@@ -149,21 +155,21 @@
     <Compile Include="Mappings\SeasonMap.cs" />
     <Compile Include="MatchActions.cs" />
     <Compile Include="MatchDetailInfo.cs" />
-    <Compile Include="ClubProcessor.cs" />
-    <Compile Include="PlayerProcessor.cs" />
-    <Compile Include="PlayerRepository.cs" />
-    <Compile Include="MatchProcessor.cs" />
-    <Compile Include="MatchRepository.cs" />
+    <Compile Include="Processors\ClubProcessor.cs" />
+    <Compile Include="Processors\PlayerProcessor.cs" />
+    <Compile Include="Repositories\PlayerRepository.cs" />
+    <Compile Include="Processors\MatchProcessor.cs" />
+    <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="OrganizationProcessor.cs" />
-    <Compile Include="OrganizationRepository.cs" />
+    <Compile Include="Repositories\OrganizationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeasonProcessor.cs" />
-    <Compile Include="SeasonRepository.cs" />
-    <Compile Include="UserProcessor.cs" />
-    <Compile Include="StadiumProcessor.cs" />
-    <Compile Include="StadiumRepository.cs" />
-    <Compile Include="ClubRepository.cs" />
-    <Compile Include="UserRepository.cs" />
+    <Compile Include="Processors\SeasonProcessor.cs" />
+    <Compile Include="Repositories\SeasonRepository.cs" />
+    <Compile Include="Processors\UserProcessor.cs" />
+    <Compile Include="Processors\StadiumProcessor.cs" />
+    <Compile Include="Repositories\StadiumRepository.cs" />
+    <Compile Include="Repositories\ClubRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -174,10 +180,7 @@
     <None Include="ClassDiagram5.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Processors\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -15,7 +15,7 @@ namespace LeagueAssist.Mappings
             Id(x => x.Id);
             Map(x => x.Name);
             References(x => x.ParentOrg);
-            Map(x => x.Id);
+            Map(x => x.Type);
             Table("Competition");
         }
     }

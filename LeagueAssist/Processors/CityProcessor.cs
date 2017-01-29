@@ -24,7 +24,7 @@ namespace LeagueAssist
 
         public List<City> ListOfCity()
         {
-            return _cityRepository.getCities();
+            return Repository.getCities();
         }
     }
 }

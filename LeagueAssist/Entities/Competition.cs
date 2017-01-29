@@ -12,13 +12,15 @@ namespace LeagueAssist.Entities
         public virtual string Name { get; set; }
         public virtual Organization ParentOrg { get; set; }
         public virtual int Type { get; set; }
+        
 
         public Competition() {
         }
-        public Competition(string competitionName, Organization ParentOrg)
+        public Competition(string competitionName, Organization ParentOrg, int Type)
         {
             Name = competitionName;
             this.ParentOrg = ParentOrg;
+            this.Type = Type;
         }
     }
 }
