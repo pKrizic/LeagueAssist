@@ -24,7 +24,6 @@ namespace LeagueAssistDesktop
             comboBox1.DataSource = op.getOrganizations();
             comboBox1.ValueMember = "Id";
             comboBox1.DisplayMember = "Name";
-            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

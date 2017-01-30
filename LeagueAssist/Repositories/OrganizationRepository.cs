@@ -11,6 +11,7 @@ namespace LeagueAssist
     {
         List<Organization> getOrganizations();
         Organization getOrganization(int id);
+        List<int> GetOrganizationsWithLicence(int competitionId, int seasonId);
     }
     class OrganizationRepository : IOrganizationRepository
     {
@@ -38,6 +39,21 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     result = (Organization)session.QueryOver<Organization>().Where(u => u.Id == id).List().First();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public List<int> GetOrganizationsWithLicence(int competitionId, int seasonId)
+        {
+            var result = new List<int>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<int>)session.QueryOver<ClubLicence>().Where(org => org.CompetitionId == competitionId && org.SeasonId == seasonId).Select(org => org.OrganizationId).List<int>();
                     transaction.Commit();
                 }
             }

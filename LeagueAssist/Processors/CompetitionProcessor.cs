@@ -49,6 +49,8 @@ namespace LeagueAssist
 
         public string StoreOrganizationsIncompetition(Competition comp, Season season, List<Organization> listOrg)
         {
+            if (listOrg.Count == 0)
+                return "Niste odabrali niti jedan klub";
             List<OrgCompetition> listOrgComp = new List<OrgCompetition>();
             foreach (var org in listOrg)
                 listOrgComp.Add(new OrgCompetition { Organization = org, Competition = comp, Season = season });

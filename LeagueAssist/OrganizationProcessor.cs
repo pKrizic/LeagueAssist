@@ -31,5 +31,11 @@ namespace LeagueAssist
             Organization result = _organizationRepository.getOrganization(id);
             return result;
         }
+
+        public List<int> RetrieveOrganizationWithLicence(int seasonId, int competitionId)
+        {
+            var result = _organizationRepository.GetOrganizationsWithLicence(competitionId, seasonId);
+            return result;
+        }
     }
 }
