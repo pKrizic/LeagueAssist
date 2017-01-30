@@ -73,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\RefereeLicence.cs" />
+    <Compile Include="Mappings\RefereeLicenceMap.cs" />
     <Compile Include="Processors\CityProcessor.cs" />
     <Compile Include="Repositories\CityRepository.cs" />
     <Compile Include="SessionFactory.cs" />

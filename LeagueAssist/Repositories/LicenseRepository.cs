@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LeagueAssist;
 using LeagueAssist.Entities;
+using NHibernate.Transform;
+
 namespace LeagueAssist
 {
     public interface ILicenseRepository
@@ -21,6 +23,7 @@ namespace LeagueAssist
         void AddRefereeLicense(LicenseRefereeEvidention refLic);
         void AddLicense(License licenca);
         List<Referee> GetAllReferees();
+        List<int> GetRefereesWithLicence(int seasonId, int competitionId);
     }
     public class LicenseRepository : ILicenseRepository
     {
@@ -98,10 +101,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    
                     result = (List<LicenseRefereeEvidention>)session.QueryOver<LicenseRefereeEvidention>().List<LicenseRefereeEvidention>();
-                    
-                   
                     transaction.Commit();
                 }
             }
@@ -173,6 +173,21 @@ namespace LeagueAssist
                     transaction.Commit();
                 }
             }
+        }
+
+        public List<int> GetRefereesWithLicence(int seasonId, int competitionId)
+        {
+            var result = new List<int>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<int>)session.QueryOver<RefereeLicence>().Where(r => r.competitionId == competitionId && r.seasonId == seasonId).Select(r => r.refereeId).List<int>();
+                    transaction.Commit();
+                }
+            }
+            return result;
         }
 
         public List<Referee> GetAllReferees()

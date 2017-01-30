@@ -13,7 +13,7 @@ namespace LeagueAssist
         List<Competition> GetCompetititons();
         List<Season> GetSeasons(DateTime date);
         List<Season> GetSeasons();
-        void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId);
+        void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId, int seasonId);
         List<Fixture> GetFixtures();
         List<Match> GetMatchesInOneFixture(int fixtureId);
         List<Person> GetPersons(int type);
@@ -147,7 +147,7 @@ namespace LeagueAssist
                 created = true;
             return created;
         }
-        public void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId)
+        public void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId, int seasonId)
         {
             var clas = new Class1();
             using (var session = clas.OpenSession())
@@ -155,6 +155,7 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     var competition = session.Get<Competition>(competitionId);
+                    var season = session.Get<Season>(seasonId);
                     foreach (KeyValuePair<int, List<int[]>> schedule in dict)
                     {
                         var round = session.Get<Fixture>(schedule.Key);
@@ -169,7 +170,8 @@ namespace LeagueAssist
                                 SecondOrg = secondOrg,
                                 Fixture = round,
                                 Competition = competition,
-                                DateTime = DateTime.Now.AddDays(round.Id * 7)
+                                DateTime = DateTime.Now.AddDays(round.Id * 7),
+                                Season = season
                             };
                             session.SaveOrUpdate(match);
                         }

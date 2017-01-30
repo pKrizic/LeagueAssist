@@ -41,7 +41,7 @@ namespace LeagueAssistDesktop
             {
                 if (dataGridView1.Rows[e.RowIndex].Cells[0].Value != null)
                 {
-                    AddingReferee frm2 = new AddingReferee(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    AddingReferee frm2 = new AddingReferee(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), comboBox1.SelectedValue.ToString(), comboBox3.SelectedValue.ToString());
                     frm2.Show();
                 }
             }

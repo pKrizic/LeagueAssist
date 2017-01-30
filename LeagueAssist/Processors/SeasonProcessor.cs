@@ -49,6 +49,7 @@ namespace LeagueAssist
         public List<Person> RetrieveReferees()
         {
             List<Person> result = _seasonRepository.GetPersons(1);
+
             return result;
         }
 
@@ -69,7 +70,7 @@ namespace LeagueAssist
             }
             List<int> clubIds = _seasonRepository.GetIdsOfClubsInCompetition(competitionId, seasonId);
             var dict = RoundRobinScheduler(clubIds);
-            _seasonRepository.StoreMatchesFromSeason(dict, competitionId);
+            _seasonRepository.StoreMatchesFromSeason(dict, competitionId, seasonId);
             message = "Kola su uspješno generirana";
             return message;
         }

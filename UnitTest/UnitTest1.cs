@@ -58,12 +58,16 @@ namespace UnitTest
         [TestMethod]
         public void Validate_Login()
         {
-            string username = "Testkgfhfo";
-            string password = "123456";
-            User user = new User();
+            string username = "i";
+            string password = "i";
+            int userId = 4;
+            //postavljamo useru atribute jer će nam trebati prilikom poziva druge funkcije
+            User user = new User{ Id = 4, Password = "i", Username = "i" };
+            Person person = new Person();
 
             var repository = new Mock<IUserRepository>();
             repository.Setup(x => x.GetUserByUsernameAndPassword(username, password, 1)).Returns(user);
+            repository.Setup(x => x.GetPersonFromUserId(userId)).Returns(person);
 
             DataProcessor processor = new DataProcessor();
             processor.Repository = (IUserRepository)repository.Object;
@@ -71,6 +75,7 @@ namespace UnitTest
             var res = processor.ProccesData(username, password, 1);
 
             repository.Verify(x => x.GetUserByUsernameAndPassword(username, password, 1), Times.Exactly(1));
+            repository.Verify(x => x.GetPersonFromUserId(userId), Times.Exactly(1));
         }
 
         [TestMethod]

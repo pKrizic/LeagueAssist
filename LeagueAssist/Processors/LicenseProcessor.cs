@@ -80,5 +80,11 @@ namespace LeagueAssist
             var result = _licenseRepository.GetAllReferees();
             return result;
         }
+
+        public List<int> RetrieveRefereesWithLicence(int competitionId, int seasonId)
+        {
+            var result = _licenseRepository.GetRefereesWithLicence(seasonId, competitionId);
+            return result;
+        }
     }
 }

@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist.Entities
 {
-    public class User
+    public class RefereeLicence
     {
         public virtual int Id { get; set; }
-        public virtual string Username { get; set; }
-        public virtual string Password { get; set; }
-        public virtual Role Role { get; set; }
-
+        public virtual int refereeId { get; set; }
+        public virtual int seasonId { get; set; }
+        public virtual int competitionId { get; set; }
     }
-
-   
 }

@@ -1,4 +1,5 @@
 ﻿using LeagueAssist;
+using LeagueAssist.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,19 @@ namespace LeagueAssistDesktop
 {
     public partial class AddingReferee : Form
     {
-        public AddingReferee(string matchId)
+        public AddingReferee(string matchId, string competitionId, string seasonId)
         {
             InitializeComponent();
             textBox1.Text = matchId;
-            var seasonProcessor = new SeasonProcessor();
-            comboBox1.DataSource = seasonProcessor.RetrieveReferees();
+            var licenceProcessor = new LicenseProcessor();
+            var referees = licenceProcessor.RetrieveReferees();
+            var nes = licenceProcessor.Repository.GetRefereesWithLicence(int.Parse(seasonId), int.Parse(competitionId));
+            List<Referee> podaci = new List<Referee>();
+            foreach (var referee in referees)
+                if (nes.Contains(referee.Id))
+                    podaci.Add(referee);
+
+            comboBox1.DataSource = podaci;
             comboBox1.ValueMember = "Id";
             comboBox1.DisplayMember = "LastName";
         }
