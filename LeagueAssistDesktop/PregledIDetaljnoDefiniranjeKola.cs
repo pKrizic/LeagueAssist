@@ -62,20 +62,25 @@ namespace LeagueAssistDesktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var matches = _seasonProcessor.RetrieveMatchesInOneFixture(int.Parse(comboBox2.SelectedValue.ToString()));
+            var matches = _seasonProcessor.RetrieveMatchesInOneFixture(comboBox2.SelectedValue.ToString(), comboBox1.SelectedValue.ToString(), comboBox3.SelectedValue.ToString());
             var lista = new List<Match>();
             var sudci = _seasonProcessor.RetrieveReferees();
             foreach (var match in matches)
                 lista.Add(new Match { Id = match.Id, HomeTeam = match.FirstOrg.Name, AwayTeam = match.SecondOrg.Name, Date = match.DateTime });
             dataGridView1.DataSource = lista;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            var buttonCol = new DataGridViewButtonColumn();
-            buttonCol.UseColumnTextForButtonValue = true;
-            buttonCol.Name = "ButtonColumnName";
-            buttonCol.HeaderText = "Sudac";
-            buttonCol.Text = "Postavi sudca";
+            var checkButton = dataGridView1.Columns[0].CellType;
 
-            dataGridView1.Columns.Add(buttonCol);
+            if (checkButton.Name != "DataGridViewButtonCell")
+            {
+                var buttonCol = new DataGridViewButtonColumn();
+                buttonCol.UseColumnTextForButtonValue = true;
+                buttonCol.Name = "ButtonColumnName";
+                buttonCol.HeaderText = "Sudac";
+                buttonCol.Text = "Postavi sudca";
+                dataGridView1.Columns.Add(buttonCol);
+            }
+   
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 DataGridViewButtonCell button = (row.Cells["ButtonColumnName"] as DataGridViewButtonCell);

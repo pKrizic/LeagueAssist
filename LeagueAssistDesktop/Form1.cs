@@ -19,7 +19,8 @@ namespace LeagueAssistDesktop
         public Form1()
         {
             InitializeComponent();
-            richTextBox1.Text = "This is the application for The Football Association where you can manage your league and clubs.";
+            richTextBox1.Text = "This is the application for The Football Association where you can manage your league and clubs.\n";
+            richTextBox1.Text += "Username: Savez, Password: Savez";
             string solutionFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             string resourcesFolderPath = Path.Combine(Directory.GetParent(solutionFolder).Parent.FullName, @"Resources\logo.png");
             pictureBox1.ImageLocation = resourcesFolderPath;

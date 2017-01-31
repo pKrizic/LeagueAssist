@@ -15,9 +15,9 @@ namespace LeagueAssist
         List<Season> GetSeasons();
         void StoreMatchesFromSeason(Dictionary<int, List<int[]>> dict, int competitionId, int seasonId);
         List<Fixture> GetFixtures();
-        List<Match> GetMatchesInOneFixture(int fixtureId);
+        List<Match> GetMatchesInOneFixture(int fixtureId, int competitionId, int seasonId);
         List<Person> GetPersons(int type);
-        bool MatchesGenerated(int competitionId);
+        bool MatchesGenerated(int competitionId, int seasonId);
     }
     public class SeasonRepository : ISeasonRepository
     {
@@ -51,13 +51,13 @@ namespace LeagueAssist
             return result;
         }
 
-        public List<Match> GetMatchesInOneFixture(int fixtureId)
+        public List<Match> GetMatchesInOneFixture(int fixtureId, int competitionId, int seasonId)
         {
             var result = new List<Match>();
             var clas = new Class1();
             var session = clas.OpenSession();
             var transaction = session.BeginTransaction();
-            result = (List<Match>)session.QueryOver<Match>().Where(m => m.Fixture.Id == fixtureId).List<Match>();
+            result = (List<Match>)session.QueryOver<Match>().Where(m => m.Fixture.Id == fixtureId && m.Season.Id == seasonId && m.Competition.Id == competitionId).List<Match>();
             transaction.Commit();
             return result;
         }
@@ -130,7 +130,7 @@ namespace LeagueAssist
             return message;
         }
 
-        public bool MatchesGenerated(int competitionId)
+        public bool MatchesGenerated(int competitionId, int seasonId)
         {
             var clas = new Class1();
             bool created = false;
@@ -139,7 +139,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    result = (Match)session.QueryOver<Match>().Where(m => m.Competition.Id == competitionId && m.DateTime > DateTime.Now && m.DateTime < DateTime.Now.AddYears(1)).List().FirstOrDefault();
+                    result = (Match)session.QueryOver<Match>().Where(m => m.Competition.Id == competitionId && m.Season.Id == seasonId).List().FirstOrDefault();
                     transaction.Commit();
                 }
             }

@@ -53,15 +53,18 @@ namespace LeagueAssist
             return result;
         }
 
-        public List<Match> RetrieveMatchesInOneFixture(int fixtureId)
+        public List<Match> RetrieveMatchesInOneFixture(string fixtureId, string competitionId, string seasonId)
         {
-            List<Match> result = _seasonRepository.GetMatchesInOneFixture(fixtureId);
+            int fixture = int.Parse(fixtureId);
+            int competition = int.Parse(competitionId);
+            int season = int.Parse(seasonId);
+            List<Match> result = _seasonRepository.GetMatchesInOneFixture(fixture, competition, season);
             return result;
         }
 
         public string GenerateTheFixturesForTheSeason (int competitionId, int seasonId)
         {
-            bool alreadyCreated = _seasonRepository.MatchesGenerated(competitionId);
+            bool alreadyCreated = _seasonRepository.MatchesGenerated(competitionId, seasonId);
             string message = "";
             if (alreadyCreated)
             {
