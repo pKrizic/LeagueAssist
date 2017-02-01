@@ -103,13 +103,26 @@ namespace LeagueAssistWeb.Controllers
                             player.lastName = playerDetails.LastName;
                             player.numberOnShirt = playerDetails.NumberOnShirt;
 
-                            if (matchProcessor.RetrieveIsFirstSelection(item.Selection.Id))
+                            if (item.Selection.Id == 1)
                             {
                                 player.isFirstSelection = true;
+                            }
+                            else if (item.Selection.Id == 2)
+                            {
+                                player.isSubstitution = true;
                             }
                             else
                             {
                                 player.isFirstSelection = false;
+                                player.isSubstitution = false;
+                            }
+
+                            if (player.matchPlayer.Captain == 0)
+                            {
+                                player.isCaptain = false;
+                            } else
+                            {
+                                player.isCaptain = true;
                             }
 
                             model.Add(player);
@@ -141,7 +154,7 @@ namespace LeagueAssistWeb.Controllers
         [HttpPost]
         public ActionResult SignPlayers(int matchId, List<PlayersStartSquad> model, FormCollection collection)
         {
-            return View();
+            return View(model);
         }
 
 

@@ -58,5 +58,7 @@ namespace LeagueAssistWeb.Models
         public string lastName { get; set; }
         public int numberOnShirt { get; set; }
         public bool isFirstSelection { get; set; }
+        public bool isSubstitution { get; set; }
+        public bool isCaptain { get; set; }
     }
 }
