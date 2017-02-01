@@ -1,7 +1,68 @@
-﻿
+﻿@model List<LeagueAssistWeb.Models.PlayersStartSquad>
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+
 @{
-    ViewBag.Title = "SignPlayer";
+    ViewBag.Title = "Prijava igrača za utakmicu";
+    var matchId = Model.First().matchPlayer.Id;
 }
 
-<h2>SignPlayer</h2>
+<h2>@ViewBag.Title</h2>
+<hr />
+<br />
+<h6>Potrebno je odabrati 11 igrača startne postave te odrediti kapetana.</h6>
 
+@using (Html.BeginForm("SignPlayers", "Match", new { matchId = matchId },  FormMethod.Post, new { @class = "form-horizontal", role = "form", matchId = matchId }))
+{
+    <table class="table table-hover">
+        <thead style="border-bottom:solid; border-bottom-color:darkgray">
+            <tr style="border-bottom: none">
+                <th class="col-xs-4" style="border-bottom: none">
+                    Broj
+                </th>
+                <th class="col-xs-4" style="border-bottom: none">
+                    Ime
+                </th>
+                <th class="col-xs-4" style="border-bottom: none">
+                    Prezime
+                </th>
+                <th class="col-xs-1" style="border-bottom: none;text-align: right">
+                    Prva postava
+                </th>
+            </tr>
+        </thead>
+        @if (Model != null)
+        {
+            for(var i = 0; i < Model.Count(); i++)
+            {
+                <tr class="table-hover">
+                    <td>
+                        @Html.HiddenFor(modelItem => Model[i].matchPlayer.Id)
+                        @Html.HiddenFor(modelItem => Model[i].numberOnShirt)
+                        @Html.DisplayFor(modelItem => Model[i].numberOnShirt)
+                    </td>
+                    <td>
+                        @Html.HiddenFor(modelItem => Model[i].firstName)
+                        @Html.DisplayFor(modelItem => Model[i].firstName)
+                    </td>
+                    <td>
+                        @Html.HiddenFor(modelItem => Model[i].lastName)
+                        @Html.DisplayFor(modelItem => Model[i].lastName)
+                    </td>
+                    <td align="right">
+                        @Html.HiddenFor(modelItem => Model[i].isFirstSelection)
+                        @Html.CheckBoxFor(modelItem => Model[i].isFirstSelection)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+
+    <br />
+    <p>
+        <div class="form-group">
+            <div class="col-xs-12" align="right">
+                <input type="submit" value="Spremi odabir" class="btn btn-success" />
+            </div>
+        </div>
+    </p>
+}

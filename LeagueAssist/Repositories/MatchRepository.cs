@@ -20,6 +20,8 @@ namespace LeagueAssist
         List<Match> GetSeasonMatchList(int clubId, int seasonId);
         void UpdateMatch(Match match);    
         List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
+        List<MatchPerson> GetPlayersForMatch(int matchId, int orgId);
+        bool GetIsFirstSelection(int selectionId);
     }
 
     public class MatchRepository : IMatchRepository
@@ -235,5 +237,42 @@ namespace LeagueAssist
             }
             return message;
         }
+
+        public List<MatchPerson> GetPlayersForMatch(int matchId, int orgId)
+        {
+            var result = new List<MatchPerson>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<MatchPerson>)session.QueryOver<MatchPerson>().Where(u => (u.Id == matchId) && (u.Organization.Id == orgId)).List();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public bool GetIsFirstSelection(int selectionId)
+        {
+            var result = new Selection();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (Selection)session.QueryOver<Selection>().Where(u => (u.Id == selectionId)).List().First();
+                    transaction.Commit();
+                }
+            }
+            if (result.Description.ToLower().Equals("U prvoj"))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
     }
 }

@@ -188,11 +188,9 @@ namespace LeagueAssistWeb.Controllers
         {
             var playerProcessor = new PlayerProcessor();
 
-            model.contract.DateTo = DateTime.Now;
-
             try
             {
-                playerProcessor.StoreContractChanges(model.contract);
+                playerProcessor.DeleteContract(model.contract);
                 return RedirectToAction("Index");
             }
             catch (Exception e)

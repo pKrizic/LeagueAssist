@@ -22,9 +22,9 @@ namespace LeagueAssist
             _playerRepository = new PlayerRepository();
         }
 
-        public IList<ClubPlayers> RetrieveFreePlayers()
+        public IList<FreePlayers> RetrieveFreePlayers()
         {
-            IList<ClubPlayers> result = _playerRepository.GetListOfFreePlayers();
+            IList<FreePlayers> result = _playerRepository.GetListOfFreePlayers();
             return result;
         }
 
@@ -153,6 +153,11 @@ namespace LeagueAssist
         {
             var _contract = new Contract(contract);
             _playerRepository.UpdateContract(_contract);
+        }
+
+        public void DeleteContract(Contract contract)
+        {
+            _playerRepository.DeleteContract(contract);
         }
     }
 }

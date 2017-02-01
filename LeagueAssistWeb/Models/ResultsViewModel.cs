@@ -6,6 +6,7 @@ namespace LeagueAssistWeb.Models
 {
     public class ResultsListViewModel
     {
+        public int matchId { get; set; }
         public ClubDetailsViewModel homeClub { get; set; }
         public ClubDetailsViewModel guestClub { get; set; }
         public int? homeGoals { get; set; }

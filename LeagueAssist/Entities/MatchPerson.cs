@@ -13,6 +13,6 @@ namespace LeagueAssist.Entities
         public virtual Organization Organization { get; set; }
         public virtual Person Person { get; set; }
         public virtual Selection Selection { get; set; }
-        public virtual Person Captain { get; set; }
+        public virtual int Captain { get; set; }
     }
 }

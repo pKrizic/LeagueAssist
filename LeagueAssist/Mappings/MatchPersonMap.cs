@@ -17,7 +17,7 @@ namespace LeagueAssist.Mappings
             References(x => x.Organization);
             References(x => x.Person);
             References(x => x.Selection);
-            References(x => x.Captain);
+            Map(x => x.Captain);
             Table("MatchPerson");
         }
     }

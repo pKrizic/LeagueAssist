@@ -35,6 +35,7 @@ namespace LeagueAssistWeb.Controllers
                 ResultsListViewModel result = new ResultsListViewModel();
                 result.homeClub = new ClubDetailsViewModel();
                 result.guestClub = new ClubDetailsViewModel();
+                result.matchId = item.Id;
                 result.matchDateTime = item.DateTime;
                 result.homeGoals = item.FirstOrgScore;
                 result.homeClub.name = item.FirstOrg.Name;
@@ -75,11 +76,74 @@ namespace LeagueAssistWeb.Controllers
         }
 
         // GET: Match/SignPlayer/5
-        public ActionResult SignPlayers(int id)
+        public ActionResult SignPlayers(int matchId)
+        {
+            List<PlayersStartSquad> model = new List<PlayersStartSquad>();
+            var playerDetails = new PlayerDetails();
+            var matchProcessor = new MatchProcessor();
+            var playerProcessor = new PlayerProcessor();
+            var userProcessor = new UserProcessor();
+            Organization org = Session["MyClub"] as Organization;
+
+            var players = matchProcessor.RetrievePlayersForMatch(matchId, org.Id);
+            var cp = userProcessor.GetClubPlayers(org.Id);
+            if (players.Count != 0)
+            {
+                foreach(var item in players)
+                {
+                    foreach (var play in cp)
+                    {
+                        if (item.Id == play.Id)
+                        {
+                            PlayersStartSquad player = new PlayersStartSquad();
+                            player.matchPlayer = new MatchPerson();
+                            player.matchPlayer = item;
+                            playerDetails = playerProcessor.RetrievePlayerDetails(item.Person.Id);
+                            player.firstName = playerDetails.FirstName;
+                            player.lastName = playerDetails.LastName;
+                            player.numberOnShirt = playerDetails.NumberOnShirt;
+
+                            if (matchProcessor.RetrieveIsFirstSelection(item.Selection.Id))
+                            {
+                                player.isFirstSelection = true;
+                            }
+                            else
+                            {
+                                player.isFirstSelection = false;
+                            }
+
+                            model.Add(player);
+                        }
+                    }
+                }
+                return View(model);
+            }
+            
+            foreach(var item in cp)
+            {
+                PlayersStartSquad player = new PlayersStartSquad();
+                player.matchPlayer = new MatchPerson();
+                player.matchPlayer.Match = matchProcessor.RetrieveMatch(matchId);
+                player.matchPlayer.Organization = org;
+                player.matchPlayer.Person = playerProcessor.RetrievePlayer(item.Id);
+                player.matchPlayer.Selection = null;
+                player.matchPlayer.Captain = 0;
+                playerDetails = playerProcessor.RetrievePlayerDetails(item.Id);
+                player.firstName = playerDetails.FirstName;
+                player.lastName = playerDetails.LastName;
+                player.numberOnShirt = playerDetails.NumberOnShirt;
+                model.Add(player);
+            }
+            
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult SignPlayers(int matchId, List<PlayersStartSquad> model, FormCollection collection)
         {
             return View();
         }
 
- 
+
     }
 }

@@ -74,8 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ClubLicence.cs" />
+    <Compile Include="Entities\FreePlayers.cs" />
     <Compile Include="Entities\RefereeLicence.cs" />
     <Compile Include="Mappings\ClubLicenceMap.cs" />
+    <Compile Include="Mappings\FreePlayersMap.cs" />
     <Compile Include="Mappings\RefereeLicenceMap.cs" />
     <Compile Include="Processors\CityProcessor.cs" />
     <Compile Include="Repositories\CityRepository.cs" />
