@@ -13,7 +13,7 @@
 
 @using (Html.BeginForm("SignPlayers", "Match", new { matchId = matchId },  FormMethod.Post, new { @class = "form-horizontal", role = "form", matchId = matchId }))
 {
-    <table class="table table-hover">
+    <table class="table table-hover" id="playersTable">
         <thead style="border-bottom:solid; border-bottom-color:darkgray">
             <tr style="border-bottom: none">
                 <th class="col-xs-4" style="border-bottom: none">
@@ -28,13 +28,19 @@
                 <th class="col-xs-1" style="border-bottom: none;text-align: right">
                     Prva postava
                 </th>
+                <th class="col-xs-1" style="border-bottom: none;text-align: right">
+                    Zamjena
+                </th>
+                <th class="col-xs-1" style="border-bottom: none;text-align: right">
+                    Kapetan
+                </th>
             </tr>
         </thead>
         @if (Model != null)
         {
             for(var i = 0; i < Model.Count(); i++)
             {
-                <tr class="table-hover">
+                <tr class="table-hover" id="item">
                     <td>
                         @Html.HiddenFor(modelItem => Model[i].matchPlayer.Id)
                         @Html.HiddenFor(modelItem => Model[i].numberOnShirt)
@@ -50,7 +56,15 @@
                     </td>
                     <td align="right">
                         @Html.HiddenFor(modelItem => Model[i].isFirstSelection)
-                        @Html.CheckBoxFor(modelItem => Model[i].isFirstSelection)
+                        @Html.CheckBoxFor(modelItem => Model[i].isFirstSelection, new { id = "isFirst" })
+                    </td>
+                    <td align="right">
+                        @Html.HiddenFor(modelItem => Model[i].isSubstitution)
+                        @Html.CheckBoxFor(modelItem => Model[i].isSubstitution, new { id = "isSubstitute" })
+                    </td>
+                    <td align="right">
+                        @Html.HiddenFor(modelItem => Model[i].isCaptain)
+                        @Html.CheckBoxFor(modelItem => Model[i].isCaptain, new { id = "isCaptain" })
                     </td>
                 </tr>
             }
@@ -61,8 +75,110 @@
     <p>
         <div class="form-group">
             <div class="col-xs-12" align="right">
-                <input type="submit" value="Spremi odabir" class="btn btn-success" />
+                <input type="submit" value="Spremi odabir" class="btn btn-success" id="saveButton" />
             </div>
         </div>
     </p>
 }
+
+<script type="text/javascript">
+    $('[id="isFirst"]').click(function () {
+        var row = $(this).closest('tr');
+        if ($(this).is(':checked')) {
+            row.find('#isSubstitute').attr('disabled', true);
+        }
+        else {
+            row.find('#isSubstitute').attr('disabled', false);
+        }
+
+        var noOfChecked = $('#playersTable').find("input[type='checkbox']:checked").length;
+        if ((noOfChecked) == 2) {
+            $('#playersTable').find('tr').each(function () {
+                var row = $(this);
+                if (!row.find('#isFirst').is(':checked')) {
+                    if (!row.find('#isSubstitute').is(':checked')) {
+                        row.find('#isFirst').attr('disabled', true);
+                        row.find('#isSubstitute').attr('disabled', true);
+                    }
+                }
+            });
+        } else {
+            $('#playersTable').find('tr').each(function () {
+                var row = $(this);
+                if (!row.find('#isFirst').is(':checked')) {
+                    if (!row.find('#isSubstitute').is(':checked')) {
+                        row.find('#isFirst').attr('disabled', false);
+                        row.find('#isSubstitute').attr('disabled', false);
+                    }
+                }
+            });
+        }
+    });
+
+    $('[id="isSubstitute"]').click(function () {
+        var row = $(this).closest('tr');
+        if ($(this).is(':checked')) {
+            row.find('#isFirst').attr('disabled', true);
+        }
+        else {
+            row.find('#isFirst').attr('disabled', false);
+        }
+
+        var noOfChecked = $('#playersTable').find("input[type='checkbox']:checked").length;
+        if ((noOfChecked) == 2) {
+            $('#playersTable').find('tr').each(function () {
+                var row = $(this);
+                if (!row.find('#isSubstitute').is(':checked')) {
+                    if (!row.find('#isFirst').is(':checked')) {
+                        row.find('#isFirst').attr('disabled', true);
+                        row.find('#isSubstitute').attr('disabled', true);
+                    }
+                }
+            });
+        } else {
+            $('#playersTable').find('tr').each(function () {
+                var row = $(this);
+                if (!row.find('#isSubstitute').is(':checked')) {
+                    if (!row.find('#isFirst').is(':checked')) {
+                        row.find('#isFirst').attr('disabled', false);
+                        row.find('#isSubstitute').attr('disabled', false);
+                    }
+                }
+            });
+        }
+    });
+
+    $('[id="isCaptain"]').click(function () {
+        var row = $(this).closest('tr');
+        if ($(this).is(':checked')) {
+            if(!row.find('#isFirst').is(':checked')) {
+                alert('Kapetan mora biti član prve postave!');
+                row.find('#isCaptain').prop('checked', false);
+            } else {
+                $('#playersTable').find('tr').each(function () {
+                    var row = $(this);
+                    if (!row.find('#isCaptain').is(':checked')) {
+                        row.find('#isCaptain').attr('disabled', true);
+                    }
+                });
+            }
+        }
+        else {
+            $('#playersTable').find('tr').each(function () {
+                var row = $(this);
+                if (!row.find('#isCaptain').is(':checked')) {
+                    row.find('#isCaptain').attr('disabled', false);
+                }
+            });
+        }
+    });
+
+    $("form").submit(function (e) {
+        var noOfChecked = $('#playersTable').find("input[type='checkbox']:checked").length;
+        if (noOfChecked < 3) {
+            e.preventDefault();
+            alert('@(TempData["AlertMessage"] = "Morate prijaviti barem 11 igrača za startnu postavu!")');
+        }
+    });
+
+</script>
