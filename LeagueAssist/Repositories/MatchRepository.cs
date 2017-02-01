@@ -22,6 +22,7 @@ namespace LeagueAssist
         List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
         List<MatchPerson> GetPlayersForMatch(int matchId, int orgId);
         bool GetIsFirstSelection(int selectionId);
+        List<ListOfMatch> getFullListOfMatch();
     }
 
     public class MatchRepository : IMatchRepository
@@ -274,5 +275,19 @@ namespace LeagueAssist
             }
         }
 
+        public List<ListOfMatch> getFullListOfMatch()
+        {
+            var result = new List<ListOfMatch>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<ListOfMatch>)session.QueryOver<ListOfMatch>().List();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
     }
 }

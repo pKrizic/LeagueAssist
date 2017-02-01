@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LeagueAssist;
+using LeagueAssist.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,36 @@ namespace LeagueAssistWeb.Controllers
 {
     public class LeagueController : Controller
     {
+        public List<ListOfMatch> _listOfAllMatche;
+        List<SelectListItem> seasons = new List<SelectListItem>();
+        List<SelectListItem> leagues = new List<SelectListItem>();
+        List<SelectListItem> fixtures = new List<SelectListItem>();
+        
         // GET: League
         public ActionResult Index()
         {
+            MatchProcessor _matchProcessor = new MatchProcessor();
+            _listOfAllMatche = _matchProcessor.RetrieveListOfAllMatch();
 
+            
+
+            foreach (ListOfMatch _lom in _listOfAllMatche)
+            {
+                if (!leagues.Exists(x => x.Value == _lom.Competition_Id.ToString()))
+                {
+                    leagues.Add(new SelectListItem { Text = _lom.CompetitionName, Value = _lom.Competition_Id.ToString() });
+                }
+                if (!seasons.Exists(x => x.Value == _lom.Season_Id.ToString()))
+                {
+                    seasons.Add(new SelectListItem { Text = _lom.SeasonName, Value = _lom.Season_Id.ToString() });
+                }
+                if (!fixtures.Exists(x => x.Value == _lom.Fixture_Id.ToString()))
+                {
+                    fixtures.Add(new SelectListItem { Text = _lom.FixtureName, Value = _lom.Fixture_Id.ToString() });
+                }
+            }
+
+            /*
             List<SelectListItem> seasons = new List<SelectListItem>{
                 new SelectListItem{ Text="2013/2014", Value="1" },
                 new SelectListItem{ Text="2014/2015", Value="2" },
@@ -28,12 +56,14 @@ namespace LeagueAssistWeb.Controllers
                 new SelectListItem{ Text="1. HNL", Value="1" },
                 new SelectListItem{ Text="2. HNL", Value="2" },
                 new SelectListItem{ Text="3. HNL", Value="3" }
-            };
+            };*/
+            
 
             ViewBag.sezonaID = seasons;
             ViewBag.koloID = fixtures;
             ViewBag.ligaID = leagues;
-
+            
+            
             return View();
         }
 

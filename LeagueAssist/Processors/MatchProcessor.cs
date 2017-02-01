@@ -97,5 +97,10 @@ namespace LeagueAssist
             return result;
         }
 
+        public List<ListOfMatch> RetrieveListOfAllMatch()
+        {
+            return _matchRepository.getFullListOfMatch();
+        }
+
     }
 }

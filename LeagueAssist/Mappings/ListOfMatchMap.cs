@@ -14,13 +14,18 @@ namespace LeagueAssist.Mappings
         {
             Id(x => x.Id);
             Map(x => x.FirstOrg_Id);
-            Map(x => x.HomeName);
             Map(x => x.FirstOrgScore);
+            Map(x => x.HomeName);
             Map(x => x.SecondOrg_Id);
-            Map(x => x.GuestName);
             Map(x => x.SecondOrgScore);
-            Map(x => x.fixture_Id);
-            Map(x => x.DateTime);
+            Map(x => x.GuestName);
+            Map(x => x.Fixture_Id);
+            Map(x => x.FixtureName);
+            Map(x => x.Competition_Id);
+            Map(x => x.CompetitionName);
+            Map(x => x.Type);
+            Map(x => x.Season_Id);
+            Map(x => x.SeasonName);
             Table("ListOfMatch");
             ReadOnly();
         }
