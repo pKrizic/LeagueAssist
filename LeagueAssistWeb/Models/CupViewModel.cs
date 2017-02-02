@@ -6,6 +6,6 @@ namespace LeagueAssistWeb.Models
     public class CupDetailsViewModel
     {
         public FixtureDetailsViewModel cupPhase { get; protected set; }
-        public List<ResultsListViewModel> result { get; set; }
+        public List<FixtureResultViewModel> result { get; set; }
     }
 }
