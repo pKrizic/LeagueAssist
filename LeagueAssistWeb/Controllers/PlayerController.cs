@@ -199,18 +199,21 @@ namespace LeagueAssistWeb.Controllers
             }
         }
 
-        public ActionResult RegisterPlayer(int id)
+        public ActionResult RegisterPlayer(int id = 0)
         {
+            PlayerProcessor playerProcessor = new PlayerProcessor();
+            /*
             if (id != 0)
             {
                 var player = RetrievePlayer(id);
 
                 // Initialize new contract
-                player.contract.Id = 0;
+                player.contract = new Contract();
                 player.contract.DateFrom = DateTime.MinValue;
                 player.contract.DateTo = DateTime.MinValue;
 
                 // Initialize new healthCheck
+                player.healthCheck = new HealthCheckEvidention();
                 player.healthCheck.FromDate = DateTime.MinValue;
                 player.healthCheck.ToDate = DateTime.MinValue;
 
@@ -218,14 +221,19 @@ namespace LeagueAssistWeb.Controllers
             }
             else
             {
+            */
                 // Initialize new player, contract and healthCheck
                 PlayerDetailsViewModel player = new PlayerDetailsViewModel();
                 player.player = new Person();
                 player.contract = new Contract();
                 player.healthCheck = new HealthCheckEvidention();
+                if (id != 0)
+                {
+                    player.player = playerProcessor.RetrievePlayer(id);
+            }
 
                 return View(player);
-            }
+            //}
         }
 
         [HttpPost]

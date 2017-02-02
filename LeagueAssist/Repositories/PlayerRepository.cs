@@ -31,7 +31,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    result = (PlayerDetails)session.QueryOver<PlayerDetails>().Where(x => x.Id == playerId).OrderBy(x => x.DateTo).Desc.List().First();
+                    result = (PlayerDetails)session.QueryOver<PlayerDetails>().Where(x => x.Id == playerId).OrderBy(x => x.DateTo).Desc.List().FirstOrDefault();
                     //transaction.Commit();
                 }
             }
@@ -46,7 +46,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    result = (Person)session.QueryOver<Person>().Where(x => x.Id == playerId).List().First();
+                    result = (Person)session.QueryOver<Person>().Where(x => x.Id == playerId).List().FirstOrDefault();
                     transaction.Commit();
                 }
             }
