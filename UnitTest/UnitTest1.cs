@@ -271,7 +271,7 @@ namespace UnitTest
             List<int> clubIds = new List<int>();
 
             var repository = new Mock<ISeasonRepository>();
-            repository.Setup(x => x.MatchesGenerated(competitionId)).Returns(allreadyCreated);
+            repository.Setup(x => x.MatchesGenerated(competitionId, seasonId)).Returns(allreadyCreated);
             repository.Setup(x => x.GetIdsOfClubsInCompetition(competitionId, seasonId)).Returns(clubIds);
 
             SeasonProcessor processor = new SeasonProcessor();
@@ -282,7 +282,7 @@ namespace UnitTest
             //vec je generirano, ukoliko zelimo da test ne prođe makni if uvjet
             if (!allreadyCreated)
                 repository.Verify(x => x.GetIdsOfClubsInCompetition(competitionId, seasonId), Times.Exactly(1));
-            repository.Verify(x => x.MatchesGenerated(competitionId));
+            repository.Verify(x => x.MatchesGenerated(competitionId, seasonId));
         }
     }
 }
