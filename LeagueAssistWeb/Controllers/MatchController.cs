@@ -96,8 +96,9 @@ namespace LeagueAssistWeb.Controllers
                         if (item.Id == play.Id)
                         {
                             PlayersStartSquad player = new PlayersStartSquad();
-                            player.matchPlayer = new MatchPerson();
-                            player.matchPlayer = item;
+                            player.playerId = item.Id;
+                            player.matchId = matchId;
+                            player.organizationId = org.Id;
                             playerDetails = playerProcessor.RetrievePlayerDetails(item.Person.Id);
                             player.firstName = playerDetails.FirstName;
                             player.lastName = playerDetails.LastName;
@@ -117,7 +118,7 @@ namespace LeagueAssistWeb.Controllers
                                 player.isSubstitution = false;
                             }
 
-                            if (player.matchPlayer.Captain == 0)
+                            if (item.Captain == 0)
                             {
                                 player.isCaptain = false;
                             } else
@@ -131,32 +132,65 @@ namespace LeagueAssistWeb.Controllers
                 }
                 return View(model);
             }
-            
             foreach(var item in cp)
             {
                 PlayersStartSquad player = new PlayersStartSquad();
-                player.matchPlayer = new MatchPerson();
-                player.matchPlayer.Match = matchProcessor.RetrieveMatch(matchId);
-                player.matchPlayer.Organization = org;
-                player.matchPlayer.Person = playerProcessor.RetrievePlayer(item.Id);
-                player.matchPlayer.Selection = null;
-                player.matchPlayer.Captain = 0;
+                player.matchId = matchId;
+                player.organizationId = org.Id;
+                player.playerId = item.Id;
                 playerDetails = playerProcessor.RetrievePlayerDetails(item.Id);
                 player.firstName = playerDetails.FirstName;
                 player.lastName = playerDetails.LastName;
                 player.numberOnShirt = playerDetails.NumberOnShirt;
                 model.Add(player);
             }
-            
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult SignPlayers(int matchId, List<PlayersStartSquad> model, FormCollection collection)
+        public ActionResult SignPlayers(List<PlayersStartSquad> model, FormCollection collection)
         {
+            PlayerProcessor playerProcessor = new PlayerProcessor();
+            MatchProcessor matchProcessor = new MatchProcessor();
+            Organization org = Session["MyClub"] as Organization;
+
+            var players = matchProcessor.RetrievePlayersForMatch(model.First().matchId, org.Id);
+            
+            foreach(var item in model)
+            {
+                if (item.isFirstSelection || item.isSubstitution)
+                {
+                    MatchPerson matchPerson = new MatchPerson();
+                    matchPerson.Match = new Match();
+                    matchPerson.Organization = new Organization();
+                    matchPerson.Person = new Person();
+                    matchPerson.Selection = new Selection();
+
+                    if (item.isFirstSelection && item.isCaptain)
+                    {
+                        matchPerson.Captain = 1;
+                    }
+                    Person person = playerProcessor.RetrievePlayer(item.playerId);
+                    Match match = matchProcessor.RetrieveMatch(item.matchId);
+                    Selection selection = new Selection();
+                    
+                    if(item.isFirstSelection)
+                    {
+                        selection = playerProcessor.RetrieveSelection(1);
+                    } else
+                    {
+                        selection = playerProcessor.RetrieveSelection(2);
+                    }
+
+                    matchPerson.Person = person;
+                    matchPerson.Match = match;
+                    matchPerson.Selection = selection;
+
+                    matchProcessor.UpdateMatchPerson(matchPerson);
+                    
+                }
+            }
             return View(model);
         }
-
-
     }
 }

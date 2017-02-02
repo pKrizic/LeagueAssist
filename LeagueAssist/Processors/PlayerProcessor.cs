@@ -58,6 +58,12 @@ namespace LeagueAssist
             return personTypes;
         }
 
+        public Selection RetrieveSelection(int selectionId)
+        {
+            Selection selection = _playerRepository.GetPlayerSelection(selectionId);
+            return selection;
+        }
+
         public void StorePlayerDetailsChanges(Person player, Contract contract, HealthCheckEvidention healthCheck, Organization organization)
         {
             StorePlayerChanges(player);

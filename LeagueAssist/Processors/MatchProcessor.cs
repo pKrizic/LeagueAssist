@@ -102,5 +102,10 @@ namespace LeagueAssist
             return _matchRepository.getFullListOfMatch();
         }
 
+        public void UpdateMatchPerson(MatchPerson matchPerson)
+        {
+            _matchRepository.UpdateMatchPerson(matchPerson);
+        }
+
     }
 }

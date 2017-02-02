@@ -1,5 +1,6 @@
 ﻿using LeagueAssist;
 using LeagueAssist.Entities;
+using LeagueAssistWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace LeagueAssistWeb.Controllers
 {
     public class LeagueController : Controller
     {
-        public List<ListOfMatch> _listOfAllMatche;
+        public List<ListOfMatch> _listOfAllMatches;
         List<SelectListItem> seasons = new List<SelectListItem>();
         List<SelectListItem> leagues = new List<SelectListItem>();
         List<SelectListItem> fixtures = new List<SelectListItem>();
@@ -19,11 +20,11 @@ namespace LeagueAssistWeb.Controllers
         public ActionResult Index()
         {
             MatchProcessor _matchProcessor = new MatchProcessor();
-            _listOfAllMatche = _matchProcessor.RetrieveListOfAllMatch();
+            _listOfAllMatches = _matchProcessor.RetrieveListOfAllMatch();
 
             
 
-            foreach (ListOfMatch _lom in _listOfAllMatche)
+            foreach (ListOfMatch _lom in _listOfAllMatches)
             {
                 if (!leagues.Exists(x => x.Value == _lom.Competition_Id.ToString()))
                 {
