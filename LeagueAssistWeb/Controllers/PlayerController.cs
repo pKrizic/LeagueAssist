@@ -157,6 +157,31 @@ namespace LeagueAssistWeb.Controllers
             int idClub = 2;
             var playerProcessor = new PlayerProcessor();
             var organization = RetrieveOrganization(idClub);
+            decimal testDec;
+            DateTime testDate;
+            if (!DateTime.TryParse(model.player.BirthDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum rođenja je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.contract.DateFrom.ToString(), out testDate) || !DateTime.TryParse(model.contract.DateTo.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum ugovora je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.healthCheck.FromDate.ToString(), out testDate) || !DateTime.TryParse(model.healthCheck.ToDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum liječničkog je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!Decimal.TryParse(model.contract.AnnualSalary.ToString(), out testDec))
+            {
+                TempData["Error"] = "Iznos plaće je krivog formata. Ispravan format je XX.YY";
+                return View(model);
+            }
 
             try
             {
@@ -188,11 +213,9 @@ namespace LeagueAssistWeb.Controllers
         {
             var playerProcessor = new PlayerProcessor();
 
-            model.contract.DateTo = DateTime.Now;
-
             try
             {
-                playerProcessor.StoreContractChanges(model.contract);
+                playerProcessor.DeleteContract(model.contract);
                 return RedirectToAction("Index");
             }
             catch (Exception e)
@@ -201,18 +224,21 @@ namespace LeagueAssistWeb.Controllers
             }
         }
 
-        public ActionResult RegisterPlayer(int id)
+        public ActionResult RegisterPlayer(int id = 0)
         {
+            PlayerProcessor playerProcessor = new PlayerProcessor();
+            /*
             if (id != 0)
             {
                 var player = RetrievePlayer(id);
 
                 // Initialize new contract
-                player.contract.Id = 0;
+                player.contract = new Contract();
                 player.contract.DateFrom = DateTime.MinValue;
                 player.contract.DateTo = DateTime.MinValue;
 
                 // Initialize new healthCheck
+                player.healthCheck = new HealthCheckEvidention();
                 player.healthCheck.FromDate = DateTime.MinValue;
                 player.healthCheck.ToDate = DateTime.MinValue;
 
@@ -220,14 +246,19 @@ namespace LeagueAssistWeb.Controllers
             }
             else
             {
+            */
                 // Initialize new player, contract and healthCheck
                 PlayerDetailsViewModel player = new PlayerDetailsViewModel();
                 player.player = new Person();
                 player.contract = new Contract();
                 player.healthCheck = new HealthCheckEvidention();
+                if (id != 0)
+                {
+                    player.player = playerProcessor.RetrievePlayer(id);
+            }
 
                 return View(player);
-            }
+            //}
         }
 
         [HttpPost]
@@ -236,6 +267,32 @@ namespace LeagueAssistWeb.Controllers
             var idClub = 2;
             var playerProcessor = new PlayerProcessor();
             var organization = RetrieveOrganization(idClub);
+            DateTime testDate;
+            Decimal testDec;
+
+            if (!DateTime.TryParse(model.player.BirthDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum rođenja je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.contract.DateFrom.ToString(), out testDate) || !DateTime.TryParse(model.contract.DateTo.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum ugovora je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.healthCheck.FromDate.ToString(), out testDate) || !DateTime.TryParse(model.healthCheck.ToDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum liječničkog je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!Decimal.TryParse(model.contract.AnnualSalary.ToString(), out testDec))
+            {
+                TempData["Error"] = "Iznos plaće je krivog formata. Ispravan format je XX.YY";
+                return View(model);
+            }
 
             try
             {

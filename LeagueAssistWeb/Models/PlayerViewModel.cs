@@ -48,42 +48,19 @@ namespace LeagueAssistWeb.Models
     {
         public Person player { get; set; }
         public Contract contract { get; set; } 
-        public HealthCheckEvidention healthCheck { get; set; }
-        
+        public HealthCheckEvidention healthCheck { get; set; }   
     }
 
-    /*
-    public class Person
+    public class PlayersStartSquad
     {
-        public int id { get; set; }
-        [Display(Name = "Ime")]
+        public int matchId { get; set; }
+        public int organizationId { get; set; }
+        public int playerId { get; set; }
         public string firstName { get; set; }
-        [Display(Name = "Prezime")]
         public string lastName { get; set; }
-        [Display(Name = "Datum rođenja")]
-        public DateTime? birthDate { get; set; }
-        [Display(Name = "Email")]
-        public string email { get; set; }
-        [Display(Name = "Telefon")]
-        public string phone { get; set; }
+        public int numberOnShirt { get; set; }
+        public bool isFirstSelection { get; set; }
+        public bool isSubstitution { get; set; }
+        public bool isCaptain { get; set; }
     }
-
-    public class Contract
-    {
-        public int? id { get; set; }
-        public DateTime? dateFrom { get; set; }
-        public DateTime? dateTo { get; set; }
-        public bool foreigner { get; set; }
-        public int? numberOnShirt { get; set; }
-        public decimal? annualSalary { get; set; }
-    }
-
-    public class HealthCheck
-    {
-        public int? id { get; set; }
-        public DateTime? dateFrom { get; set; }
-        public DateTime? dateTo { get; set; }
-        public string remark { get; set; }
-    }
-    */
 }

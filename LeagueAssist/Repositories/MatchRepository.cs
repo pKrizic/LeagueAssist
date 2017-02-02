@@ -9,7 +9,6 @@ namespace LeagueAssist
 {
     public interface IMatchRepository
     {
-        string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista);
         MatchStadiumInfo GetMatchStadiumInfo(int matchId);
         List<MatchActivityPlayers> GetMatchActivityPlayers(int matchId);
         MatchDetailInfo GetMatchDetailInfo(MatchStadiumInfo stadium, List<MatchActivityPlayers> activities, List<ListOfPlayers> players);
@@ -18,8 +17,15 @@ namespace LeagueAssist
         List<PlayerPerformance> GetAllPlayerPerformance();
         Match GetMatch(int id);
         List<Match> GetSeasonMatchList(int clubId, int seasonId);
-        void UpdateMatch(Match match);    
         List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
+        List<MatchPerson> GetPlayersForMatch(int matchId, int orgId);
+        List<ListOfMatch> getFullListOfMatch();
+        MatchPerson GetPlayerForMatch(int matchId, int orgId, int playerId);
+        string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista);
+        void UpdateMatch(Match match);
+        void UpdateMatchPerson(MatchPerson matchPerson);
+        void DeleteMatchPerson(MatchPerson matchPerson);
+        bool GetIsFirstSelection(int selectionId);
     }
 
     public class MatchRepository : IMatchRepository
@@ -234,6 +240,105 @@ namespace LeagueAssist
                 }
             }
             return message;
+        }
+
+        public List<MatchPerson> GetPlayersForMatch(int matchId, int orgId)
+        {
+            var result = new List<MatchPerson>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<MatchPerson>)session.QueryOver<MatchPerson>().Where(u => (u.Match.Id == matchId) && (u.Organization.Id == orgId)).List();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public MatchPerson GetPlayerForMatch(int matchId, int orgId, int playerId)
+        {
+            var result = new MatchPerson();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    try
+                    {
+                        result = session.QueryOver<MatchPerson>().Where(u => (u.Match.Id == matchId) && (u.Organization.Id == orgId) && (u.Person.Id == playerId)).List().FirstOrDefault();
+                    } catch (Exception e)
+                    {
+                        
+                    }
+                    
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public bool GetIsFirstSelection(int selectionId)
+        {
+            var result = new Selection();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (Selection)session.QueryOver<Selection>().Where(u => (u.Id == selectionId)).List().First();
+                    transaction.Commit();
+                }
+            }
+            if (result.Description.ToLower().Equals("U prvoj"))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        public List<ListOfMatch> getFullListOfMatch()
+        {
+            var result = new List<ListOfMatch>();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (List<ListOfMatch>)session.QueryOver<ListOfMatch>().List();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public void UpdateMatchPerson(MatchPerson matchPerson)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(matchPerson);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public void DeleteMatchPerson(MatchPerson matchPerson)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.Delete(matchPerson);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

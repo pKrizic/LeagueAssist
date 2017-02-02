@@ -3,10 +3,7 @@
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
-<form id="form1" action=@Url.Action("Index", new {
-                       sortOrder = ViewBag.CurrentSort, currentNazivFilter = ViewBag.NazivFilter,
-                       currentKraticaFilter = ViewBag.KraticaFilter,
-                       currentErasmusKodFilter = ViewBag.ErasmusKodFilter, currentURLFilter = ViewBag.URLFilter })
+<form id="form1" action=@Url.Action("Index")
       method="get">
 
     @{
@@ -69,7 +66,7 @@
                 </a>
             </div>
             <div class="col-xs-2" align="right">
-                <a href="@Url.Action("RegisterNewPlayer")" class="btn btn-primary">
+                <a href="@Url.Action("RegisterPlayer")" class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus-sign"></span>
                     Registriraj novog igrača
                 </a>

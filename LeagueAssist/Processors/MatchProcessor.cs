@@ -47,6 +47,12 @@ namespace LeagueAssist
             return result;
         }
 
+        public Match RetrieveMatch (int matchId)
+        {
+            var result = _matchRepository.GetMatch(matchId);
+            return result;
+        }
+
         public List<Match> RetrieveSeasonMatchList (int clubId, int seasonId)
         {
             List<Match> result = _matchRepository.GetSeasonMatchList(clubId, seasonId);
@@ -79,5 +85,37 @@ namespace LeagueAssist
             return match;
         }
 
+        public List<MatchPerson> RetrievePlayersForMatch(int matchId, int orgId)
+        {
+            List<MatchPerson> players = _matchRepository.GetPlayersForMatch(matchId, orgId);
+            return players;
+        }
+
+        public MatchPerson RetrievePlayerForMatch(int matchId, int orgId, int playerId)
+        {
+            MatchPerson player = _matchRepository.GetPlayerForMatch(matchId, orgId, playerId);
+            return player;
+        }
+
+        public bool RetrieveIsFirstSelection(int selectionId)
+        {
+            bool result = _matchRepository.GetIsFirstSelection(selectionId);
+            return result;
+        }
+
+        public List<ListOfMatch> RetrieveListOfAllMatch()
+        {
+            return _matchRepository.getFullListOfMatch();
+        }
+
+        public void UpdateMatchPerson(MatchPerson matchPerson)
+        {
+            _matchRepository.UpdateMatchPerson(matchPerson);
+        }
+
+        public void DeleteMatchPerson(MatchPerson matchPerson)
+        {
+            _matchRepository.DeleteMatchPerson(matchPerson);
+        }
     }
 }

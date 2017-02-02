@@ -83,14 +83,14 @@
                                             <td>
                                                 @item.guestClub.name
                                             </td>
-                                            @if (item.homeGoals != null && item.guestGoals != null)
+                                            @if (item.matchDateTime < DateTime.Now)
                                             {
                                                 <td></td>
                                             }
                                             else
                                             {
                                                 <td align="right">
-                                                    <a href="@Url.Action("SignPlayers", new { id = Model.id })">
+                                                    <a href="@Url.Action("SignPlayers", new { matchId = item.matchId })">
                                                         <i class="glyphicon glyphicon-user"></i>
                                                         <span class="sr-only">Prijavi postavu</span>
                                                     </a>

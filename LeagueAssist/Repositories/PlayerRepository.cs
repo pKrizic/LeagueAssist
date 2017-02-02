@@ -14,10 +14,12 @@ namespace LeagueAssist
         Contract GetContract(int contractId);
         HealthCheckEvidention GetHealthCheck(int healthCheckId);
         List<PersonType> GetPlayerTypes();
-        IList<ClubPlayers> GetListOfFreePlayers();
+        IList<FreePlayers> GetListOfFreePlayers();
+        Selection GetPlayerSelection(int selectionId);
         void UpdatePlayer(Person player);
         void UpdateContract(Contract contract);
         void UpdateHealthCheck(HealthCheckEvidention healthCheck);
+        void DeleteContract(Contract contractId);
     }
     public class PlayerRepository : IPlayerRepository
     {
@@ -29,7 +31,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    result = (PlayerDetails)session.QueryOver<PlayerDetails>().Where(x => x.Id == playerId).OrderBy(x => x.DateTo).Desc.List().First();
+                    result = (PlayerDetails)session.QueryOver<PlayerDetails>().Where(x => x.Id == playerId).OrderBy(x => x.DateTo).Desc.List().FirstOrDefault();
                     //transaction.Commit();
                 }
             }
@@ -44,7 +46,7 @@ namespace LeagueAssist
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    result = (Person)session.QueryOver<Person>().Where(x => x.Id == playerId).List().First();
+                    result = (Person)session.QueryOver<Person>().Where(x => x.Id == playerId).List().FirstOrDefault();
                     transaction.Commit();
                 }
             }
@@ -96,33 +98,33 @@ namespace LeagueAssist
             return result;
         }
 
-        public IList<ClubPlayers> GetListOfFreePlayers()
+        public IList<FreePlayers> GetListOfFreePlayers()
         {
-            IList<ClubPlayers> result = null;
-            IList<ClubPlayers> helpList = null;
-            IList<ClubPlayers> queryList = new List<ClubPlayers>();
+            IList<FreePlayers> result = null;
             var clas = new Class1();
             using (var session = clas.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    helpList = session.QueryOver<ClubPlayers>().Where(u => (u.DateFrom <= DateTime.Now) && (u.DateTo >= DateTime.Now)).List();
-                    result = session.QueryOver<ClubPlayers>().Where(u => (u.DateTo < DateTime.Now)).List();
 
-                    foreach (var item in helpList)
-                    {
-                        foreach(var item2 in result)
-                        {
-                            if (item2.Id == item.Id)
-                            {
-                                queryList.Add(item2);
-                            }
-                        }
-                    }
-                    foreach(var item in queryList)
-                    {
-                        result.Remove(item);
-                    }
+                    result = session.QueryOver<FreePlayers>().List();
+
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public Selection GetPlayerSelection(int selectionId)
+        {
+            Selection result = null;
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+
+                    result = session.QueryOver<Selection>().Where(x => x.Id == selectionId).List().First();
 
                     transaction.Commit();
                 }
@@ -164,6 +166,19 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     session.SaveOrUpdate(healthCheck);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public void DeleteContract(Contract contract)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.Delete(contract);
                     transaction.Commit();
                 }
             }

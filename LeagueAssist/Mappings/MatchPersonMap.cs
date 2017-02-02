@@ -13,11 +13,11 @@ namespace LeagueAssist.Mappings
         public MatchPersonMap()
         {
             Id(x => x.Id);
-            References(x => x.Match);
-            References(x => x.Organization);
-            References(x => x.Person);
-            References(x => x.Selection);
-            References(x => x.Captain);
+            References(x => x.Match).Not.LazyLoad();
+            References(x => x.Organization).Not.LazyLoad();
+            References(x => x.Person).Not.LazyLoad();
+            References(x => x.Selection).Not.LazyLoad();
+            Map(x => x.Captain);
             Table("MatchPerson");
         }
     }

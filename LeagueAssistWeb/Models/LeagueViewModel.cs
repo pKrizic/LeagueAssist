@@ -7,7 +7,7 @@ namespace LeagueAssistWeb.Models
     {
         public SeasonDetailsViewModel season { get; protected set; }
         public FixtureDetailsViewModel leaguePhase { get; set; }
-        public List<ResultsListViewModel> result { get; set; }
+        public List<FixtureResultViewModel> result { get; set; }
         public List<LeagueClubDetailsViewModel> clubStatus { get; set; }
     }
 
