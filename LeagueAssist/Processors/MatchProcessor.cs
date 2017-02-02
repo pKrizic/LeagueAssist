@@ -91,6 +91,12 @@ namespace LeagueAssist
             return players;
         }
 
+        public MatchPerson RetrievePlayerForMatch(int matchId, int orgId, int playerId)
+        {
+            MatchPerson player = _matchRepository.GetPlayerForMatch(matchId, orgId, playerId);
+            return player;
+        }
+
         public bool RetrieveIsFirstSelection(int selectionId)
         {
             bool result = _matchRepository.GetIsFirstSelection(selectionId);
@@ -107,5 +113,9 @@ namespace LeagueAssist
             _matchRepository.UpdateMatchPerson(matchPerson);
         }
 
+        public void DeleteMatchPerson(MatchPerson matchPerson)
+        {
+            _matchRepository.DeleteMatchPerson(matchPerson);
+        }
     }
 }

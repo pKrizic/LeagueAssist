@@ -86,17 +86,17 @@ namespace LeagueAssistWeb.Controllers
             Organization org = Session["MyClub"] as Organization;
 
             var players = matchProcessor.RetrievePlayersForMatch(matchId, org.Id);
-            var cp = userProcessor.GetClubPlayers(org.Id);
+            var clubPlayers = userProcessor.GetClubPlayers(org.Id);
             if (players.Count != 0)
             {
                 foreach(var item in players)
                 {
-                    foreach (var play in cp)
+                    foreach (var clubPlayer in clubPlayers)
                     {
-                        if (item.Id == play.Id)
+                        if (item.Person.Id == clubPlayer.Id)
                         {
                             PlayersStartSquad player = new PlayersStartSquad();
-                            player.playerId = item.Id;
+                            player.playerId = item.Person.Id;
                             player.matchId = matchId;
                             player.organizationId = org.Id;
                             playerDetails = playerProcessor.RetrievePlayerDetails(item.Person.Id);
@@ -130,19 +130,22 @@ namespace LeagueAssistWeb.Controllers
                         }
                     }
                 }
-                return View(model);
+                //return View(model);
             }
-            foreach(var item in cp)
+            foreach(var item in clubPlayers)
             {
-                PlayersStartSquad player = new PlayersStartSquad();
-                player.matchId = matchId;
-                player.organizationId = org.Id;
-                player.playerId = item.Id;
-                playerDetails = playerProcessor.RetrievePlayerDetails(item.Id);
-                player.firstName = playerDetails.FirstName;
-                player.lastName = playerDetails.LastName;
-                player.numberOnShirt = playerDetails.NumberOnShirt;
-                model.Add(player);
+                if (model.Find(x => x.playerId == item.Id) == null)
+                {
+                    PlayersStartSquad player = new PlayersStartSquad();
+                    player.matchId = matchId;
+                    player.organizationId = org.Id;
+                    player.playerId = item.Id;
+                    playerDetails = playerProcessor.RetrievePlayerDetails(item.Id);
+                    player.firstName = playerDetails.FirstName;
+                    player.lastName = playerDetails.LastName;
+                    player.numberOnShirt = playerDetails.NumberOnShirt;
+                    model.Add(player);
+                }
             }
             return View(model);
         }
@@ -153,44 +156,76 @@ namespace LeagueAssistWeb.Controllers
             PlayerProcessor playerProcessor = new PlayerProcessor();
             MatchProcessor matchProcessor = new MatchProcessor();
             Organization org = Session["MyClub"] as Organization;
-
-            var players = matchProcessor.RetrievePlayersForMatch(model.First().matchId, org.Id);
             
             foreach(var item in model)
             {
+                Selection selection = new Selection();
+                var player = matchProcessor.RetrievePlayerForMatch(model.First().matchId, org.Id, item.playerId);
+
                 if (item.isFirstSelection || item.isSubstitution)
                 {
-                    MatchPerson matchPerson = new MatchPerson();
-                    matchPerson.Match = new Match();
-                    matchPerson.Organization = new Organization();
-                    matchPerson.Person = new Person();
-                    matchPerson.Selection = new Selection();
 
-                    if (item.isFirstSelection && item.isCaptain)
+                    if (player != null)
                     {
-                        matchPerson.Captain = 1;
+                        if (item.isFirstSelection)
+                        {
+                            selection = playerProcessor.RetrieveSelection(1);
+                        }
+                        else
+                        {
+                            selection = playerProcessor.RetrieveSelection(2);
+                        }
+
+                        player.Selection = selection;
+
+                        if (item.isFirstSelection && item.isCaptain)
+                        {
+                            player.Captain = 1;
+                        }
+                        matchProcessor.UpdateMatchPerson(player);
                     }
-                    Person person = playerProcessor.RetrievePlayer(item.playerId);
-                    Match match = matchProcessor.RetrieveMatch(item.matchId);
-                    Selection selection = new Selection();
-                    
-                    if(item.isFirstSelection)
+                    else
                     {
-                        selection = playerProcessor.RetrieveSelection(1);
-                    } else
-                    {
-                        selection = playerProcessor.RetrieveSelection(2);
+                        MatchPerson matchPerson = new MatchPerson();
+                        matchPerson.Match = new Match();
+                        matchPerson.Organization = new Organization();
+                        matchPerson.Person = new Person();
+                        matchPerson.Selection = new Selection();
+
+                        if (item.isFirstSelection && item.isCaptain)
+                        {
+                            matchPerson.Captain = 1;
+                        }
+
+                        Person person = playerProcessor.RetrievePlayer(item.playerId);
+                        Match match = matchProcessor.RetrieveMatch(item.matchId);
+
+                        if (item.isFirstSelection)
+                        {
+                            selection = playerProcessor.RetrieveSelection(1);
+                        }
+                        else
+                        {
+                            selection = playerProcessor.RetrieveSelection(2);
+                        }
+
+                        matchPerson.Person = person;
+                        matchPerson.Match = match;
+                        matchPerson.Selection = selection;
+                        matchPerson.Organization = org;
+
+                        matchProcessor.UpdateMatchPerson(matchPerson);
                     }
-
-                    matchPerson.Person = person;
-                    matchPerson.Match = match;
-                    matchPerson.Selection = selection;
-
-                    matchProcessor.UpdateMatchPerson(matchPerson);
-                    
+                }
+                else
+                {
+                    if (player != null)
+                    {
+                        matchProcessor.DeleteMatchPerson(player);
+                    }
                 }
             }
-            return View(model);
+            return RedirectToAction("Index");
         }
     }
 }
