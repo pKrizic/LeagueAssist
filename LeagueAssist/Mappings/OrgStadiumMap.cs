@@ -13,8 +13,8 @@ namespace LeagueAssist.Mappings
         public OrgStadiumMap()
         {
             Id(x => x.Id);
-            References(x => x.Organization);
-            References(x => x.Stadium);
+            References(x => x.Organization).Not.LazyLoad();
+            References(x => x.Stadium).Not.LazyLoad();
             Table("OrgStadium");
         }
     }

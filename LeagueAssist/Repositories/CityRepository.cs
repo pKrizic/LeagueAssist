@@ -10,6 +10,7 @@ namespace LeagueAssist
     public interface ICityRepository
     {
         List<City> getCities();
+        City getCity(int id);
     }
 
     public class CityRepository : ICityRepository
@@ -23,6 +24,21 @@ namespace LeagueAssist
                 using (var transaction = session.BeginTransaction())
                 {
                     result = (List<City>)session.QueryOver<City>().List<City>();
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public City getCity(int id)
+        {
+            var result = new City();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = session.QueryOver<City>().Where(x => x.Id == id).List().FirstOrDefault();
                     transaction.Commit();
                 }
             }

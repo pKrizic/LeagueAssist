@@ -26,5 +26,10 @@ namespace LeagueAssist
         {
             return Repository.getCities();
         }
+
+        public City getCity(int id)
+        {
+            return _cityRepository.getCity(id);
+        }
     }
 }

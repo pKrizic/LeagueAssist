@@ -12,6 +12,9 @@ namespace LeagueAssist
         List<Organization> getOrganizations();
         Organization getOrganization(int id);
         List<int> GetOrganizationsWithLicence(int competitionId, int seasonId);
+        Stadium GetOrganizationStadium(int organizationId);
+        void UpdateOrganization(Organization org);
+        void UpdateStadium(Stadium stadium);
     }
     class OrganizationRepository : IOrganizationRepository
     {
@@ -58,6 +61,47 @@ namespace LeagueAssist
                 }
             }
             return result;
+        }
+
+        public Stadium GetOrganizationStadium(int organizationId)
+        {
+            var result = new OrgStadium();
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    result = (OrgStadium)session.QueryOver<OrgStadium>().Where(org => org.Organization.Id == organizationId).List().FirstOrDefault();
+                    transaction.Commit();
+                }
+            }
+            return result.Stadium;
+        }
+
+        public void UpdateOrganization(Organization org)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(org);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public void UpdateStadium(Stadium stadium)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(stadium);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

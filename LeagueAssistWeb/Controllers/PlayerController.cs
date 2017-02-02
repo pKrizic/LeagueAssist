@@ -112,10 +112,6 @@ namespace LeagueAssistWeb.Controllers
                 //players = null;
             }
 
-            //preko ovog mozemo dohvatit moje utakmice za sezonu, kolo i natjecanje!
-            //var m = new MatchProcessor();
-            //var listM = m.GetListClubMatchs(3, 3, 1, 1);
-
             //<Broj stavki po stranici>
             List<SelectListItem> items = new List<SelectListItem>{
                 new SelectListItem{ Text="10", Value="10" },
@@ -227,38 +223,18 @@ namespace LeagueAssistWeb.Controllers
         public ActionResult RegisterPlayer(int id = 0)
         {
             PlayerProcessor playerProcessor = new PlayerProcessor();
-            /*
+
+            // Initialize new player, contract and healthCheck
+            PlayerDetailsViewModel player = new PlayerDetailsViewModel();
+            player.player = new Person();
+            player.contract = new Contract();
+            player.healthCheck = new HealthCheckEvidention();
             if (id != 0)
             {
-                var player = RetrievePlayer(id);
-
-                // Initialize new contract
-                player.contract = new Contract();
-                player.contract.DateFrom = DateTime.MinValue;
-                player.contract.DateTo = DateTime.MinValue;
-
-                // Initialize new healthCheck
-                player.healthCheck = new HealthCheckEvidention();
-                player.healthCheck.FromDate = DateTime.MinValue;
-                player.healthCheck.ToDate = DateTime.MinValue;
-
-                return View(player);
-            }
-            else
-            {
-            */
-                // Initialize new player, contract and healthCheck
-                PlayerDetailsViewModel player = new PlayerDetailsViewModel();
-                player.player = new Person();
-                player.contract = new Contract();
-                player.healthCheck = new HealthCheckEvidention();
-                if (id != 0)
-                {
-                    player.player = playerProcessor.RetrievePlayer(id);
+                player.player = playerProcessor.RetrievePlayer(id);
             }
 
-                return View(player);
-            //}
+            return View(player);
         }
 
         [HttpPost]

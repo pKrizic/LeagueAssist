@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using LeagueAssistWeb.Models;
 using LeagueAssist;
+using LeagueAssist.Entities;
 
 namespace LeagueAssistWeb.Controllers
 {
@@ -75,14 +76,28 @@ namespace LeagueAssistWeb.Controllers
         {
             try
             {
+                OrganizationProcessor orgProcessor = new OrganizationProcessor();
+                CityProcessor cityProcessor = new CityProcessor();
                 var clubCityID = Request.Form["gradID"];
                 var stadiumCityID = Request.Form["stadiumGradID"];
 
+                Stadium stadium = orgProcessor.RetrieveOrganizationStadium(model.id);
+                City clubCity = cityProcessor.getCity(Int32.Parse(clubCityID));
+                City stadiumCity = cityProcessor.getCity(Int32.Parse(stadiumCityID));
+                Organization organization = orgProcessor.getOrganization(model.id);
+                organization.Name = model.name;
+                organization.City = clubCity;
+                stadium.Name = model.name;
+                stadium.City = stadiumCity;
+                stadium.Capacity = model.stadium.capacity;
+                stadium.Address = model.stadium.address;
 
-                //azurirat stadione i klub
+                orgProcessor.StoreOrganizationChanges(organization);
+                orgProcessor.StoreStadiumChanges(stadium);
+
                 return RedirectToAction("Details");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }
