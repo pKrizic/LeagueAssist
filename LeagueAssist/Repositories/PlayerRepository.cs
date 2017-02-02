@@ -15,6 +15,7 @@ namespace LeagueAssist
         HealthCheckEvidention GetHealthCheck(int healthCheckId);
         List<PersonType> GetPlayerTypes();
         IList<FreePlayers> GetListOfFreePlayers();
+        Selection GetPlayerSelection(int selectionId);
         void UpdatePlayer(Person player);
         void UpdateContract(Contract contract);
         void UpdateHealthCheck(HealthCheckEvidention healthCheck);
@@ -107,6 +108,23 @@ namespace LeagueAssist
                 {
 
                     result = session.QueryOver<FreePlayers>().List();
+
+                    transaction.Commit();
+                }
+            }
+            return result;
+        }
+
+        public Selection GetPlayerSelection(int selectionId)
+        {
+            Selection result = null;
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+
+                    result = session.QueryOver<Selection>().Where(x => x.Id == selectionId).List().First();
 
                     transaction.Commit();
                 }

@@ -53,7 +53,9 @@ namespace LeagueAssistWeb.Models
 
     public class PlayersStartSquad
     {
-        public MatchPerson matchPlayer { get; set; }
+        public int matchId { get; set; }
+        public int organizationId { get; set; }
+        public int playerId { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public int numberOnShirt { get; set; }

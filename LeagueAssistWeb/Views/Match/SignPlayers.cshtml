@@ -3,7 +3,6 @@
 
 @{
     ViewBag.Title = "Prijava igrača za utakmicu";
-    var matchId = Model.First().matchPlayer.Id;
 }
 
 <h2>@ViewBag.Title</h2>
@@ -11,7 +10,7 @@
 <br />
 <h6>Potrebno je odabrati 11 igrača startne postave te odrediti kapetana.</h6>
 
-@using (Html.BeginForm("SignPlayers", "Match", new { matchId = matchId },  FormMethod.Post, new { @class = "form-horizontal", role = "form", matchId = matchId }))
+@using (Html.BeginForm("SignPlayers", "Match",  FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <table class="table table-hover" id="playersTable">
         <thead style="border-bottom:solid; border-bottom-color:darkgray">
@@ -42,29 +41,28 @@
             {
                 <tr class="table-hover" id="item">
                     <td>
-                        @Html.HiddenFor(modelItem => Model[i].matchPlayer.Id)
-                        @Html.HiddenFor(modelItem => Model[i].numberOnShirt)
-                        @Html.DisplayFor(modelItem => Model[i].numberOnShirt)
+                        @Html.HiddenFor(model => Model[i].playerId)
+                        @Html.HiddenFor(model => Model[i].matchId)
+                        @Html.HiddenFor(model => Model[i].organizationId)
+                        @Html.HiddenFor(model => Model[i].numberOnShirt)
+                        @Html.DisplayFor(model => Model[i].numberOnShirt)
                     </td>
                     <td>
-                        @Html.HiddenFor(modelItem => Model[i].firstName)
-                        @Html.DisplayFor(modelItem => Model[i].firstName)
+                        @Html.HiddenFor(model => Model[i].firstName)
+                        @Html.DisplayFor(model => Model[i].firstName)
                     </td>
                     <td>
-                        @Html.HiddenFor(modelItem => Model[i].lastName)
-                        @Html.DisplayFor(modelItem => Model[i].lastName)
+                        @Html.HiddenFor(model => Model[i].lastName)
+                        @Html.DisplayFor(model => Model[i].lastName)
                     </td>
                     <td align="right">
-                        @Html.HiddenFor(modelItem => Model[i].isFirstSelection)
-                        @Html.CheckBoxFor(modelItem => Model[i].isFirstSelection, new { id = "isFirst" })
+                        @Html.CheckBoxFor(model => Model[i].isFirstSelection, new { id = "isFirstSelection" })
                     </td>
                     <td align="right">
-                        @Html.HiddenFor(modelItem => Model[i].isSubstitution)
-                        @Html.CheckBoxFor(modelItem => Model[i].isSubstitution, new { id = "isSubstitute" })
+                        @Html.CheckBoxFor(model => Model[i].isSubstitution, new { id = "isSubstitution" })
                     </td>
                     <td align="right">
-                        @Html.HiddenFor(modelItem => Model[i].isCaptain)
-                        @Html.CheckBoxFor(modelItem => Model[i].isCaptain, new { id = "isCaptain" })
+                        @Html.CheckBoxFor(model => Model[i].isCaptain, new { id = "isCaptain" })
                     </td>
                 </tr>
             }
@@ -82,66 +80,66 @@
 }
 
 <script type="text/javascript">
-    $('[id="isFirst"]').click(function () {
+    $('[id="isFirstSelection"]').click(function () {
         var row = $(this).closest('tr');
         if ($(this).is(':checked')) {
-            row.find('#isSubstitute').attr('disabled', true);
+            row.find('#isSubstitution').attr('disabled', true);
         }
         else {
-            row.find('#isSubstitute').attr('disabled', false);
+            row.find('#isSubstitution').attr('disabled', false);
         }
 
         var noOfChecked = $('#playersTable').find("input[type='checkbox']:checked").length;
         if ((noOfChecked) == 2) {
             $('#playersTable').find('tr').each(function () {
                 var row = $(this);
-                if (!row.find('#isFirst').is(':checked')) {
-                    if (!row.find('#isSubstitute').is(':checked')) {
-                        row.find('#isFirst').attr('disabled', true);
-                        row.find('#isSubstitute').attr('disabled', true);
+                if (!row.find('#isFirstSelection').is(':checked')) {
+                    if (!row.find('#isSubstitution').is(':checked')) {
+                        row.find('#isFirstSelection').attr('disabled', true);
+                        row.find('#isSubstitution').attr('disabled', true);
                     }
                 }
             });
         } else {
             $('#playersTable').find('tr').each(function () {
                 var row = $(this);
-                if (!row.find('#isFirst').is(':checked')) {
-                    if (!row.find('#isSubstitute').is(':checked')) {
-                        row.find('#isFirst').attr('disabled', false);
-                        row.find('#isSubstitute').attr('disabled', false);
+                if (!row.find('#isFirstSelection').is(':checked')) {
+                    if (!row.find('#isSubstitution').is(':checked')) {
+                        row.find('#isFirstSelection').attr('disabled', false);
+                        row.find('#isSubstitution').attr('disabled', false);
                     }
                 }
             });
         }
     });
 
-    $('[id="isSubstitute"]').click(function () {
+    $('[id="isSubstitution"]').click(function () {
         var row = $(this).closest('tr');
         if ($(this).is(':checked')) {
-            row.find('#isFirst').attr('disabled', true);
+            row.find('#isFirstSelection').attr('disabled', true);
         }
         else {
-            row.find('#isFirst').attr('disabled', false);
+            row.find('#isFirstSelection').attr('disabled', false);
         }
 
         var noOfChecked = $('#playersTable').find("input[type='checkbox']:checked").length;
-        if ((noOfChecked) == 2) {
+        if ((noOfChecked) == 18) {
             $('#playersTable').find('tr').each(function () {
                 var row = $(this);
-                if (!row.find('#isSubstitute').is(':checked')) {
-                    if (!row.find('#isFirst').is(':checked')) {
-                        row.find('#isFirst').attr('disabled', true);
-                        row.find('#isSubstitute').attr('disabled', true);
+                if (!row.find('#isSubstitution').is(':checked')) {
+                    if (!row.find('#isFirstSelection').is(':checked')) {
+                        row.find('#isFirstSelection').attr('disabled', true);
+                        row.find('#isSubstitution').attr('disabled', true);
                     }
                 }
             });
         } else {
             $('#playersTable').find('tr').each(function () {
                 var row = $(this);
-                if (!row.find('#isSubstitute').is(':checked')) {
-                    if (!row.find('#isFirst').is(':checked')) {
-                        row.find('#isFirst').attr('disabled', false);
-                        row.find('#isSubstitute').attr('disabled', false);
+                if (!row.find('#isSubstitution').is(':checked')) {
+                    if (!row.find('#isFirstSelection').is(':checked')) {
+                        row.find('#isFirstSelection').attr('disabled', false);
+                        row.find('#isSubstitution').attr('disabled', false);
                     }
                 }
             });
@@ -151,7 +149,7 @@
     $('[id="isCaptain"]').click(function () {
         var row = $(this).closest('tr');
         if ($(this).is(':checked')) {
-            if(!row.find('#isFirst').is(':checked')) {
+            if(!row.find('#isFirstSelection').is(':checked')) {
                 alert('Kapetan mora biti član prve postave!');
                 row.find('#isCaptain').prop('checked', false);
             } else {

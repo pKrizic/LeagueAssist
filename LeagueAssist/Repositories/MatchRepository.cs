@@ -9,7 +9,6 @@ namespace LeagueAssist
 {
     public interface IMatchRepository
     {
-        string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista);
         MatchStadiumInfo GetMatchStadiumInfo(int matchId);
         List<MatchActivityPlayers> GetMatchActivityPlayers(int matchId);
         MatchDetailInfo GetMatchDetailInfo(MatchStadiumInfo stadium, List<MatchActivityPlayers> activities, List<ListOfPlayers> players);
@@ -18,11 +17,13 @@ namespace LeagueAssist
         List<PlayerPerformance> GetAllPlayerPerformance();
         Match GetMatch(int id);
         List<Match> GetSeasonMatchList(int clubId, int seasonId);
-        void UpdateMatch(Match match);    
         List<MatchReferees> GetClubMatchs(int idClub, int season, int round, int competition);
         List<MatchPerson> GetPlayersForMatch(int matchId, int orgId);
-        bool GetIsFirstSelection(int selectionId);
         List<ListOfMatch> getFullListOfMatch();
+        string UpdateMatch(int id, int HomeGoals, int AwayGoals, string Desc, List<MatchActions> lista);
+        void UpdateMatch(Match match);
+        void UpdateMatchPerson(MatchPerson matchPerson);
+        bool GetIsFirstSelection(int selectionId);
     }
 
     public class MatchRepository : IMatchRepository
@@ -288,6 +289,19 @@ namespace LeagueAssist
                 }
             }
             return result;
+        }
+
+        public void UpdateMatchPerson(MatchPerson matchPerson)
+        {
+            var clas = new Class1();
+            using (var session = clas.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(matchPerson);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ namespace LeagueAssist
     {
         List<City> getCities();
     }
+
     public class CityRepository : ICityRepository
     {
         public List<City> getCities()
