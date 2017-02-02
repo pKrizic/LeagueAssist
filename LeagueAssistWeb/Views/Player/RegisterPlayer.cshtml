@@ -2,11 +2,25 @@
 
 @{
     ViewBag.Title = "Registriraj igrača";
+    var gr = TempData["Error"];
+    var msgErr = "";
+    if (gr != null)
+    {
+        msgErr = gr.ToString();
+    }
 }
 
 <h2>@ViewBag.Title</h2>
 <hr />
 <br />
+
+@if (!string.IsNullOrWhiteSpace(msgErr))
+{
+    <div class="alert alert-danger alert alert-dismissible" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        @msgErr
+    </div>
+}
 
 @using (Html.BeginForm("RegisterPlayer", "Player", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -48,7 +62,7 @@
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Datum rođenja:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.EditorFor(model => model.player.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.player.BirthDate.ToShortDateString(), new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-2" style="border-top: none"></td>
                             <td align="right" class="col-xs-2" style="border-top: none"></td>
@@ -92,11 +106,11 @@
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi od:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.EditorFor(model => model.contract.DateFrom, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.contract.DateFrom.ToShortDateString(), new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi do:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.EditorFor(model => model.contract.DateTo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.contract.DateTo.ToShortDateString(), new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-4" style="border-top: none"></td>
                         </tr>
@@ -136,11 +150,11 @@
                         <tr>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi od:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.EditorFor(model => model.healthCheck.FromDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.healthCheck.FromDate.ToShortDateString(), new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="right" class="col-xs-2" style="border-top: none"><b>Vrijedi do:</b></td>
                             <td align="left" class="col-xs-2" style="border-top: none">
-                                @Html.EditorFor(model => model.healthCheck.ToDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.healthCheck.ToDate.ToShortDateString(), new { htmlAttributes = new { @class = "form-control" } })
                             </td>
                             <td align="left" class="col-xs-4" style="border-top: none"></td>
                         </tr>

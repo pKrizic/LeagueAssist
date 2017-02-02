@@ -157,6 +157,31 @@ namespace LeagueAssistWeb.Controllers
             int idClub = 2;
             var playerProcessor = new PlayerProcessor();
             var organization = RetrieveOrganization(idClub);
+            decimal testDec;
+            DateTime testDate;
+            if (!DateTime.TryParse(model.player.BirthDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum rođenja je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.contract.DateFrom.ToString(), out testDate) || !DateTime.TryParse(model.contract.DateTo.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum ugovora je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.healthCheck.FromDate.ToString(), out testDate) || !DateTime.TryParse(model.healthCheck.ToDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum liječničkog je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!Decimal.TryParse(model.contract.AnnualSalary.ToString(), out testDec))
+            {
+                TempData["Error"] = "Iznos plaće je krivog formata. Ispravan format je XX.YY";
+                return View(model);
+            }
 
             try
             {
@@ -242,6 +267,32 @@ namespace LeagueAssistWeb.Controllers
             var idClub = 2;
             var playerProcessor = new PlayerProcessor();
             var organization = RetrieveOrganization(idClub);
+            DateTime testDate;
+            Decimal testDec;
+
+            if (!DateTime.TryParse(model.player.BirthDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum rođenja je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.contract.DateFrom.ToString(), out testDate) || !DateTime.TryParse(model.contract.DateTo.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum ugovora je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!DateTime.TryParse(model.healthCheck.FromDate.ToString(), out testDate) || !DateTime.TryParse(model.healthCheck.ToDate.ToString(), out testDate))
+            {
+                TempData["Error"] = "Datum liječničkog je krivog formata. Ispravan format je dd.MM.yyyy";
+                return View(model);
+            }
+
+            if (!Decimal.TryParse(model.contract.AnnualSalary.ToString(), out testDec))
+            {
+                TempData["Error"] = "Iznos plaće je krivog formata. Ispravan format je XX.YY";
+                return View(model);
+            }
 
             try
             {
