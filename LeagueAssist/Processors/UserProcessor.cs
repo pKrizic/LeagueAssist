@@ -29,13 +29,13 @@ namespace LeagueAssist
             User user = _repository.GetUserByUsernameAndPassword(username, password, roleId);
             if (user != null)
             {
-                if (roleId == 2)
-                {
-                    message = user.Id.ToString();
-                } else
+                if (roleId == 3)
                 {
                     Person person = _repository.GetPersonFromUserId(user.Id);
                     message = person.Id.ToString();
+                } else
+                {
+                    message = user.Id.ToString();
                 }
             }
             return message;
