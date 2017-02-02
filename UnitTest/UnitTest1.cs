@@ -60,9 +60,9 @@ namespace UnitTest
         {
             string username = "i";
             string password = "i";
-            int userId = 4;
+            int userId = 3;
             //postavljamo useru atribute jer će nam trebati prilikom poziva druge funkcije
-            User user = new User{ Id = 4, Password = "i", Username = "i" };
+            User user = new User{ Id = 3, Password = "i", Username = "i"};
             Person person = new Person();
 
             var repository = new Mock<IUserRepository>();
@@ -75,7 +75,6 @@ namespace UnitTest
             var res = processor.ProccesData(username, password, 1);
 
             repository.Verify(x => x.GetUserByUsernameAndPassword(username, password, 1), Times.Exactly(1));
-            repository.Verify(x => x.GetPersonFromUserId(userId), Times.Exactly(1));
         }
 
         [TestMethod]
