@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LeagueAssist.Entities.Organization">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Organization.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+      <Property Name="City" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.Entities.User">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LeagueAssist.Entities.City">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\City.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Country" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.Entities.Country">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Country.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LeagueAssist.Entities.OrgCompetition">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\OrgCompetition.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Competition" />
+      <Property Name="Organization" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.Entities.Competition">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Entities\Competition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LeagueAssist.Entities.OrgStadium">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\OrgStadium.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Organization" />
+      <Property Name="Stadium" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LeagueAssist.Entities.Stadium">
+    <Position X="0.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAIAAAAAAQCAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Stadium.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="City" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,180 @@
+﻿@model LeagueAssistWeb.Models.LeagueDetailsViewModel
+
+@{
+    ViewBag.Title = "Liga";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+<br />
+
+@using (Html.BeginForm("Index", "League", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline row" }))
+{
+    <div class="panel-body" style="align-items:center">
+        <div class="row">
+            <div class="control-label col-md-2" align="right"><b>Liga</b></div>
+            <div class="col-md-10" align="left">
+                @Html.DropDownList("ligaID", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="control-label col-md-2" align="right"><b>Sezona</b></div>
+            <div class="col-md-10" align="left">
+                @Html.DropDownList("sezonaID", null, htmlAttributes: new { @class = "form-control", @onchange = "" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="control-label col-md-2" align="right"><b>Kolo</b></div>
+            <div class="col-md-10" align="left">
+                @Html.DropDownList("koloID", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" value="Prikaži" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Prikaži
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <hr />
+    <br />
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="col-sm-12 panel-heading clearfix">
+                    <span class="col-sm-6"><b>Aktualno stanje u sezoni</b></span>
+                    <span class="col-sm-6 text-right">
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <table class="table table-hover">
+                            <thead style="border-bottom:solid; border-bottom-color:darkgray">
+                                <tr>
+                                    <th>
+                                        Klub
+                                    </th>
+                                    <th>
+                                        Odigrano
+                                    </th>
+                                    <th>
+                                        P
+                                    </th>
+                                    <th>
+                                        N
+                                    </th>
+                                    <th>
+                                        I
+                                    </th>
+                                    <th>
+                                        ZG
+                                    </th>
+                                    <th>
+                                        PG
+                                    </th>
+                                    <th>+/-</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model.clubStatus)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.club
+                                            </td>
+                                            <td>
+                                                @item.noOfGames
+                                            </td>
+                                            <td>
+                                                @item.wins
+                                            </td>
+                                            <td>
+                                                @item.draws
+                                            </td>
+                                            <td>
+                                                @item.losses
+                                            </td>
+                                            <td>
+                                                @item.goalsFor
+                                            </td>
+                                            <td>
+                                                @item.goalsAgainst
+                                            </td>
+                                            <td>
+                                                @item.goalsDifference
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <br />
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="col-sm-12 panel-heading clearfix">
+                    <span class="col-sm-6"><b>Raspored utakmica u odabranom kolu</b></span>
+                    <span class="col-sm-6 text-right">
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <table class="table table-hover">
+                            <thead style="border-bottom:solid; border-bottom-color:darkgray">
+                                <tr>
+                                    
+                                    <th>
+                                        Domaćin
+                                    </th>
+                                    <th>
+                                        Rezultat
+                                    </th>
+                                    <th>
+                                        Gost
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model.result)
+                                    {
+                                        <tr>
+                                            
+                                            <td>
+                                                @item.homeClub
+                                            </td>
+                                            <td>
+                                                @item.homeGoals : @item.guestGoals
+                                            </td>
+                                            <td>
+                                                @item.guestClub
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

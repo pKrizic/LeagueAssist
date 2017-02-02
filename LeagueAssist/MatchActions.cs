@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LeagueAssist
 {
-    public class Class1
+    public class MatchActions
     {
+        public int playerId { get; set; }
+        public int actionId { get; set; }
+        public int minute { get; set; }
     }
 }

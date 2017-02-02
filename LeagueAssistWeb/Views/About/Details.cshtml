@@ -1,0 +1,103 @@
+﻿@model LeagueAssistWeb.Models.ClubDetailsViewModel
+
+@{
+    ViewBag.Title = "O klubu";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<br />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="col-sm-12 panel-heading clearfix">
+                <span class="col-sm-6"><b>Podaci o klubu</b></span>
+                <span class="col-sm-6 text-right">
+                </span>
+            </div>
+
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <table class="table table-borderless" style="border-top: none">
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Naziv kluba:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DisplayFor(model => model.name)
+                            </td>
+                            <td align="left" class="col-xs-8" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Grad:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DisplayFor(model => model.city.name)
+                            </td>
+                            <td align="left" class="col-xs-8" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:none" />
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<br />
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="col-sm-12 panel-heading clearfix">
+                <span class="col-sm-6"><b>Podaci o stadionu</b></span>
+                <span class="col-sm-6 text-right">
+                </span>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <table class="table table-borderless" style="border-top: none">
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Naziv stadiona:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DisplayFor(model => model.stadium.name)
+                            </td>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Kapacitet:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DisplayFor(model => model.stadium.capacity)
+                            </td>
+                            <td align="left" class="col-xs-4" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Adresa:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DisplayFor(model => model.stadium.address)
+                            </td>
+                            <td align="right" class="col-xs-2" style="border-top: none"><b>Grad:</b></td>
+                            <td align="left" class="col-xs-2" style="border-top: none">
+                                @Html.DisplayFor(model => model.stadium.city.name)
+                            </td>
+                            <td align="left" class="col-xs-4" style="border-top: none"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:none" />
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<p>
+    <div class="form-group">
+        <div class="col-xs-12" align="right">
+            <a href="@Url.Action("Edit", "About", new { id = Model.id })" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus-sign"></span>
+                Uredi
+            </a>
+        </div>
+    </div>
+</p>
+<br />

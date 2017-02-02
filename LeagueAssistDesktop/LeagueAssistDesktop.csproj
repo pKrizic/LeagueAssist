@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1D80AA88-9F6B-4C92-B870-8F7EFD3106FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LeagueAssistDesktop</RootNamespace>
+    <AssemblyName>LeagueAssistDesktop</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddingReferee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddingReferee.Designer.cs">
+      <DependentUpon>AddingReferee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratorKola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneratorKola.Designer.cs">
+      <DependentUpon>GeneratorKola.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IzmjenaSudca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzmjenaSudca.Designer.cs">
+      <DependentUpon>IzmjenaSudca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicencaSudac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicencaSudac.Designer.cs">
+      <DependentUpon>LicencaSudac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceKlubIspis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenceKlubIspis.Designer.cs">
+      <DependentUpon>LicenceKlubIspis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenceSudciIspis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenceSudciIspis.Designer.cs">
+      <DependentUpon>LicenceSudciIspis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseClub.Designer.cs">
+      <DependentUpon>LicenseClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopisKlubovaILicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopisKlubovaILicence.Designer.cs">
+      <DependentUpon>PopisKlubovaILicence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopisSudacaILicenci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopisSudacaILicenci.Designer.cs">
+      <DependentUpon>PopisSudacaILicenci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopisSudciLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopisSudciLicence.Designer.cs">
+      <DependentUpon>PopisSudciLicence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledIDetaljnoDefiniranjeKola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledIDetaljnoDefiniranjeKola.Designer.cs">
+      <DependentUpon>PregledIDetaljnoDefiniranjeKola.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledKlubova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledKlubova.Designer.cs">
+      <DependentUpon>PregledKlubova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledKola.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledKola.Designer.cs">
+      <DependentUpon>PregledKola.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PregledNatjecanja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledNatjecanja.Designer.cs">
+      <DependentUpon>PregledNatjecanja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrikazSvihLicenci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrikazSvihLicenci.Designer.cs">
+      <DependentUpon>PrikazSvihLicenci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddingReferee.resx">
+      <DependentUpon>AddingReferee.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="StvoriNatjecanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StvoriNatjecanje.Designer.cs">
+      <DependentUpon>StvoriNatjecanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StvoriNovoNatjecanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StvoriNovoNatjecanje.Designer.cs">
+      <DependentUpon>StvoriNovoNatjecanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosKluba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosKluba.Designer.cs">
+      <DependentUpon>UnosKluba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosLicencaKlub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicencaKlub.Designer.cs">
+      <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosLicencaSudac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicencaSudac.Designer.cs">
+      <DependentUpon>UnosLicencaSudac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosLicence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosLicence.Designer.cs">
+      <DependentUpon>UnosLicence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosStadiona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosStadiona.Designer.cs">
+      <DependentUpon>UnosStadiona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnosSudca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnosSudca.Designer.cs">
+      <DependentUpon>UnosSudca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrediKlub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrediKlub.Designer.cs">
+      <DependentUpon>UrediKlub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrediNatjecanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrediNatjecanje.Designer.cs">
+      <DependentUpon>UrediNatjecanje.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneratorKola.resx">
+      <DependentUpon>GeneratorKola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzmjenaSudca.resx">
+      <DependentUpon>IzmjenaSudca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicencaSudac.resx">
+      <DependentUpon>LicencaSudac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenceKlubIspis.resx">
+      <DependentUpon>LicenceKlubIspis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenceSudciIspis.resx">
+      <DependentUpon>LicenceSudciIspis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseClub.resx">
+      <DependentUpon>LicenseClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopisKlubovaILicence.resx">
+      <DependentUpon>PopisKlubovaILicence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopisSudacaILicenci.resx">
+      <DependentUpon>PopisSudacaILicenci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopisSudciLicence.resx">
+      <DependentUpon>PopisSudciLicence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledIDetaljnoDefiniranjeKola.resx">
+      <DependentUpon>PregledIDetaljnoDefiniranjeKola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledKlubova.resx">
+      <DependentUpon>PregledKlubova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledKola.resx">
+      <DependentUpon>PregledKola.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledNatjecanja.resx">
+      <DependentUpon>PregledNatjecanja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrikazSvihLicenci.resx">
+      <DependentUpon>PrikazSvihLicenci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="StvoriNatjecanje.resx">
+      <DependentUpon>StvoriNatjecanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StvoriNovoNatjecanje.resx">
+      <DependentUpon>StvoriNovoNatjecanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosKluba.resx">
+      <DependentUpon>UnosKluba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicencaKlub.resx">
+      <DependentUpon>UnosLicencaKlub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicencaSudac.resx">
+      <DependentUpon>UnosLicencaSudac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosLicence.resx">
+      <DependentUpon>UnosLicence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosStadiona.resx">
+      <DependentUpon>UnosStadiona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnosSudca.resx">
+      <DependentUpon>UnosSudca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrediKlub.resx">
+      <DependentUpon>UrediKlub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrediNatjecanje.resx">
+      <DependentUpon>UrediNatjecanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeagueAssist\LeagueAssist.csproj">
+      <Project>{d74277fe-d8fb-436e-9708-608aa725f509}</Project>
+      <Name>LeagueAssist</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

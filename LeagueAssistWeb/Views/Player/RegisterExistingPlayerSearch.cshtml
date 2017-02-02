@@ -1,0 +1,49 @@
+﻿@model List<LeagueAssistWeb.Models.PlayerListViewModel>
+
+@{
+    ViewBag.Title = "Registriraj postojećeg igrača";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm("SearchPlayers", "Player", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline row" }))
+{
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Ime
+            </th>
+            <th>
+                Prezime
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.firstName
+                    </td>
+                    <td>
+                        @item.lastName
+                    </td>
+                    <td style="width: 1%;white-space: nowrap;">
+                        <button type="button" class="btn btn-success btn-sm" onclick="location.href='@Url.Action("RegisterPlayer", "Player", new { id = @item.id })'">
+                            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            Registriraj
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+}
